@@ -1,0 +1,33 @@
+.search {
+  display: flex;
+  justify-content: flex-end;
+  gap: toRem(13);
+  margin-bottom: toRem(25);
+  padding: toRem(20);
+  border-bottom: 1px solid #e8e8e8;
+
+  &:hover {
+    border-bottom: toRem(1) solid $color-primary;
+  }
+
+  @include tablet {
+    margin-bottom: toRem(33);
+  }
+
+  &__recipe {
+    font-family: $font-secondary;
+    font-size: $fs-small;
+    list-style: $lh-x-small;
+
+    @include tablet {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  }
+
+  &__icon {
+    background-image: url("../assets/images/searchs/Shape-x.svg");
+    width: toRem(16);
+    height: toRem(16);
+  }
+}

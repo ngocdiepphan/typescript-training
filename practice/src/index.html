@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo/icon-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/index.scss" />
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <title>Recipes</title>
+</head>
+
+<body>
+  <!-- START HEADER SECTION -->
+  <header class="container">
+    <div class="header-section">
+      <nav class="navbar">
+        <h1 href="javascript:void(0)">
+          <img src="./assets/images/logo/logo.svg" class="navbar__logo" alt="Logo" />
+        </h1>
+        <ul class="navbar__navigation">
+          <li class="navbar__navigation__item ">
+            <a href="index.html" class="navbar__navigation__link ">Home page</a>
+          </li>
+          <li class="navbar__navigation__item ">
+            <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Pages</p>
+            <div class="dropdown-content">
+              <a href="category.html">Category</a>
+              <a href="favorites.html">Favorites</a>
+              <a href="archive.html">Archive</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Elements</p>
+            <div class="dropdown-content">
+              <a href="about.html">About</a>
+              <a href="#">Blog</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item">
+            <a href="login.html" class="navbar__navigation__link">Login</a>
+          </li>
+        </ul>
+
+        <div class="navbar__icon">
+          <a href="search.html">
+            <img src="./assets/images/header/search.svg" class="navbar__icon-search" alt="Search" />
+          </a>
+          <img src="./assets/images/header/avata-header.png" class="navbar__icon-avata" alt="Avata" />
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <img src="./assets/images/header/menu.svg" class="navbar__icon-menu" alt="Menu" />
+          </label>
+          <label for="check" class="nav-overlay"></label>
+
+          <ul class="navbar__navigation navbar__navigation--mobile">
+            <li class="navbar__navigation__item">
+              <a href="index.html" class="navbar__navigation__link ">Home page</a>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Pages</p>
+              <div class="dropdown-content">
+                <a href="category.html">Category</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="archive.html">Archive</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Elements</p>
+              <div class="dropdown-content">
+                <a href="about.html">About</a>
+                <a href="#">Blog</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="login.html" class="navbar__navigation__link">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- END HEADER SECTION -->
+
+  <main>
+    <!-- START BANNER SECTION -->
+    <section class="container banner">
+      <img class="banner__img" src="./assets/images/banner/banner.png" alt="Banner" />
+      <div class="banner__content">
+        <div class="banner__introduce">
+          <img src="./assets/images/banner/arrows-up.svg" alt="Arrow up" />
+          <p>85% would make this again</p>
+        </div>
+        <h2 class="banner__heading">Mighty Super Cheesecake</h2>
+        <p class="banner__description">
+          Look no further for a creamy and ultra smooth classic cheesecake
+          recipe! no one can deny its simple decadence.
+        </p>
+        <div class="banner__next"></div>
+      </div>
+    </section>
+    <!-- END BANNER SECTION -->
+
+    <!-- STRAT DELICIOUS FOOD -->
+    <section class="container delicious">
+      <h3 class="delicious__title">Super Delicious</h3>
+
+      <!-- Item-food 1 -->
+      <ul class="delicious__list" id="delicious-recipes">
+      </ul>
+    </section>
+
+    <section class="container delicious">
+      <h3 class="delicious__title">Sweet Tooth</h3>
+      <!-- Item-food 2 -->
+      <ul class="delicious__list" id="sweet-recipes">
+      </ul>
+    </section>
+    <!-- END DELICIOUS FOOD-->
+
+    <!-- START CATEGORIES  -->
+    <section class="container category">
+      <h3 class="category__title delicious__title">Popular Categories</h3>
+      <ul class="category__list">
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/categories/pasta.png" alt="Picture pasta" />
+            <p class="card-category__name">Pasta</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/categories/pizza.png" alt="Picture pizza" />
+            <p class="card-category__name">Pizza</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/categories/vegan.png" alt="Picture vegan" />
+            <p class="card-category__name">Vegan</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <a href="archive.html">
+            <article class="card-category">
+              <img class="card-category__image" src="./assets/images/categories/desserts.png" alt="Picture desserts" />
+              <p class="card-category__name">Desserts</p>
+            </article>
+          </a>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/categories/smoothies.png" alt="Picture smoothies" />
+            <p class="card-category__name">Smoothies</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/categories/breakfast.png" alt="Picture breakfast" />
+            <p class="card-category__name">Breakfast</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <!-- END CATEGORIES  -->
+
+    <!-- STRAT SUBSCRIPTION FORM -->
+    <section class="container-form subscription">
+      <h3 class="subscription__title">Deliciousness to your inbox</h3>
+      <p class="subscription__intro">
+        Enjoy weekly hand picked recipes and recommendations
+      </p>
+      <div class="subscription__form">
+        <input type="text" class="subscription__form-input" />
+        <button class="subscription__form-subs btn__subs">join</button>
+      </div>
+      <p class="subscription__desc">
+        By joining our newsletter you agree to our Terms and Conditions
+      </p>
+    </section>
+    <!-- END SUBSCRIPTION FORM -->
+
+    <!-- START COLLECTIONS -->
+    <section class="container collection">
+      <h3 class="collection__title delicious__title">Hand-Picked Collections</h3>
+      <ul class="collection__list">
+        <!-- item 1 -->
+        <li class="collection__item">
+          <article class="card-collection">
+            <img class="card-collection__image" src="./assets/images/collections/sushi.png" alt="Pictire sushi" />
+            <div class="card-collection__content">
+              <p class="card-collection__title">
+                Sushi Combos for your Next Party
+              </p>
+              <div class="card-collection__recipes">156 Recipes</div>
+            </div>
+          </article>
+        </li>
+        <!-- item 2 -->
+        <li class="collection__item">
+          <article class="card-collection">
+            <img class="card-collection__image" src="./assets/images/collections/bagel.png" alt="Pictire bagel" />
+            <div class="card-collection__content">
+              <p class="card-collection__title">Everything Bagel</p>
+              <div class="card-collection__recipes">156 Recipes</div>
+            </div>
+          </article>
+        </li>
+        <!-- item 3 -->
+        <li class="collection__item">
+          <article class="card-collection">
+            <img class="card-collection__image" src="./assets/images/collections/cook-like-a-chef.png"
+              alt="Pictire cook-like-a-chef" />
+            <div class="card-collection__content">
+              <p class="card-collection__title">Cook Like a Chef</p>
+              <div class="card-collection__recipes">156 Recipes</div>
+            </div>
+          </article>
+        </li>
+        <!-- item 4 -->
+        <li class="collection__item">
+          <article class="card-collection">
+            <img class="card-collection__image" src="./assets/images/collections/exquisite-dinner-recipe-ideas.png"
+              alt="Pictire exquisite-dinner-recipe-ideas" />
+            <div class="card-collection__content">
+              <p class="card-collection__title">
+                Exquisite Dinner Recipe Ideas
+              </p>
+              <div class="card-collection__recipes">156 Recipes</div>
+            </div>
+          </article>
+        </li>
+
+        <!-- item 5 -->
+        <li class="collection__item">
+          <article class="card-collection">
+            <img class="card-collection__image" src="./assets/images/collections/the-ultimate-cookie-frenzy.png"
+              alt="Pictire the-ultimate-cookie-frenzy" />
+            <div class="card-collection__content">
+              <p class="card-collection__title">The Ultimate Cookie Frenzy</p>
+              <div class="card-collection__recipes">156 Recipes</div>
+            </div>
+          </article>
+        </li>
+        <!-- item 6 -->
+        <li class="collection__item">
+          <article class="card-collection">
+            <img class="card-collection__image" src="./assets/images/collections/for-the-love-of-donuts.png"
+              alt="Pictire for-the-love-of-donuts" />
+            <div class="card-collection__content">
+              <p class="card-collection__title">For the Love of Donuts</p>
+              <div class="card-collection__recipes">156 Recipes</div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <!-- END COLLECTIONS -->
+
+    <!-- START RECIPES -->
+    <section class="container recipes">
+      <h4 class="recipes__title delicious__title">Latest Recipes</h4>
+      <ul class="recipes__list" id="latest-recipes">
+      </ul>
+      <div class="recipes__load">Load More</div>
+    </section>
+    <!-- END RECIPES -->
+  </main>
+
+  <!-- START FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__wrapper">
+        <a href="javascript:void(0)">
+          <img class="navbar__logo footer__logo" src="./assets/images/logo/logo.svg" alt="Picture logo footer" />
+        </a>
+        <p class="footer__desc">
+          "On the other hand, we denounce with righteous indignation and
+          dislike men who are so beguiled and demoralized by the charms of
+          pleasure of the moment
+        </p>
+      </div>
+      <div class="footer__contact">
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Testebite</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">About us</li>
+            <li class="navbar-footer__item">Careers</li>
+            <li class="navbar-footer__item">Contact us</li>
+            <li class="navbar-footer__item">Feedback</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Legal</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Terms</li>
+            <li class="navbar-footer__item">Conditions</li>
+            <li class="navbar-footer__item">Cookies</li>
+            <li class="navbar-footer__item">Copyright</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Follow</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Facebook</li>
+            <li class="navbar-footer__item">Twitter</li>
+            <li class="navbar-footer__item">Instagram</li>
+            <li class="navbar-footer__item">Youtube</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <span class="footer__social-facebook footer__social-icon"></span>
+        <span class="footer__social-instagram footer__social-icon"></span>
+        <span class="footer__social-twitter footer__social-icon"></span>
+        <span class="footer__social-youtube footer__social-icon"></span>
+      </div>
+
+      <p class="footer__copyright">© 2020 Tastebite - All rights reserved</p>
+
+    </div>
+
+  </footer>
+  <!-- END FOOTER -->
+  <script type="module" src="./javascript/recipes-app.js"></script>
+</body>
+
+</html>

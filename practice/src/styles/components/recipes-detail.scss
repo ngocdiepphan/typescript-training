@@ -1,0 +1,89 @@
+.recipes-detail {
+  &__title {
+    font-size: 24px;
+    line-height: 1.2;
+
+    @include tablet {
+      font-size: 60px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: toRem(25);
+    padding-bottom: toRem(38);
+    border-bottom: 1px solid #e8e8e8;
+    gap: toRem(21);
+
+    &:hover {
+      border-bottom: toRem(1) solid $color-primary;
+    }
+
+    @include tablet {
+      @include flex-row;
+      margin-top: toRem(30);
+      padding-bottom: toRem(28);
+      align-items: center;
+    }
+  }
+
+  &__item-info {
+    @include flex-row;
+    gap: toRem(24);
+  }
+
+  &__user {
+    @include flex-row;
+    align-items: center;
+    gap: toRem(5);
+  }
+
+  &__icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: toRem(30);
+    height: toRem(30);
+  }
+
+  &__icon-avata {
+    background-image: url("../assets/images/recipes-page/tricia-albert.png");
+    width: toRem(40);
+    height: toREM(40);
+  }
+
+  &__icon-date {
+    background-image: url("../assets/images/recipes-page/icon-date.svg");
+  }
+
+  &__icon-comment {
+    background-image: url("../assets/images/recipes-page/icon-comment.svg");
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.65;
+    font-family: $font-secondary;
+    margin-top: toRem(23);
+    margin-bottom: toRem(34);
+
+    @include tablet {
+      font-size: 20;
+      line-height: 1.85;
+      margin-top: toRem(26);
+    }
+
+    @include desktop {
+      font-size: toRem(13);
+      line-height: 2.84;
+      margin-top: toRem(27);
+      margin-bottom: toRem(71);
+    }
+  }
+
+  &__img-banner {
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,20 @@
+.container {
+	margin-left: toRem(12);
+	margin-right: toRem(12);
+
+	@include tablet {
+		margin-left: toRem(102);
+		margin-right: toRem(102);
+	}
+
+	@include desktop {
+		margin-left: toRem(42);
+		margin-right: toRem(42);
+		width: toRem(1116);
+		margin: 0 auto;
+	}
+}
+
+.container-form {
+	width: 100%;
+}

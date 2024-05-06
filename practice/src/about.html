@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo/icon-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/index.scss" />
+  <title>Food Blog</title>
+</head>
+
+<body>
+  <!-- START HEADER SECTION -->
+  <header class="container">
+    <div class="header-section">
+      <nav class="navbar">
+        <h1 href="javascript:void(0)">
+          <img src="./assets/images/logo/logo.svg" class="navbar__logo" alt="Logo" />
+        </h1>
+        <ul class="navbar__navigation">
+          <li class="navbar__navigation__item ">
+            <a href="index.html" class="navbar__navigation__link ">Home page</a>
+          </li>
+          <li class="navbar__navigation__item ">
+            <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Pages</p>
+            <div class="dropdown-content">
+              <a href="category.html">Category</a>
+              <a href="favorites.html">Favorites</a>
+              <a href="archive.html">Archive</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Elements</p>
+            <div class="dropdown-content">
+              <a href="about.html">About</a>
+              <a href="#">Blog</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item">
+            <a href="login.html" class="navbar__navigation__link">Login</a>
+          </li>
+        </ul>
+
+        <div class="navbar__icon">
+          <a href="search.html">
+            <img src="./assets/images/header/search.svg" class="navbar__icon-search" alt="Search" />
+          </a>
+          <img src="./assets/images/header/avata-header.png" class="navbar__icon-avata" alt="Avata" />
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <img src="./assets/images/header/menu.svg" class="navbar__icon-menu" alt="Menu" />
+          </label>
+          <label for="check" class="nav-overlay"></label>
+
+          <ul class="navbar__navigation navbar__navigation--mobile">
+            <li class="navbar__navigation__item">
+              <a href="index.html" class="navbar__navigation__link ">Home page</a>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Pages</p>
+              <div class="dropdown-content">
+                <a href="category.html">Category</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="archive.html">Archive</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Elements</p>
+              <div class="dropdown-content">
+                <a href="about.html">About</a>
+                <a href="#">Blog</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="login.html" class="navbar__navigation__link">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- END HEADER SECTION -->
+  <main>
+    <!-- START ABOUT -->
+    <section class="container recipes">
+      <h4 class="about__title">About</h4>
+      <p class="about__intro">We’re a group of foodies who love cooking and the internet</p>
+
+      <img class="about__img" src="./assets/images/abouts/image-donut.png" alt="Pictire dounts">
+      <p class="about__desc">Food qualities braise chicken cuts bowl through slices butternut snack. Tender meat juicy
+        dinners. One-pot low heat plenty of time adobo fat raw soften fruit. sweet renders bone-in marrow richness
+        kitchen, fricassee basted pork shoulder. Delicious butternut squash hunk.</p>
+
+      <div class="about__wrapper">
+        <img class="about__img" src="./assets/images/abouts/bluberry.png" alt="Pictire bluberry">
+        <div>
+          <p class="about__intro about__recipe">Simple, Easy Recipes for all</p>
+          <p class="about__desc about__recipe">Juicy meatballs brisket slammin' baked shoulder. Juicy smoker soy sauce
+            burgers
+            brisket. polenta mustard hunk
+            greens. Wine technique snack skewers chuck excess. Oil heat slowly. slices natural delicious, set aside
+            magic
+            tbsp skillet, bay leaves brown centerpiece.</p>
+        </div>
+      </div>
+
+      <p class="about__intro">An incredible team of talented chefs and foodies</p>
+
+      <div class="about__item">
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Ham-Chuwon.png" alt="Pictire Ham-Chuwon " />
+          <p class="about__name about__desc">Ham Chuwon</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Izabella-Tabakova.png"
+            alt="Pictire Izabella-Tabakova " />
+          <p class="about__name about__desc">Izabella Tabakova</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Fatima-Delgadillo.png"
+            alt="Pictire Fatima-Delgadillo " />
+          <p class="about__name about__desc">Fatima Delgadillo</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Harrison-Phillips.png"
+            alt="Pictire Harrison-Phillips " />
+          <p class="about__name about__desc">Harrison Phillips</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Pablo-Cambeiro.png" alt="Pictire Pablo-Cambeiro" />
+          <p class="about__name about__desc">Pablo Cambeiro</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Corabelle-Durrad.png" alt="Pictire Corabelle-Durrad " />
+          <p class="about__name about__desc">Corabelle Durrad</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Nonkosi-Joyi.png" alt="Pictire Nonkosi-Joyi" />
+          <p class="about__name about__desc">Nonkosi Joyi</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Wen-Yahui.png" alt="Pictire Wen-Yahui " />
+          <p class="about__name about__desc">Wen Yahui</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Jurrien-Oldhof.png" alt="Pictire Jurrien-Oldhof " />
+          <p class="about__name about__desc">Jurrien Oldhof</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Tallah-Cotton.png" alt="Pictire Tallah-Cotton " />
+          <p class="about__name about__desc">Tallah Cotton</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Qin-Shi.png" alt="Pictire Qin-Shi " />
+          <p class="about__name about__desc">Qin Shi</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+        <article class="about__card">
+          <img class="about__avata" src="./assets/images/abouts/Su-Hua.png" alt="Pictire Su-Hua " />
+          <p class="about__name about__desc">Su Hua</p>
+          <p class="about__position">Chef Extraordinaire</p>
+        </article>
+      </div>
+
+      <div>
+        <p class="about__location-info">Operatring from NYC, Dubai and London</p>
+        <p class="about__content">Gastronomy atmosphere set aside. Slice butternut cooking home. Delicious romantic
+          undisturbed raw platter will meld. Thick Skewers skillet natural, smoker soy sauce wait roux. slices rosette
+          bone-in simmer precision alongside baby leeks. Crafting renders aromatic enjoyment.</p>
+      </div>
+
+      <div class="footer__social">
+        <span class="footer__social-facebook footer__social-icon"></span>
+        <span class="footer__social-instagram footer__social-icon"></span>
+        <span class="footer__social-twitter footer__social-icon"></span>
+      </div>
+    </section>
+    <!-- END ABOUT-->
+  </main>
+
+  <!-- START FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__wrapper">
+        <a href="javascript:void(0)">
+          <img class="navbar__logo footer__logo" src="./assets/images/logo/logo.svg" alt="Picture logo footer" />
+        </a>
+        <p class="footer__desc">
+          "On the other hand, we denounce with righteous indignation and
+          dislike men who are so beguiled and demoralized by the charms of
+          pleasure of the moment
+        </p>
+      </div>
+      <div class="footer__contact">
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Testebite</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">About us</li>
+            <li class="navbar-footer__item">Careers</li>
+            <li class="navbar-footer__item">Contact us</li>
+            <li class="navbar-footer__item">Feedback</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Legal</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Terms</li>
+            <li class="navbar-footer__item">Conditions</li>
+            <li class="navbar-footer__item">Cookies</li>
+            <li class="navbar-footer__item">Copyright</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Follow</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Facebook</li>
+            <li class="navbar-footer__item">Twitter</li>
+            <li class="navbar-footer__item">Instagram</li>
+            <li class="navbar-footer__item">Youtube</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <span class="footer__social-facebook footer__social-icon"></span>
+        <span class="footer__social-instagram footer__social-icon"></span>
+        <span class="footer__social-twitter footer__social-icon"></span>
+        <span class="footer__social-youtube footer__social-icon"></span>
+      </div>
+
+      <p class="footer__copyright">© 2020 Tastebite - All rights reserved</p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+.panel {
+  border: toRem(1) solid #ccd7e6;
+  background-color: #fff;
+  position: fixed;
+  height: 100%;
+  right: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  display: none;
+
+  @include tablet {
+    right: auto;
+  }
+
+  @include desktop {
+    margin-left: toRem(10);
+    width: toRem(500);
+    position: static;
+  }
+
+  &__edit {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    background-color: #fff;
+    border-bottom: toRem(1) solid #ccd7e6;
+    padding: toRem(7);
+  }
+
+  &__icon-back {
+    background-image: url("../assets/images/user/back-icon.svg");
+  }
+
+  &__confirm {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: toRem(16);
+    margin: toRem(16);
+    background-color: #fff;
+    z-index: 1;
+  }
+
+  &__edit-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: auto;
+    margin: toRem(80) toRem(30) 0 toRem(40);
+    position: sticky;
+    top: 0;
+  }
+
+  &__item {
+    text-align: center;
+    align-items: baseline;
+    margin-right: toRem(20);
+    display: grid;
+    grid-template-columns: toRem(100) 1fr;
+    align-items: center;
+    gap: toRem(10);
+    margin: 0 0 toRem(24);
+    justify-items: start;
+  }
+
+  &__label {
+    margin-right: toRem(20);
+    font-weight: 500;
+  }
+
+  &__upload-img {
+    @include flex-row;
+    align-items: center;
+    width: toRem(109);
+    gap: toRem(10);
+  }
+
+  &__input {
+    width: toRem(216);
+    padding: toRem(7);
+    font-weight: 500;
+    color: #475466;
+    border: toRem(1) solid #ccd7e6;
+    border-radius: toRem(2);
+    outline: none;
+    text-align: left;
+    @include cursor;
+
+    &:hover {
+      border: toRem(1) solid #17839d;
+    }
+  }
+}
+
+#mail-input {
+  cursor: not-allowed;
+}
+
+.show-panel {
+  display: block;
+}

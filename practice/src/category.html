@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo/icon-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/index.scss" />
+  <title>Food Blog</title>
+</head>
+
+<body>
+  <!-- START HEADER SECTION -->
+  <header class="container">
+    <div class="header-section">
+      <nav class="navbar">
+        <h1 href="javascript:void(0)">
+          <img src="./assets/images/logo/logo.svg" class="navbar__logo" alt="Logo" />
+        </h1>
+        <ul class="navbar__navigation">
+          <li class="navbar__navigation__item ">
+            <a href="index.html" class="navbar__navigation__link ">Home page</a>
+          </li>
+          <li class="navbar__navigation__item ">
+            <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Pages</p>
+            <div class="dropdown-content">
+              <a href="category.html">Category</a>
+              <a href="favorites.html">Favorites</a>
+              <a href="archive.html">Archive</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Elements</p>
+            <div class="dropdown-content">
+              <a href="about.html">About</a>
+              <a href="#">Blog</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item">
+            <a href="login.html" class="navbar__navigation__link">Login</a>
+          </li>
+        </ul>
+        <div class="navbar__icon">
+          <a href="search.html">
+            <img src="./assets/images/header/search.svg" class="navbar__icon-search" alt="Search" />
+          </a>
+          <img src="./assets/images/header/avata-header.png" class="navbar__icon-avata" alt="Avata" />
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <img src="./assets/images/header/menu.svg" class="navbar__icon-menu" alt="Menu" />
+          </label>
+          <label for="check" class="nav-overlay"></label>
+
+          <ul class="navbar__navigation navbar__navigation--mobile">
+            <li class="navbar__navigation__item">
+              <a href="index.html" class="navbar__navigation__link ">Home page</a>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Pages</p>
+              <div class="dropdown-content">
+                <a href="category.html">Category</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="archive.html">Archive</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Elements</p>
+              <div class="dropdown-content">
+                <a href="about.html">About</a>
+                <a href="#">Blog</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="login.html" class="navbar__navigation__link">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- END HEADER SECTION -->
+  <main>
+    <section class="container category">
+      <h3 class="category__title page-category__title">Categories</h3>
+
+      <ul class="category__list page-category__list">
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/seafood.png" alt="Picture seafood" />
+            <p class="card-category__name">Seafood</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/soup.png" alt="Picture soup" />
+            <p class="card-category__name">Soup</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/pancakes.png" alt="Picture pancakes" />
+            <p class="card-category__name">Pancakes</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/meat.png" alt="Picture meat" />
+            <p class="card-category__name">Meat</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/checken.png" alt="Picture chicken" />
+            <p class="card-category__name">Chicken</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/less-than-30-min.png" alt="Picture less than 30 min" />
+            <p class="card-category__name">Less than 30 min</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/pasta.png" alt="Picture pasta" />
+            <p class="card-category__name">Pasta</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/pizza.png" alt="Picture pizza" />
+            <p class="card-category__name">Pizza</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/cake.png" alt="Picture cake" />
+            <p class="card-category__name">Cake</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/pastries.png" alt="Picture pastries" />
+            <p class="card-category__name">Pastries</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/burger.png" alt="Picture burger" />
+            <p class="card-category__name">Burger</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/vegan.png" alt="Picture vegan" />
+            <p class="card-category__name">Vegan</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <a href="archive.html">
+            <article class="card-category">
+              <img class="card-category__image" src="./assets/images/page-category/desserts.png" alt="Picture desserts" />
+              <p class="card-category__name">Desserts</p>
+            </article>
+          </a>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/smoothies.png" alt="Picture less than 30 min" />
+            <p class="card-category__name">Smoothies</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/breakfast.png" alt="Picture breakfast" />
+            <p class="card-category__name">Breakfast</p>
+          </article>
+        </li>
+        <li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/salad.png" alt="Picture salad" />
+            <p class="card-category__name">Salad</p>
+          </article>
+        </li><li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/sandwiches.png" alt="Picture sandwiches" />
+            <p class="card-category__name">Sandwiches</p>
+          </article>
+        </li><li class="category__item">
+          <article class="card-category">
+            <img class="card-category__image" src="./assets/images/page-category/waffles.png" alt="Picture waffles" />
+            <p class="card-category__name">Waffles</p>
+          </article>
+        </li>
+      </li><li class="category__item">
+        <article class="card-category">
+          <img class="card-category__image" src="./assets/images/page-category/ramen.png" alt="Picture ramen" />
+          <p class="card-category__name">Ramen</p>
+        </article>
+      </li>
+    </li><li class="category__item">
+      <article class="card-category">
+        <img class="card-category__image" src="./assets/images/page-category/dips.png" alt="Picture dips" />
+        <p class="card-category__name">Dips</p>
+      </article>
+    </li>
+      </ul>
+
+    </section>
+
+  </main>
+
+  <!-- START FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__wrapper">
+        <a href="javascript:void(0)">
+          <img class="navbar__logo footer__logo" src="./assets/images/logo/logo.svg" alt="Picture logo footer" />
+        </a>
+        <p class="footer__desc">
+          "On the other hand, we denounce with righteous indignation and
+          dislike men who are so beguiled and demoralized by the charms of
+          pleasure of the moment
+        </p>
+      </div>
+      <div class="footer__contact">
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Testebite</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">About us</li>
+            <li class="navbar-footer__item">Careers</li>
+            <li class="navbar-footer__item">Contact us</li>
+            <li class="navbar-footer__item">Feedback</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Legal</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Terms</li>
+            <li class="navbar-footer__item">Conditions</li>
+            <li class="navbar-footer__item">Cookies</li>
+            <li class="navbar-footer__item">Copyright</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Follow</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Facebook</li>
+            <li class="navbar-footer__item">Twitter</li>
+            <li class="navbar-footer__item">Instagram</li>
+            <li class="navbar-footer__item">Youtube</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <span class="footer__social-facebook footer__social-icon"></span>
+        <span class="footer__social-instagram footer__social-icon"></span>
+        <span class="footer__social-twitter footer__social-icon"></span>
+        <span class="footer__social-youtube footer__social-icon"></span>
+      </div>
+
+      <p class="footer__copyright">© 2020 Tastebite - All rights reserved</p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+</body>
+
+</html>

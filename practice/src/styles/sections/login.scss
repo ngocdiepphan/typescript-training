@@ -1,0 +1,105 @@
+.form {
+  background: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  &__wrapper {
+    width: toRem(320);
+    min-height: toRem(100);
+    padding: toRem(32) toRem(24);
+    text-align: center;
+    background: #fff;
+    border-radius: toRem(5);
+    margin: toRem(24);
+    align-self: center;
+    box-shadow: 0 toRem(2) toRem(5) 0 rgba(51, 62, 73, 0.1);
+
+    @include tablet {
+      width: toRem(420);
+      min-height: toRem(200);
+    }
+  }
+
+  &__group {
+    display: flex;
+    margin-bottom: toRem(16);
+    flex-direction: column;
+  }
+
+  &__label {
+    text-align: left;
+  }
+
+  &__label {
+    font-weight: 600;
+    margin-bottom: toRem(10);
+    line-height: $lh-xs-medium;
+    font-size: $fs-large;
+
+    @include tablet {
+      font-size: $fs-xl-large;
+    }
+  }
+
+  &__control {
+    height: toRem(40);
+    padding: toRem(8) toRem(12);
+    border: toRem(1) solid #b3b3b3;
+    border-radius: toRem(3);
+    outline: none;
+    font-size: $fs-large;
+
+    &:hover {
+      border-color: #1dbfaf;
+    }
+
+    @include tablet {
+      height: toRem(55);
+      padding: toRem(10) toRem(14);
+      font-size: $fs-xl-large;
+    }
+  }
+
+  &__submit {
+    outline: none;
+    background-color: #1dbfaf;
+    margin-top: toRem(12);
+    padding: toRem(12) toRem(16);
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    width: 100%;
+    font-size: $fs-small;
+    border-radius: toRem(8);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1ac7b6;
+    }
+
+    @include tablet {
+      height: toRem(60);
+      font-size: $fs-x-large;
+    }
+  }
+
+  &__register {
+    display: block;
+    text-align: center;
+    margin-top: toRem(40);
+    text-decoration: none;
+    color: #1dbfaf;
+    font-weight: 600;
+    font-size: $fs-x-medium;
+
+    &:hover {
+      text-decoration: underline;
+      color: #0fad9d;
+    }
+
+    @include tablet {
+      font-size: $fs-x-large;
+    }
+  }
+}

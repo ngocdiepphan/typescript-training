@@ -1,0 +1,58 @@
+.table {
+  width: 100%;
+  overflow: auto;
+  background-color: #fff;
+  border: toRem(1) solid #ccd7e6;
+  display: none;
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__header {
+    width: 100%;
+
+    &__cell {
+      font-weight: 600;
+      color: $color-primary;
+      text-align: left;
+      background-color: #f4f5f9;
+      padding: toRem(20);
+    }
+  }
+
+  &__title {
+    font-size: $fs-small;
+    font-weight: 500;
+
+    @include tablet {
+      font-size: $fs-x-medium;
+    }
+  }
+
+  &__row {
+    border-bottom: toRem(1) solid #edeff0;
+    height: toRem(45);
+
+    &:hover {
+      background-color: rgb(236, 243, 249);
+    }
+
+    &__cell {
+      vertical-align: middle;
+      padding: toRem(20);
+    }
+
+    &__cell:nth-child(1) {
+      width: 0;
+    }
+  }
+
+}
+
+.show {
+  display: block;
+}
+
+
+

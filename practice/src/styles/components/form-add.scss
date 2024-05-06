@@ -1,0 +1,85 @@
+
+
+.modal {
+  font-family: $font-secondary;
+  font-size: $fs-small;
+  width: toRem(300);
+  height: toRem(600);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: #d7ebf5;
+  display: block;
+
+  @include tablet {
+    width: toRem(450);
+  }
+
+  &__header {
+    justify-content: space-between;
+    align-items: center;
+    padding: toRem(10) toRem(20);
+    transition: all 1s;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: #475466;
+    font-weight: 600;
+    font-size: $fs-x-large;
+  }
+
+  &__icon {
+    background-image: url("../assets/images/user/close-icon.svg");
+  }
+
+  &__body {
+    gap: toRem(30);
+    padding: toRem(30) 0;
+    @include flex-column;
+    align-items: center;
+  }
+
+  &__input {
+    border: toRem(1) solid #ccd7e6;
+    border-radius: toRem(5);
+    width: toRem(180);
+    padding: toRem(8);
+    outline: none;
+    height: toRem(40);
+    @include cursor;
+
+    @include tablet {
+      width: toRem(220);
+    }
+
+    &:hover {
+      border-color: #1ca1c1;
+    }
+  }
+
+  &__disabled {
+    cursor: not-allowed;
+    color: #94a1b3;
+  }
+
+  &__item {
+    @include flex-row;
+    align-items: center;
+    gap: toRem(20);
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: $fs-small;
+    width: toRem(80);
+  }
+}
+
+.show-form {
+  display: none;
+}
+
+

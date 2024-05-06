@@ -1,0 +1,258 @@
+.recipe-pages {
+  &__introduce {
+    @include flex-row;
+    justify-content: space-between;
+  }
+
+  &__wrapper {
+    @include flex-column;
+  }
+
+  &__estimate {
+    font-size: 10px;
+    width: toRem(140);
+
+    @include tablet {
+      font-size: $fs-small;
+      width: toRem(250);
+    }
+
+    @include desktop {
+      width: toRem(300);
+    }
+  }
+
+  &__icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: toRem(30);
+    height: toRem(30);
+  }
+
+  &__icon-upload {
+    background-image: url("../assets/images/recipes-page/icon-upload-mb.svg");
+
+    @include tablet {
+      background-image: url("../assets/images/recipes-page/icon-upload.svg");
+    }
+  }
+
+  &__icon-save {
+    background-image: url("../assets/images/recipes-page/icon-save-moblie.svg");
+
+    @include tablet {
+      background-image: url("../assets/images/recipes-page/icon-save.svg");
+    }
+  }
+
+  &__introduce-wrapper {
+    @include flex-row;
+    justify-content: flex-end;
+    gap: toRem(15);
+  }
+
+  &__custom {
+    @include flex-row;
+    gap: toRem(7);
+    margin: toRem(22) 0 toRem(22) 0;
+  }
+
+  &__prep-time {
+    @include flex-column;
+    padding-right: toRem(20);
+    padding-left: toRem(20);
+    border-right: toRem(1) solid #e8e8e8;
+
+    &:hover {
+      border-right: toRem(1) solid $color-primary;
+    }
+
+    &:nth-child(1) {
+      padding-left: 0;
+    }
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: 11px;
+    line-height: 1;
+    color: #7f7f7f;
+  }
+
+  &__value {
+    @include flex-row;
+    gap: toRem(10);
+    font-family: $font-secondary;
+    font-size: 13px;
+    color: $color-primary;
+    line-height: 1.6;
+
+    @include tablet {
+      font-size: $fs-small;
+    }
+  }
+
+  &__icon-edit {
+    background-image: url("../assets/images/recipes-page/icon-edit.svg");
+    background-position: unset;
+  }
+
+  &__icon-print {
+    background-image: url("../assets/images/recipes-page/print.svg");
+  }
+
+  &__content {
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__ingredients {
+    font-size: $fs-large;
+    line-height: 1.2;
+    margin-top: toRem(27);
+    font-weight: 500;
+    margin-bottom: toRem(26);
+
+    @include tablet {
+      font-size: $fs-xxl-large;
+    }
+  }
+
+  &__quantity {
+    line-height: 1.58;
+    font-size: $fs-medium;
+    font-family: $font-secondary;
+    font-weight: 500;
+  }
+
+  &__finish {
+    @include flex-column;
+    gap: toRem(30);
+    border-bottom: toRem(1) solid #ff642f;
+
+    &:hover {
+      border-bottom: toRem(11) solid #ff642f;
+    }
+
+    &__title {
+      font-size: $fs-xxl-large;
+
+      @include tablet {
+        font-size: 60px;
+      }
+    }
+
+    &__feeback {
+      width: toRem(275);
+      height: toRem(38);
+      border: toRem(1) solid #5c5b5b;
+      border-radius: toRem(5);
+      font-size: $fs-x-medium;
+      margin-bottom: toRem(35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: #f98d5a;
+      }
+    }
+  }
+
+  &__comment {
+    margin-top: toRem(66);
+    padding-bottom: toRem(27);
+    border-bottom: toRem(1) solid #e8e8e8;
+
+    &:hover {
+      border-bottom: toRem(1) solid $color-primary;
+    }
+
+    @include tablet {
+      margin-top: toRem(124);
+      padding-bottom: toRem(30);
+    }
+  }
+
+  &__comments-small {
+    font-size: 15px;
+
+    @include tablet {
+      font-size: 24px;
+    }
+  }
+
+  &__post {
+    margin-top: toRem(46);
+  }
+
+  &__function {
+    @include flex-column;
+    justify-content: space-between;
+    gap: toRem(10);
+
+    @include tablet {
+      @include flex-row;
+      gap: 0;
+    }
+  }
+
+  &__write {
+    font-size: $fs-large;
+
+    @include tablet {
+      font-size: $fs-xxl-large;
+    }
+  }
+
+  &__post-comment {
+    font-size: $fs-small;
+
+    @include tablet {
+      font-size: $fs-x-medium;
+    }
+  }
+
+  &__login {
+    color: #ff642b;
+  }
+
+  &__write-commnet {
+    width: 100%;
+    height: toRem(336);
+    background-color: #f9f9f9;
+    margin-top: toRem(16);
+    margin-bottom: toRem(38);
+    border: none;
+    padding: toRem(20);
+
+    @include tablet {
+      height: toRem(351);
+      margin-top: toRem(26);
+      margin-bottom: toRem(81);
+    }
+
+    @include desktop {
+      height: toRem(313);
+    }
+  }
+
+  &__add-comment {
+    position: relative;
+  }
+
+  &__besides {
+    font-size: 24px;
+    margin-top: toRem(38);
+    margin-bottom: toRem(34);
+
+    @include tablet {
+      font-size: $fs-x-huge;
+      margin-top: toRem(61);
+      margin-bottom: toRem(43);
+    }
+  }
+}

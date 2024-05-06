@@ -1,0 +1,153 @@
+.btn {
+  border: none;
+
+  &__subs {
+    color: #ffffff;
+    border: toRem(1) solid $bg-color-secondary;
+    background-color: $bg-color-secondary;
+    text-transform: uppercase;
+    height: toRem(48);
+    border-radius: toRem(4);
+    @include cursor;
+
+    &:hover {
+      background-color: #fd4c0c;
+    }
+
+    @include tablet {
+      width: toRem(129);
+      height: toRem(68);
+      border-radius: 0 toRem(4) toRem(4) 0;
+    }
+  }
+
+  &__favorite {
+    width: toRem(16);
+    height: toRem(16);
+    border: toRem(1) solid #000000;
+    background-color: #fff;
+    @include cursor;
+  }
+
+  &__drawer {
+    @include flex-row;
+    align-items: center;
+    justify-content: center;
+    gap: toRem(5);
+    width: toRem(150);
+    height: toRem(32);
+    background-color: #1ca1c1;
+    border: toRem(1) solid #139dc0;
+    border-radius: toRem(3);
+    color: #fff;
+    font-size: $fs-x-large;
+    font-weight: 600;
+    @include cursor;
+  }
+
+  &__save {
+    border: none;
+    border-radius: toRem(3);
+    outline: none;
+    padding: 0 toRem(20);
+    color: #1ca1c1;
+    background-color: #f4f5f9;
+    font-weight: 700;
+    width: toRem(100);
+    height: toRem(30);
+
+    @include tablet {
+      padding: 0 toRem(30);
+    }
+
+    &:hover {
+      color: #fff;
+      background-color: #1ca1c1;
+    }
+  }
+
+  &__delete {
+    padding: toRem(7) toRem(27);
+    color: #1ca1c1;
+    background-color: #f4f5f9;
+
+    &:hover {
+      color: #fff;
+      background-color: #1ca1c1;
+    }
+  }
+
+  &__general {
+    border: none;
+    background-color: #fff;
+    color: #17839d;
+    min-width: toRem(260);
+    padding: toRem(12) 0;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: toRem(2) solid #17839d;
+    }
+  }
+
+  &__status {
+    border-radius: toRem(8);
+    padding: 0 toRem(12);
+    font-size: $fs-small;
+    font-weight: 600;
+    background-color: #d4ede5;
+    color: #55cd97;
+    height: toRem(24);
+    line-height: 1.7;
+    overflow: hidden;
+    border: none;
+  }
+
+  &__active {
+    background-color: #d4ede5;
+    color: #55cd97;
+  }
+
+  &__not-active {
+    background-color: #ffdedb;
+    color: #ff6455;
+  }
+
+  &__drawer {
+    &__drawer {
+      @include flex-row;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(5);
+      width: toRem(150);
+      height: toRem(32);
+      background-color: #1ca1c1;
+      border: toRem(1) solid #139dc0;
+      border-radius: toRem(3);
+      color: #fff;
+      font-size: $fs-small;
+      font-weight: 500;
+      @include cursor;
+    }
+  }
+
+  &__post-commnent {
+    width: toRem(150);
+    height: toRem(38);
+    background-color: #ff642b;
+    border: none;
+    border-radius: toRem(5);
+    color: #fff;
+    font-size: $fs-x-medium;
+    position: absolute;
+    right: toRem(30);
+    bottom: toRem(70);
+
+    @include tablet {
+      width: toRem(208);
+      bottom: toRem(108);
+    }
+  }
+}

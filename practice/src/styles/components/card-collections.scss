@@ -1,0 +1,51 @@
+.card-collection {
+  &__image {
+    width: 100%;
+  }
+
+  &__content {
+    border: toRem(1.5) solid #d8d8d8;
+    border-top: none;
+    overflow: hidden;
+    padding: toRem(14) toRem(24) toRem(24) toRem(26);
+  }
+
+  &__title {
+    font-size: toRem(30);
+    line-height: $lh-x-small;
+    width: toRem(318);
+    width: toRem(318);
+
+    @include tablet {
+      height: toRem(60);
+      width: toRem(250);
+    }
+
+    @include desktop {
+      font-size: $fs-x-huge;
+      width: toRem(340);
+      height: toRem(87);
+    }
+  }
+
+  &__recipes {
+    margin-top: toRem(35);
+    width: toRem(125);
+    height: toRem(27);
+    border-radius: toRem(3);
+    @include boder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    @include cursor;
+
+    &:hover {
+      background-color: #ffd8ca;
+    }
+
+    @include desktop {
+      margin-top: 0;
+    }
+  }
+}

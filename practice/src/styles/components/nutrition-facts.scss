@@ -1,0 +1,22 @@
+.nutrition {
+  background-color: #f9f9f9;
+    padding: toRem(22) toRem(24);
+    margin-top: toRem(50);
+
+  &__item {
+    justify-content: space-between;
+    padding: toRem(5);
+    border-bottom: 1px solid #e8e8e8;
+    margin: toRem(7);
+
+    &:hover {
+      border-bottom: 2px solid $color-secondary;
+    }
+  }
+
+  &__crust {
+    @include flex-row;
+    gap: toRem(16);
+    font-family: $font-secondary;
+  }
+}

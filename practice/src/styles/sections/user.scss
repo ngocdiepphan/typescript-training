@@ -1,0 +1,20 @@
+.main-body {
+  @include flex-row;
+  font-family: $font-secondary;
+  font-size: $fs-small;
+  font-weight: 400;
+  background-color: #ebedf0;
+}
+
+.content {
+    @include flex-row;
+    padding: toRem(10);
+    font-family: $font-secondary;
+    background-color: #ebedf0;
+    width: 100%;
+
+    &__wrapper {
+      width: 100%;
+    }
+}
+

@@ -1,0 +1,83 @@
+.banner {
+	@include flex-column;
+
+	@include desktop {
+		@include flex-row;
+	}
+
+	&__content {
+		@include flex-column;
+		gap: toRem(20);
+		background-color: #e4f1ff;
+		padding: toRem(29) toRem(24) toRem(34) toRem(24);
+		border-radius: 0 0 toRem(16) toRem(16);
+
+		@include tablet {
+			padding: toRem(50) toRem(35) toRem(34) toRem(48);
+		}
+
+		@include desktop {
+			padding: toRem(151) toRem(35) toRem(35) toRem(48);
+			border-radius: 0 toRem(16) toRem(16) 0;
+			min-width: toRem(465);
+		}
+	}
+
+	&__introduce {
+		display: flex;
+		gap: toRem(11);
+		font-family: $font-secondary;
+		font-size: toRem(10);
+		line-height: $lh-x-medium;
+
+		@include tablet {
+			font-size: $fs-small;
+		}
+	}
+
+	&__heading {
+		font-size: $fs-xxl-large;
+		width: toRem(188);
+		line-height: $lh-x-small;
+
+		@include tablet {
+			font-size: $fs-x-huge;
+			width: toRem(541);
+		}
+
+		@include desktop {
+			width: toRem(284);
+		}
+	}
+
+	&__description {
+		font-family: $font-secondary;
+		line-height: $lh-x-medium;
+		font-size: $fs-small;
+		padding-right: toRem(60);
+
+		@include tablet {
+			font-size: $fs-x-large;
+			width: toRem(450);
+		}
+	}
+
+	&__next {
+		margin-left: auto;
+		width: 40px;
+		height: 40px;
+		background-color: $bg-color-primary;
+		background-image: url("../assets/images/banner/arrows-right.svg");
+		background-position: center;
+		background-repeat: no-repeat;
+		@include cursor;
+
+		&:hover {
+			background-color: rgba(233, 75, 7, 0.242);
+		}
+	}
+}
+
+.banner-archive {
+  width: 100%;
+}

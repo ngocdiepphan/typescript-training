@@ -1,0 +1,56 @@
+.navbar-footer {
+  display: flex;
+  align-items: center;
+  border-bottom: toRem(1) solid #e8e8e8;
+
+  &:hover {
+    background-color: solid $color-primary;
+  }
+
+  @include tablet {
+    display: block;
+    border-bottom: none;
+  }
+
+  @include tablet {
+    @include flex-column;
+    align-items: flex-start;
+  }
+
+  &__title {
+    margin-top: toRem(13);
+    font-family: $font-secondary;
+    font-size: $fs-small;
+    margin-bottom: toRem(17);
+
+    @include tablet {
+      font-size: $fs-x-medium;
+    }
+  }
+
+  &__item {
+    display: none;
+    @include cursor;
+
+    &:hover {
+      color: #000;
+      font-weight: 600;
+    }
+
+    @include tablet {
+      display: block;
+      color: $color-secondary;
+      font-family: $font-secondary;
+      margin-bottom: toRem(14);
+    }
+  }
+
+  &__icon {
+    @include cursor;
+    margin-left: auto;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

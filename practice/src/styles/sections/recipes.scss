@@ -1,0 +1,137 @@
+.recipes {
+  &__title {
+    font-size: $fs-x-huge;
+    line-height: $lh-x-small;
+    margin-top: toRem(53);
+    margin-bottom: toRem(34);
+
+    @include tablet {
+      margin-top: toRem(76);
+      margin-bottom: toRem(42);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: toRem(24);
+    grid-template-columns: repeat(2, 1fr);
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__food {
+    width: 100%;
+    margin-bottom: toRem(24);
+  }
+
+  &__name {
+    font-size: $fs-small;
+    margin-top: toRem(11);
+    width: toRem(180);
+
+    @include tablet {
+      font-size: $fs-x-large;
+      width: 100%;
+    }
+  }
+
+  &__load {
+    font-family: $font-secondary;
+    @include cursor;
+    @include boder;
+    border-radius: toRem(3);
+    justify-content: center;
+    align-items: center;
+    width: toRem(124);
+    height: toRem(31);
+    margin: toRem(30) auto toRem(96) auto;
+    display: flex;
+
+    &:hover {
+      background-color: #e4f1ff;
+    }
+
+    @include tablet {
+      font-size: $fs-x-large;
+      width: toRem(189);
+      height: toRem(45);
+    }
+  }
+}
+
+.recipe-pages {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  &__mailbox {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: toRem(24);
+    line-height: $lh-x-small;
+
+    @include tablet {
+      font-size: toRem(36);
+    }
+  }
+
+  &__describe {
+    font-family: $font-secondary;
+    font-size: toRem(10);
+    line-height: $lh-x-medium;
+    margin-bottom: toRem(15);
+
+    @include tablet {
+      max-width: toRem(350);
+      font-size: toRem(15);
+    }
+
+    @include desktop {
+      max-width: toRem(820);
+    }
+  }
+
+  &__wrapper {
+    @include flex-column;
+    margin-bottom: toRem(36);
+
+    @include tablet {
+      @include flex-row;
+      justify-content: space-between;
+      margin-bottom: toRem(62);
+    }
+  }
+
+  &__text {
+    line-height: $lh-x-medium;
+    font-size: toRem(9);
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__img-mail {
+    @include cursor;
+    width: toRem(105);
+    height: toRem(34);
+
+    @include tablet {
+      width: toRem(144);
+    }
+  }
+}
