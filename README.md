@@ -30,6 +30,8 @@
     - Sign In with a registered account on json-server or create a new account
     - View a list of recipes by rating
     - See detailed recipes
+## Task management:
+- [Project GitHub:](https://github.com/users/ngocdiepphan/projects/7/views/1) 
 ## Devices
 - Desktop
 - Tablet
