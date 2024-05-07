@@ -1,0 +1,15 @@
+.ingredient {
+  &__detail {
+    font-size: toRem(17);
+    font-weight: 500;
+    line-height: $lh-xs-medium;
+    font-family: $font-secondary;
+    margin-bottom: toRem(26);
+    margin-top: toRem(26);
+  }
+
+  &__item {
+    @include flex-row;
+    gap: toRem(16);
+  }
+}

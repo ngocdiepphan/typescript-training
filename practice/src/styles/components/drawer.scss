@@ -1,0 +1,81 @@
+.drawer {
+  @include flex-column;
+  gap: toRem(20);
+  width: toRem(212);
+  background-color: #4a4e58;
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  &__user-icon {
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: toRem(30);
+    height: toRem(30);
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__wrapper {
+    padding: toRem(20);
+  }
+
+  &__title {
+    color: #fff;
+    font-size: $fs-x-medium;
+    font-weight: 500;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+
+  &__icon-new {
+    background-image: url("../assets/images/user/plus-icon.svg");
+  }
+
+  &__item,.navigation__item {
+    @include flex-row;
+    align-items: center;
+    gap: toRem(10);
+    padding: toRem(10);
+
+    &:hover,&.active {
+      border-left: toRem(3) solid #1ca1c1;
+      background-color: #3b3e46;
+      color: #1ca1c1;
+
+      .drawer__title {
+        color: #1ca1c1;
+      }
+    }
+  }
+
+  &__icon-user {
+    background-image: url("../assets/images/user/user-icon.svg");
+
+    &:hover {
+      background-image: url("../assets/images/user/user-icon-selected.svg");
+    }
+  }
+
+  &__img {
+    width: toRem(30);
+   height: toRem(30);
+  }
+}
+
+.show {
+  display: none;
+
+}
+
+.hide {
+  display: none;
+}

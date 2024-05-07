@@ -1,0 +1,81 @@
+.subscription {
+	@include flex-column;
+	text-align: center;
+	background-color: #ffd8ca;
+	margin-top: toRem(64);
+	padding: 0 toRem(16);
+
+	@include tablet {
+		padding: 0 toRem(96);
+	}
+
+	@include desktop {
+		padding: 0 toRem(312);
+	}
+
+	&__title {
+		font-size: $fs-x-huge;
+		line-height: $lh-x-small;
+		margin-bottom: toRem(18);
+		margin-top: toRem(69);
+		padding: 0 toRem(29);
+
+		@include tablet {
+			font-size: $fs-xxl-huge;
+		}
+	}
+
+	&__intro {
+		font-size: toRem(15);
+		line-height: $lh-xs-medium;
+		font-family: $font-secondary;
+		margin-bottom: toRem(24);
+		padding: 0 toRem(100);
+
+		@include tablet {
+			font-size: $fs-xl-large;
+			line-height: $lh-medium;
+		}
+
+		@include desktop {
+			padding: 0 toRem(112);
+		}
+	}
+
+	&__form {
+		@include flex-column;
+		gap: toRem(10);
+
+		@include tablet {
+			@include flex-row;
+			justify-content: center;
+			gap: 0;
+		}
+	}
+
+	&__form-input {
+		height: toRem(48);
+		border: none;
+		border-radius: toRem(4);
+    padding-left: toRem(20);
+
+		@include tablet {
+			border-radius: toRem(4) 0 0 toRem(4);
+			width: toRem(500);
+			height: toRem(68);
+		}
+	}
+
+	&__desc {
+		font-size: $fs-x-small;
+		line-height: $lh-x-medium;
+		font-family: $font-secondary;
+		margin-bottom: toRem(72);
+    margin-top: toRem(16);
+		padding: 0 toRem(60);
+
+		@include tablet {
+			margin-top: toRem(16);
+		}
+	}
+}

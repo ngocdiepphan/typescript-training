@@ -1,0 +1,91 @@
+.sidebar {
+  display: none;
+  margin: toRem(10);
+  width: toRem(350);
+  border: toRem(1) solid #ccd7e6;
+  background-color: #fff;
+  width: 98%;
+  height: 100vh;
+
+  @include tablet {
+    font-size: $fs-x-small;
+    width: toRem(700);
+  }
+
+  @include desktop {
+    width: toRem(600);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: toRem(12) toRem(10);
+    font-weight: 600;
+    border-bottom: toRem(1) solid #ccd7e6;
+  }
+
+  &__title {
+    font-size: $fs-x-small;
+    @include tablet {
+      font-size: $fs-small;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__status {
+    font-size: 10px;
+    font-family: $font-secondary;
+    font-weight: 700;
+    padding: toRem(5) toRem(12);
+    border-radius: toRem(7);
+    background-color: #ffdedb;
+    color: #ff6455;
+
+    @include tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__icon-edit {
+    background-image: url("../assets/images/user/edit-icon.svg");
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: toRem(24) 0;
+  }
+
+  &__list {
+    @include flex-column;
+    padding: 0 toRem(16);
+    margin-bottom: toRem(25);
+    font-family: $font-secondary;
+    font-weight: 600;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: toRem(5);
+    gap: toRem(10);
+  }
+
+  &__icon-email {
+    background-image: url("../assets/images/user/email-icon.svg");
+  }
+
+  &__icon-oclock {
+    background-image: url("../assets/images/user/clock-icon.svg");
+  }
+
+  &__desc {
+    margin-left: toRem(40);
+    font-size: $fs-x-small;
+  }
+}

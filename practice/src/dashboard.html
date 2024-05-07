@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo/icon-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/index.scss" />
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <!-- START HEADER -->
+  <header>
+    <div class="navbar-user__wrapper">
+      <div class="navbar-user__item">
+        <span class="navbar-user__icon-menu"></span>
+        <h1 class="navbar-user__title">Dashboard</h1>
+      </div>
+    </div>
+  </header>
+  <!-- END HEADER -->
+
+  <!-- START MAIN -->
+  <main class=" main-body">
+    <div class="drawer">
+      <div class="drawer__wrapper">
+        <button class="btn__drawer " id="new-recipes">
+          <span class="drawer__icon-new drawer__user-icon"></span>
+          New recipes
+        </button>
+      </div>
+
+      <ul class="navigation">
+        <li class="navigation__item user" data-id="users">
+          <span class="drawer__icon-user drawer__user-icon"></span>
+          <p class="drawer__title">Users</p>
+        </li>
+        <li class="navigation__item recipes" data-id="recipes">
+          <img class="drawer__img" src="./assets/images/products/product-preview.png" alt="Icon recipes">
+          <p class="drawer__title">Recipes</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div class="content__wrapper conten-hindder">
+        <div class="toolbar">
+          <p class="toolbar__title">User</p>
+          <span class="toolbar__icon"></span>
+        </div>
+
+        <div class="table show" id="table-wrapper">
+        </div>
+
+      </div>
+      <aside class="panel hindder-panel" id="panel-details">
+      </aside>
+
+      <aside class="panel hindder-panel panel-recipe" id="panel-details">
+      </aside>
+    </div>
+
+  </main>
+  <!-- END MAIN -->
+
+  <!-- START MODAL -->
+  <form class="modal show-form" id="form-add-recipes">
+    <div class="modal__header">
+      <p class="modal__title">Add recipes</p>
+      <span class="modal__icon drawer__user-icon"></span>
+    </div>
+    <div class="modal__body">
+      <div class="modal__item">
+        <label class="modal__label">Image</label>
+        <input id="input_image" class="modal__input" type="text">
+      </div>
+      <div class="modal__item">
+        <label class="modal__label">Name</label>
+        <input id="input_name" class="modal__input" type="text">
+      </div>
+      <div class="modal__item">
+        <label class="modal__label" for="input_category">Category</label>
+        <select id="input_category" class="modal__input">
+          <option value=""></option>
+          <option value="Pasta">Pasta</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Desserts">Desserts</option>
+          <option value="Smoothies">Smoothies</option>
+          <option value="Breakfast">Breakfast</option>
+        </select>
+      </div>
+
+      <div class="modal__item">
+        <label class="modal__label">Creator</label>
+        <input id="input_creator" class="modal__input" type="text">
+      </div>
+      <div class="modal__item">
+        <label class="modal__label" for="input_ratings">Ratings</label>
+        <select id="input_ratings" class="modal__input">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="modal__item">
+        <label class="modal__label">Description</label>
+        <input id="input_description" class="modal__input" type="text">
+      </div>
+
+      <button type="submit" class="btn__save btn-save" id="add-recipe">Save</button>
+    </div>
+  </form>
+  <!-- END MODAL -->
+
+</body>
+<script>
+
+</script>

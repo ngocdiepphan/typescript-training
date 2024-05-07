@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo/icon-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/index.scss" />
+  <title>Food Blog Sign in</title>
+</head>
+
+<body>
+  <div class="form">
+    <form action="" class="form__wrapper" id="form-sign-in">
+      <div class="form__group">
+        <label for="email" class="form__label">Email</label>
+        <input id="email" name="email" type="text" class="form__control">
+      </div>
+
+      <div class="form__group">
+        <label for="password" class="form__label">Password</label>
+        <input id="password" name="password" type="password" class="form__control">
+      </div>
+
+      <button type="submit" class="form__submit btn-sign-in">Sign In</button>
+      <a href="sign-up.html" class="form__register">Create New Account</a>
+      <div id="display-data"></div>
+    </form>
+  </div>
+  <script type="module" src="./typescript/index.ts"></script>
+</body>
+
+</html>

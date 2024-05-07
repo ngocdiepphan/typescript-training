@@ -1,0 +1,93 @@
+.favorite-page {
+  @include flex-row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: toRem(30);
+  border-bottom: 1px solid #e8e8e8;
+
+  @include tablet {
+    padding-bottom: toRem(40);
+  }
+
+  &__wrapper {
+    @include flex-row;
+    align-items: center;
+    gap: toRem(8);
+
+    &:hover {
+      border-bottom: 2px solid #e8e8e8;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: $lh-x-small;
+
+    @include tablet {
+      font-size: $fs-x-huge;
+    }
+  }
+
+  &__icon {
+    border-radius: 50%;
+    background-color: #ff642f;
+    width: 24px;
+    height: 24px;
+    background-image: url("../assets/images/favorites/favorite.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include tablet {
+      width: 44px;
+      height: 44px;
+      background-image: url("../assets/images/favorites/favorites-tablet.svg");
+    }
+  }
+
+  &__options {
+    @include flex-row;
+    margin-top: toRem(36);
+    gap: toRem(20);
+    font-family: $font-secondary;
+    font-size: $fs-x-small;
+    line-height: $lh-x-medium;
+
+    @include tablet {
+      gap: toRem(33);
+    }
+  }
+
+  &__item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__icon-select {
+    width: 11px;
+    height: 11px;
+    background-image: url("../assets/images/favorites/select.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    @include cursor;
+
+    @include tablet {
+      width: 14px;
+      height: 14px;
+      background-image: url("../assets/images/favorites/select-tablet.svg");
+    }
+  }
+
+  &__icon-delete {
+    background-image: url("../assets/images/favorites/delete.svg");
+    width: 12px;
+    height: 12px;
+    @include cursor;
+
+    @include tablet {
+      background-image: url("../assets/images/favorites/delete-tablet.svg");
+      width: 13px;
+      height: 15px;
+    }
+  }
+}

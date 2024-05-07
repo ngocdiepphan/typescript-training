@@ -1,0 +1,101 @@
+.user {
+  margin: toRem(36) 0;
+  &__wraper {
+    @include flex-row;
+    gap: toRem(20);
+    padding-bottom: toRem(33);
+    border-bottom: toRem(1) solid #e8e8e8;
+
+    &:hover {
+      border-bottom: toRem(1) solid $color-primary;
+    }
+  }
+
+  &__icon {
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: toRem(200);
+    height: toRem(50);
+
+    @include tablet {
+      width: toRem(200);
+      height: toRem(100);
+    }
+
+    @include desktop {
+      width: toRem(100);
+    }
+  }
+
+  &__profile {
+    font-size: 14px;
+    font-family: $font-secondary;
+    @include flex-column;
+    gap: toRem(20);
+
+    @include tablet {
+      font-size: 18px;
+    }
+  }
+
+  &__active {
+    color: #7f7f7f;
+  }
+
+  &__status {
+    @include flex-row;
+    gap: toRem(25);
+  }
+
+  &__avata-jelanee {
+    background-image: url("../assets/images/recipes-page/icon-avata/Jelanee.png");
+  }
+
+  &__avata-diane {
+    background-image: url("../assets/images/recipes-page/icon-avata/Diane.png");
+  }
+
+  &__avata-malin {
+    background-image: url("../assets/images/recipes-page/icon-avata/Malin.png");
+  }
+
+  &__avata-nayara {
+    background-image: url("../assets/images/recipes-page/icon-avata/Nayara.png");
+  }
+
+  &__avata-henk {
+    background-image: url("../assets/images/recipes-page/icon-avata/Henk.png");
+  }
+
+  &__reply {
+    padding-left: toRem(120);
+
+    @include tablet {
+      padding-left: toRem(100);
+    }
+
+    @include desktop {
+      padding-left: toRem(250);
+    }
+  }
+
+  &__load-comment {
+    font-size: $fs-x-medium;
+    font-family: $font-secondary;
+    width: 100%;
+    height: toRem(34);
+    border: toRem(1) solid #5c5b5b;
+    border-radius: toRem(5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #f98d5a;
+    }
+
+    @include tablet {
+      height: toRem(58);
+    }
+  }
+}

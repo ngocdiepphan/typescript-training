@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background-color: $bg-color-primary;
+  color: $color-primary;
+  font-weight: $fw-normal;
+	font-size: $fs-x-medium;
+  font-family: $font-primary;
+	word-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: calc(var(--default-font-size) * 1px);
+}

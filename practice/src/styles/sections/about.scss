@@ -1,0 +1,162 @@
+.about {
+  &__title {
+    font-size: $fs-large;
+    line-height: $lh-x-medium;
+    padding-bottom: toRem(18);
+    border-bottom: 1px solid #e8e8e8;
+
+    &:hover {
+      border-bottom: toRem(1) solid $color-primary;
+    }
+
+    @include tablet {
+      font-size: $fs-x-huge;
+      line-height: $lh-x-small;
+      padding-bottom: toRem(42);
+    }
+  }
+
+  &__intro {
+    font-size: toRem(24);
+    line-height: $lh-x-small;
+    margin: toRem(19) toRem(100) toRem(31) 0;
+
+    @include tablet {
+      font-size: toRem(38);
+      margin: toRem(44) toRem(20) toRem(36) 0;
+    }
+
+    @include desktop {
+      font-size: toRem(60);
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include desktop {
+      background-image: url(../assets/images/abouts/blubery-desktop.png);
+    }
+  }
+
+  &__desc {
+    font-family: $font-secondary;
+    font-size: $fs-small;
+    line-height: 1.6;
+    margin-top: toRem(23);
+    margin-bottom: toRem(93);
+
+    @include tablet {
+      font-size: $fs-large;
+      line-height: $lh-x-medium;
+      margin-top: toRem(26);
+      margin-bottom: toRem(105);
+    }
+
+    @include desktop {
+      font-size: toRem(24);
+      margin-top: toRem(28);
+      margin-bottom: toRem(108);
+    }
+  }
+
+  &__wrapper {
+    @include flex-column;
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+
+    @include desktop {
+      @include flex-row;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__recipe {
+    @include desktop {
+      width: toRem(560);
+      margin-top: 0;
+    }
+  }
+
+  &__item {
+    display: grid;
+    justify-items: center;
+    gap: toRem(42);
+    grid-template-columns: repeat(2, 1fr);
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(6, 1fr);
+      gap: toRem(27);
+    }
+  }
+
+  &__card {
+    @include flex-column;
+    align-items: center;
+
+    @include tablet {
+      width: 159px;
+    }
+  }
+
+  &__name {
+    line-height: $lh-x-small;
+    margin-bottom: toRem(4);
+    font-size: $fs-small;
+
+    @include tablet {
+      font-size: toRem(15);
+    }
+
+    @include desktop {
+      font-size: $fs-x-medium;
+    }
+  }
+
+  &__position {
+    font-family: $font-secondary;
+    font-size: $fs-x-small;
+    color: #7f7f7f;
+  }
+
+  &__location-info {
+    font-family: $font-secondary;
+    font-size: $fs-small;
+    line-height: $lh-x-medium;
+    margin-top: toRem(70);
+    margin-bottom: toRem(12);
+
+    @include tablet {
+      font-size: $fs-x-medium;
+    }
+  }
+
+  &__content {
+    font-size: 12px;
+    line-height: $lh-x-medium;
+    color: #303030;
+    padding-bottom: toRem(48);
+    margin-bottom: toRem(41);
+
+    &:hover {
+      border-bottom: toRem(1) solid $color-primary;
+    }
+
+    @include tablet {
+      width: toRem(320);
+      padding-bottom: toRem(70);
+      margin-bottom: toRem(44);
+    }
+
+    @include desktop {
+      width: toRem(520);
+      padding-bottom: toRem(58);
+    }
+  }
+}

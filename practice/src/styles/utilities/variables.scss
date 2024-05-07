@@ -1,0 +1,59 @@
+// Font family start
+$font-primary: "Playfair Display";
+$font-secondary: "Inter";
+// Font family end
+
+// Common color start
+$color-primary: #000;
+$color-secondary: #7f7f7f;
+// Common color end
+
+// Background color start
+$bg-color-primary: #fff;
+$bg-color-secondary: #ff642b;
+// Background color end
+
+// Font size start
+$fs-x-small: 12px;
+$fs-small: 14px;
+$fs-x-medium: 16px;
+$fs-medium: 17px;
+$fs-x-large: 18px;
+$fs-large: 20px;
+$fs-xl-large: 23px;
+$fs-xxl-large: 30px;
+$fs-x-huge: 36px;
+$fs-huge: 45px;
+$fs-xl-huge: 50px;
+$fs-xxl-huge: 76px;
+// Font size end
+
+// Font weight start
+$fw-normal: 400;
+// Font weight end
+
+// Line height start
+$lh-x-small: 1.2;
+$lh-x-medium: 1.5;
+$lh-medium: 1.56;
+$lh-xs-medium: 1.58;
+// Line height end
+
+// Devices
+$desktop: 1200px;
+$tablet: 768px;
+$mobile: 480px;
+
+//$default font size
+$default-font-size: 16;
+
+:root {
+	--default-font-size: #{$default-font-size};
+}
+
+@media screen and (min-width: $tablet) {
+	$default-font-size: 16;
+	:root {
+		--default-font-size: #{$default-font-size};
+	}
+}

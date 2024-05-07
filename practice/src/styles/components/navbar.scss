@@ -1,0 +1,156 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	@include cursor;
+
+	@include desktop {
+		.checkbtn {
+			display: none;
+		}
+	}
+
+	&__logo {
+		width: toRem(110);
+
+		@include tablet {
+			width: toRem(160);
+		}
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		gap: toRem(24);
+	}
+
+	&__navigation {
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		gap: toRem(48);
+
+		@include desktop {
+			@include flex-row;
+		}
+
+		&--mobile {
+			position: absolute;
+			right: 0;
+			top: toRem(80);
+			padding: toRem(32);
+			background: #b1e1f8;
+			border-top-left-radius: toRem(30);
+			border-bottom-left-radius: toRem(30);
+
+			@include desktop {
+				display: none;
+			}
+		}
+
+		&__link {
+			text-decoration: none;
+			font-size: $fs-x-medium;
+			font-family: $font-secondary;
+			color: $color-primary;
+      margin-bottom: 0;
+
+			&:hover {
+				color: #7c9eef;
+			}
+		}
+
+		&__item {
+			background-image: url("../assets/images/header/arrow-down.svg");
+			background-position: right center;
+			background-repeat: no-repeat;
+			padding-left: toRem(20);
+			padding-right: toRem(20);
+		}
+
+		&__item:nth-child(1),
+    &__item:nth-child(2),
+		&__item:nth-child(5) {
+			background-image: none;
+		}
+	}
+
+	&__icon-search {
+		width: toRem(27);
+		height: toRem(27);
+	}
+
+	&__icon-avata {
+		width: toRem(32);
+		height: toRem(32);
+	}
+
+	&__icon-menu {
+		width: toRem(24);
+		height: toRem(24);
+		@include cursor;
+	}
+
+	#check {
+		display: none;
+
+		&:checked {
+			~ .nav-overlay {
+				display: block;
+			}
+
+			~ .navbar__navigation--mobile {
+				display: flex;
+			}
+
+			@include desktop {
+				~ .nav-overlay {
+					display: none;
+				}
+
+				~ .navbar__navigation--mobile {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.nav-overlay {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		display: none;
+		animation: fadeIn linear 0.5s;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  // min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

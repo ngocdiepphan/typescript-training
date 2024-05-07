@@ -1,0 +1,10 @@
+.header-section {
+  width: 100%;
+  height: toRem(76);
+  padding: toRem(21) 0;
+
+  @include tablet {
+    height: toRem(124);
+    padding: toRem(37) 0 0 0;
+  }
+}

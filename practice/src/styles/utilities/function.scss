@@ -1,0 +1,4 @@
+// This function converts pixel values to REM units based on the default font size.
+@function toRem($value) {
+  @return calc($value / $default-font-size) + rem; // Calculate the value in REM units using the formula: pixel_value / default_font_size + rem
+}

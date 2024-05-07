@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo/icon-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/index.scss" />
+  <title>Food Blog</title>
+</head>
+
+<body>
+  <!-- START HEADER SECTION -->
+  <header class="container">
+    <div class="header-section">
+      <nav class="navbar">
+        <h1 href="javascript:void(0)">
+          <img src="./assets/images/logo/logo.svg" class="navbar__logo" alt="Logo" />
+        </h1>
+        <ul class="navbar__navigation">
+          <li class="navbar__navigation__item ">
+            <a href="index.html" class="navbar__navigation__link ">Home page</a>
+          </li>
+          <li class="navbar__navigation__item ">
+            <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Pages</p>
+            <div class="dropdown-content">
+              <a href="category.html">Category</a>
+              <a href="favorites.html">Favorites</a>
+              <a href="archive.html">Archive</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Elements</p>
+            <div class="dropdown-content">
+              <a href="about.html">About</a>
+              <a href="#">Blog</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item">
+            <a href="login.html" class="navbar__navigation__link">Login</a>
+          </li>
+        </ul>
+
+        <div class="navbar__icon">
+          <a href="search.html">
+            <img src="./assets/images/header/search.svg" class="navbar__icon-search" alt="Search" />
+          </a>
+          <img src="./assets/images/header/avata-header.png" class="navbar__icon-avata" alt="Avata" />
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <img src="./assets/images/header/menu.svg" class="navbar__icon-menu" alt="Menu" />
+          </label>
+          <label for="check" class="nav-overlay"></label>
+
+          <ul class="navbar__navigation navbar__navigation--mobile">
+            <li class="navbar__navigation__item">
+              <a href="index.html" class="navbar__navigation__link ">Home page</a>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Pages</p>
+              <div class="dropdown-content">
+                <a href="category.html">Category</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="archive.html">Archive</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Elements</p>
+              <div class="dropdown-content">
+                <a href="about.html">About</a>
+                <a href="#">Blog</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="login.html" class="navbar__navigation__link">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- END HEADER SECTION -->
+  <main>
+    <!-- START RECIPES -->
+    <section class="container recipes">
+      <div id="recipe-details">
+
+      </div>
+      <div class="recipe-pages__finish">
+        <p class="recipe-pages__finish__title">Already made this?
+        <p>
+        <div class="recipe-pages__finish__feeback">Share your feedback</div>
+      </div>
+
+      <div class="recipe-pages">
+        <p class="recipe-pages__finish__title recipe-pages__comment">Comments<sub
+            class="recipe-pages__comments-small">(25)</sub></p>
+
+        <article class="user">
+          <div class="user__wraper">
+            <span class="user__avata-jelanee user__icon"></span>
+            <div class="user__profile">
+              <p>Jelanee Uwaezuoke</p>
+              <p class="user__active">45min ago</p>
+              <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled, Portland keffiyeh aesthetic food truck
+                sriracha cornhole single-origin coffee church-key roof party.</p>
+              <div class="user__status user__active">
+                <p>🗨️ Reply (2) </p>
+                <p>🤍 48</p>
+                <p>▫️▫️▫️ More</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="user">
+          <div class="user__wraper">
+            <span class="user__avata-malin user__icon"></span>
+            <div class="user__profile">
+              <p>Malin Quist</p>
+              <p class="user__active">45min ago</p>
+              <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled, Portland keffiyeh aesthetic food truck
+                sriracha cornhole single-origin coffee church-key roof party.</p>
+              <div class="user__status user__active">
+                <p>🗨️ Reply (3) </p>
+                <p>🤍 20</p>
+                <p>▫️▫️▫️ More</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="user user__reply">
+          <div class="user__wraper">
+            <span class="user__avata-henk user__icon"></span>
+            <div class="user__profile">
+              <p>Henk Fortuin</p>
+              <p class="user__active">45min ago</p>
+              <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled, Portland keffiyeh aesthetic food truck
+                sriracha cornhole single-origin coffee church-key roof party.</p>
+              <div class="user__status user__active">
+                <p>🗨️ Reply (4) </p>
+                <p>🤍 50</p>
+                <p>▫️▫️▫️ More</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="user user__reply">
+          <div class="user__wraper">
+            <span class="user__avata-diane user__icon"></span>
+            <div class="user__profile">
+              <p>Diane Lansdowne</p>
+              <p class="user__active">45min ago</p>
+              <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled, Portland keffiyeh aesthetic food truck
+                sriracha cornhole single-origin coffee church-key roof party.</p>
+              <div class="user__status user__active">
+                <p>🗨️ Reply (2) </p>
+                <p>🤍 48</p>
+                <p>▫️▫️▫️ More</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="user">
+          <div class="user__wraper">
+            <span class="user__avata-malin user__icon"></span>
+            <div class="user__profile">
+              <p>Malin Quist</p>
+              <p class="user__active">45min ago</p>
+              <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled, Portland keffiyeh aesthetic food truck
+                sriracha cornhole single-origin coffee church-key roof party.</p>
+              <div class="user__status user__active">
+                <p>🗨️ Reply (3) </p>
+                <p>🤍 20</p>
+                <p>▫️▫️▫️ More</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="user">
+          <div class="user__wraper">
+            <span class="user__avata-nayara user__icon"></span>
+            <div class="user__profile">
+              <p>Nayara Delafuente</p>
+              <p class="user__active">45min ago</p>
+              <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled, Portland keffiyeh aesthetic food truck
+                sriracha cornhole single-origin coffee church-key roof party.</p>
+              <div class="user__status user__active">
+                <p>🗨️ Reply (4) </p>
+                <p>🤍 50</p>
+                <p>▫️▫️▫️ More</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="user">
+          <div class="user__wraper">
+            <span class="user__avata-henk user__icon"></span>
+            <div class="user__profile">
+              <p>Henk Fortuin</p>
+              <p class="user__active">45min ago</p>
+              <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled, Portland keffiyeh aesthetic food truck
+                sriracha cornhole single-origin coffee church-key roof party.</p>
+              <div class="user__status user__active">
+                <p>🗨️ Reply (4) </p>
+                <p>🤍 50</p>
+                <p>▫️▫️▫️ More</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="user__load-comment">Load 25 more commnets</div>
+      </div>
+
+      <div class="recipe-pages__post">
+        <div class="recipe-pages__function">
+          <p class="recipe-pages__write">Write a comment</p>
+          <p class="recipe-pages__post-comment"><a href="login.html" class="recipe-pages__login">Login</a> to post a
+            comment</p>
+        </div>
+
+        <div class="recipe-pages__add-comment">
+          <textarea class="recipe-pages__write-commnet"></textarea>
+          <button class="btn__post-commnent">Post comment</button>
+        </div>
+      </div>
+
+      <p class="recipe-pages__besides">You might also like</p>
+      <ul class="recipes__list">
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Cranberry-Macaroon-Ice-Cream-Cake.png"
+              alt="Picture Cranberry-Macaroon-Ice-Cream-Cake" />
+            <p class="card__name recipes__name">Cranberry Macaroon Ice Cream Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/No-Bake-Cheesecake.png"
+              alt="Picture No-Bake-Cheesecake" />
+            <p class="card__name recipes__name">No Bake Cheesecake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Caramel-Glaze-Cake.png"
+              alt="Picture Caramel-Glaze-Cake" />
+            <p class="card__name recipes__name">
+              Caramel Glaze Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Strawberry-Cream-Cake-Bites.png"
+              alt="Picture Strawberry-Cream-Cake-Bites" />
+            <p class="card__name recipes__name">
+              Strawberry Cream Cake Bites
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Homemade Mixed Berries Wedding Cake.png"
+              alt="Picture Homemade Mixed Berries Wedding Cake" />
+            <p class="card__name recipes__name">
+              Chocolate and Banana Jar Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/M&M’s-Chocolate-Cake.png"
+              alt="Picture M&M’s-Chocolate-Cake" />
+            <p class="card__name recipes__name">M&M’s Chocolate Cake</p>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+
+      <!-- END RECIPES-->
+  </main>
+
+  <!-- START FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__wrapper">
+        <a href="javascript:void(0)">
+          <img class="navbar__logo footer__logo" src="./assets/images/logo/logo.svg" alt="Picture logo footer" />
+        </a>
+        <p class="footer__desc">
+          "On the other hand, we denounce with righteous indignation and
+          dislike men who are so beguiled and demoralized by the charms of
+          pleasure of the moment
+        </p>
+      </div>
+      <div class="footer__contact">
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Tastebite</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">About us</li>
+            <li class="navbar-footer__item">Careers</li>
+            <li class="navbar-footer__item">Contact us</li>
+            <li class="navbar-footer__item">Feedback</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Legal</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Terms</li>
+            <li class="navbar-footer__item">Conditions</li>
+            <li class="navbar-footer__item">Cookies</li>
+            <li class="navbar-footer__item">Copyright</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Follow</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Facebook</li>
+            <li class="navbar-footer__item">Twitter</li>
+            <li class="navbar-footer__item">Instagram</li>
+            <li class="navbar-footer__item">Youtube</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <span class="footer__social-facebook footer__social-icon"></span>
+        <span class="footer__social-instagram footer__social-icon"></span>
+        <span class="footer__social-twitter footer__social-icon"></span>
+        <span class="footer__social-youtube footer__social-icon"></span>
+      </div>
+
+      <p class="footer__copyright">© 2020 Tastebite - All rights reserved</p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+</body>
+
+</html>

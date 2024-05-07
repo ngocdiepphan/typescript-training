@@ -1,0 +1,141 @@
+.footer {
+  background-color: #f9f9f9;
+  padding-left: toRem(12);
+  padding-right: toRem(12);
+  @include flex-column;
+
+  @include tablet {
+    padding-left: toRem(50);
+    padding-right: toRem(50);
+  }
+
+  @include desktop {
+    padding-left: toRem(42);
+    padding-right: toRem(102);
+    width: toRem(1200);
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    @include flex-column;
+  }
+
+  &__logo {
+    margin-top: toRem(40);
+
+    @include tablet {
+      margin-top: toRem(72);
+    }
+  }
+
+  &__desc {
+    font-family: $font-secondary;
+    font-size: $fs-small;
+    line-height: $lh-x-medium;
+    color: $color-secondary;
+    margin-top: toRem(18);
+    margin-bottom: toRem(56);
+    width: toRem(362);
+
+    @include tablet {
+      width: toRem(287);
+      font-size: $fs-x-medium;
+    }
+
+    @include desktop {
+      width: toRem(370);
+    }
+  }
+
+  &__contact {
+    @include flex-column;
+
+    @include tablet {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: toRem(50);
+      margin-top: toRem(71);
+    }
+
+    @include desktop {
+      gap: toRem(103);
+    }
+  }
+
+  &__top {
+    @include flex-column;
+
+    @include tablet {
+      @include flex-row;
+      justify-content: space-between;
+      border-bottom: toRem(1) solid #e8e8e8;
+
+      &:hover {
+        border-bottom: toRem(1) solid $color-primary;
+      }
+    }
+  }
+
+  &__social-icon {
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: toRem(20);
+    height: toRem(20);
+    @include cursor;
+
+    &:hover {
+      background-color: rgba(83, 80, 80, 0.153);
+    }
+  }
+
+  &__social-facebook {
+    background-image: url(../assets/images/footer/facebook.svg);
+  }
+
+  &__social-instagram {
+    background-image: url(../assets/images/footer/instagram.svg);
+  }
+
+  &__social-twitter {
+    background-image: url(../assets/images/footer/twitter.svg);
+  }
+
+  &__social-youtube {
+    background-image: url(../assets/images/footer/youtube.svg);
+  }
+
+  &__copyright {
+    font-family: $font-secondary;
+    font-size: $fs-x-small;
+    line-height: $lh-x-medium;
+    color: $color-secondary;
+    margin-bottom: toRem(24);
+
+    @include tablet {
+      margin-right: auto;
+    }
+  }
+
+  &__bottom {
+    @include flex-column;
+
+    @include tablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-top: toRem(27);
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: toRem(29);
+    margin-top: toRem(50);
+    margin-bottom: toRem(24);
+
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+}

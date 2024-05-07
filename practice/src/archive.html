@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo/icon-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/index.scss" />
+  <title>Food Blog</title>
+</head>
+
+<body>
+  <!-- START HEADER SECTION -->
+  <header class="container">
+    <div class="header-section">
+      <nav class="navbar">
+        <h1 href="javascript:void(0)">
+          yh<img src="./assets/images/logo/logo.svg" class="navbar__logo" alt="Logo" />
+        </h1>
+        <ul class="navbar__navigation">
+          <li class="navbar__navigation__item ">
+            <a href="index.html" class="navbar__navigation__link ">Home page</a>
+          </li>
+          <li class="navbar__navigation__item ">
+            <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Pages</p>
+            <div class="dropdown-content">
+              <a href="category.html">Category</a>
+              <a href="favorites.html">Favorites</a>
+              <a href="archive.html">Archive</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item dropdown">
+            <p href="#" class="navbar__navigation__link ">Elements</p>
+            <div class="dropdown-content">
+              <a href="about.html">About</a>
+              <a href="#">Blog</a>
+            </div>
+          </li>
+          <li class="navbar__navigation__item">
+            <a href="login.html" class="navbar__navigation__link">Login</a>
+          </li>
+        </ul>
+
+        <div class="navbar__icon">
+          <a href="search.html">
+            <img src="./assets/images/header/search.svg" class="navbar__icon-search" alt="Search" />
+          </a>
+          <img src="./assets/images/header/avata-header.png" class="navbar__icon-avata" alt="Avata" />
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <img src="./assets/images/header/menu.svg" class="navbar__icon-menu" alt="Menu" />
+          </label>
+          <label for="check" class="nav-overlay"></label>
+
+          <ul class="navbar__navigation navbar__navigation--mobile">
+            <li class="navbar__navigation__item">
+              <a href="index.html" class="navbar__navigation__link ">Home page</a>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="category.html" class="navbar__navigation__link ">Recipe Page</a>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Pages</p>
+              <div class="dropdown-content">
+                <a href="category.html">Category</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="archive.html">Archive</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item dropdown">
+              <p href="#" class="navbar__navigation__link ">Elements</p>
+              <div class="dropdown-content">
+                <a href="about.html">About</a>
+                <a href="#">Blog</a>
+              </div>
+            </li>
+            <li class="navbar__navigation__item">
+              <a href="login.html" class="navbar__navigation__link">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- END HEADER SECTION -->
+  <main>
+    <!-- START BANNER ARCHIVE -->
+    <img class="banner-archive" src="./assets/images/page-archive/banner-archive.png" alt="Picture banner archive page" />
+
+    <section class="container recipes">
+        <h4 class="recipes__title recipe-pages__title">Deserts<sup>(98 recipe)</sup></h4>
+        <div class="recipe-pages__wrapper">
+          <p class="recipe-pages__describe">
+            One thing I learned living in the Canarsie section of Brooklyn, NY
+            was how to cook a good Italian meal. Here is a recipe I created
+            after having this dish in a restaurant. Enjoy!
+          </p>
+          <div class="recipe-pages__mailbox">
+            <p class="recipe-pages__text recipe-pages__describe">Sort by:</p>
+            <img class="recipe-pages__img-mail" src="./assets/images/page-archive/mail.png" alt="Picture mailbox" />
+          </div>
+        </div>
+
+      <ul class="recipes__list">
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Decadent-Raspberry-and-Cream-Cake.png"
+              alt="Picture Decadent-Raspberry-and-Cream-Cake" />
+            <p class="card__name recipes__name">
+              Decadent Raspberry and Cream Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Tripple-Chocolate-Mousse-Cake.png"
+              alt="Picture Tripple-Chocolate-Mousse-Cake." />
+            <p class="card__name recipes__name">Tripple Chocolate Mousse Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Cranberry-Curd-Layered-Spong-Cake.png"
+              alt="Picture Cranberry-Curd-Layered-Spong-Cake" />
+            <p class="card__name recipes__name">
+              Cranberry Curd Layered Sponge Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Orange-and-Lemon-Curd-Tartlets.png"
+              alt="Picture Orange-and-Lemon-Curd-Tartlets" />
+            <p class="card__name recipes__name">
+              Orange and Lemon Curd Tartlets
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Creamt-Chocolate-Nutella-Fudge-Cake.png"
+              alt="Picture Creamt-Chocolate-Nutella-Fudge-Cake" />
+            <p class="card__name recipes__name">
+              Healthy Jam Waffle Breakfast
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Homemade Mixed Berries Wedding Cake.png"
+              alt="Picture Homemade Mixed Berries Wedding Cake" />
+            <p class="card__name recipes__name">
+              Chocolate and Banana Jar Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Black-Forest-Birthday-Cake.png"
+              alt="Picture Black-Forest-Birthday-Cake" />
+            <p class="card__name recipes__name">Caramel Blueberry Scones</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Double-Thick-Layered-Sponge-Cake.png"
+              alt="Picture Double-Thick-Layered-Sponge-Cake" />
+            <p class="card__name recipes__name">Blueberry Carrot Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Lemon-Cake-with-Chocolate-Ganache.png"
+              alt="Picture Lemon-Cake-with-Chocolate-Ganache" />
+            <p class="card__name recipes__name">Lemon Cake with ChocolateG anache</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Cranberry-Macaroon-Ice-Cream-Cake.png"
+              alt="Picture Cranberry-Macaroon-Ice-Cream-Cake" />
+            <p class="card__name recipes__name">Cranberry Macaroon Ice Cream Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/No-Bake-Cheesecake.png"
+              alt="Picture No-Bake-Cheesecake" />
+            <p class="card__name recipes__name">No Bake Cheesecake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Almond-Cinnamon-SpongeCake.png"
+              alt="Picture Almond-Cinnamon-SpongeCake" />
+            <p class="card__name recipes__name">
+              Almond Cinnamon SpongeCake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Mixed-Candy-Cake.png"
+              alt="Picture Mixed-Candy-Cake." />
+            <p class="card__name recipes__name">
+              Decadent Raspberry and Cream Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Cherry-Ice-Cream-Cake.png"
+              alt="Picture Cherry-Ice-Cream-Cake." />
+            <p class="card__name recipes__name">
+              DTripple Chocolate Mousse Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Four-Layer-Coffee-Cake.png"
+              alt="Picture Four-Layer-Coffee-Cake" />
+            <p class="card__name recipes__name">Tripple Chocolate Mousse Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Oreo-Brownie-Ice-Cream-Cake.png"
+              alt="Picture Oreo-Brownie-Ice-Cream-Cake" />
+            <p class="card__name recipes__name">Cranberry Curd Layered Sponge Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Caramel-Glaze-Cake.png"
+              alt="Picture Caramel-Glaze-Cake" />
+            <p class="card__name recipes__name">
+              Caramel Glaze Cake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/No-Bake-Cheesecake.png"
+              alt="Picture No-Bake-Cheesecake" />
+            <p class="card__name recipes__name">
+              No Bake Cinnamon Cheesecake
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Apple-Cinnamon-Bundt-Cake.png"
+              alt="Picture Apple-Cinnamon-Bundt-Cake" />
+            <p class="card__name recipes__name">Apple Cinnamon Bundt Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Rainbow-Explosion-BirthdayCake.png"
+              alt="Picture Rainbow-Explosion-Birthday-Cake" />
+            <p class="card__name recipes__name">Rainbow Explosion Birthday Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Chocolate-Peanut-Butter-Mini-Cupcakes.png"
+              alt="Picture /Chocolate-Peanut-Butter-Mini-Cupcakes" />
+            <p class="card__name recipes__name">Chocolate Peanu Butter Mini Cupcakes</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/M&M’s-Chocolate-Cake.png"
+              alt="Picture M&M’s-Chocolate-Cake" />
+            <p class="card__name recipes__name">M&M’s Chocolate Cake</p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Strawberry-Cream-Cake-Bites.png"
+              alt="Picture Strawberry-Cream-Cake-Bites" />
+            <p class="card__name recipes__name">
+              Strawberry Cream Cake Bites
+            </p>
+          </article>
+        </li>
+        <li class="recipes__food">
+          <article class="card">
+            <img class="card__image" src="./assets/images/page-archive/Tiramisu-Cheescake.png"
+              alt="Picture Tiramisu-Cheescake" />
+            <p class="card__name recipes__name">
+              Tiramisu Cheescake
+            </p>
+          </article>
+        </li>
+      </ul>
+      <div class="recipes__load">Load More</div>
+    </section>
+    <!-- END BANNER ARCHIVE -->
+  </main>
+
+  <!-- START FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__wrapper">
+        <a href="javascript:void(0)">
+          <img class="navbar__logo footer__logo" src="./assets/images/logo/logo.svg" alt="Picture logo footer" />
+        </a>
+        <p class="footer__desc">
+          "On the other hand, we denounce with righteous indignation and
+          dislike men who are so beguiled and demoralized by the charms of
+          pleasure of the moment
+        </p>
+      </div>
+      <div class="footer__contact">
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Tastebite</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">About us</li>
+            <li class="navbar-footer__item">Careers</li>
+            <li class="navbar-footer__item">Contact us</li>
+            <li class="navbar-footer__item">Feedback</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Legal</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Terms</li>
+            <li class="navbar-footer__item">Conditions</li>
+            <li class="navbar-footer__item">Cookies</li>
+            <li class="navbar-footer__item">Copyright</li>
+          </ul>
+        </article>
+
+        <article class="navbar-footer">
+          <h4 class="navbar-footer__title">Follow</h4>
+          <img class="navbar-footer__icon" src="./assets/images/footer/arrow.png" />
+          <ul class="navbar-footer__list">
+            <li class="navbar-footer__item">Facebook</li>
+            <li class="navbar-footer__item">Twitter</li>
+            <li class="navbar-footer__item">Instagram</li>
+            <li class="navbar-footer__item">Youtube</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <span class="footer__social-facebook footer__social-icon"></span>
+        <span class="footer__social-instagram footer__social-icon"></span>
+        <span class="footer__social-twitter footer__social-icon"></span>
+        <span class="footer__social-youtube footer__social-icon"></span>
+      </div>
+
+      <p class="footer__copyright">© 2020 Tastebite - All rights reserved</p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+</body>
+
+</html>
