@@ -1,6 +1,17 @@
 import { API } from "../constants/url";
 import APIHelper from "./helper";
 
+interface ApiResponse {
+  data:  object| string | null;
+  errMsg: string | null;
+  email: string;
+  username?: string;
+  password: string;
+  passwordConfirm: string;
+  role: string;
+}
+
+
 export default class AuthenticationService {
   /**
    * Handle API response
@@ -9,11 +20,12 @@ export default class AuthenticationService {
    */
   static handleResponse = async (
     res: Response
-  ): Promise<{ data: any; errMsg: string | null }> => {
+  // ): Promise<{ data: any; errMsg: string | null }> => {
+  ): Promise<ApiResponse> => {
     if (res.ok) {
       const data = await res.json();
       return {
-        data,
+        data:
         errMsg: null,
       };
     } else {
@@ -44,7 +56,7 @@ export default class AuthenticationService {
    * @param {string} password - User's password.
    * @returns {Promise<any>} - Promise resolved with the result of the user login request.
    */
-  static signIn = async (email: string, password: string): Promise<any> => {
+  static signIn = async (email: string, password: string): Promise<ApiResponse> => {
     const response = await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_USER}?email=${email}&password=${password}`,
       "GET",
@@ -85,7 +97,7 @@ export default class AuthenticationService {
     password: string;
     passwordConfirm: string;
     role: string;
-  }): Promise<any> => {
+  }): Promise<ApiResponse> => {
     const encodedPassword = btoa(password);
     const encodedConfirmPassword = btoa(passwordConfirm);
 
@@ -107,8 +119,8 @@ export default class AuthenticationService {
    * @param {string} email - The email address of the user to search for.
    * @returns {Promise<any>} - A Promise that resolves with the results of the user search request.
    */
-  static findUserByEmail = async (email: string): Promise<any> => {
-    // Send a request to search for a user by email address
+  static findUserByEmail = async (email: string): Promise<ApiResponse> => {
+
     return await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_USER}?email=${email}`,
       "GET",

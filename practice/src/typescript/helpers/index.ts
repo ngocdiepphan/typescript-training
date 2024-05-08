@@ -23,14 +23,15 @@ const inValidUsername = (username: string, minLength: number): boolean => {
 };
 
 /**
- * Check the validity of a password based on minimum length.
- * @param {string} password - Password to check.
- * @param {number} length - Minimum length for the password.
- * @returns {boolean} - True if the password is valid, otherwise returns false.
+ * Checks if a password is valid based on its length.
+ * @param {string} password - The password to validate.
+ * @param {number} maxLength - The maximum length allowed for the password.
+ * @returns {boolean} - Returns true if the password is valid, false otherwise.
  */
-const inValidPassword = (password: string, length: number): boolean => {
-  return password.trim().length >= length;
+const inValidPassword = (password: string, maxLength: number): boolean => {
+  return password.trim().length <= maxLength;
 };
+
 
 export { bindEvent, inValidEmail, inValidUsername, inValidPassword};
 

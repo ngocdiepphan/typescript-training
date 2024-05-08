@@ -1,6 +1,6 @@
 import { bindEvent } from  "../../helpers";
 
-export default class AuthenticationView {
+export default class AuthView {
   private signInFormEl: HTMLElement | null;
   private signUpFormEl: HTMLElement | null;
 

@@ -1,26 +1,26 @@
-import UserModel from "../../models/user-model";
-import AuthenticationView from "../../views/recipes/authentication-view";
-import AuthenticationService from "../../services/authentication-service";
+import UserModel from "../../models/user-model.ts";
+import authView from "../../views/recipes/auth-view.ts";
+import AuthService from "../../services/auth-service.ts";
 import { inValidEmail, inValidUsername, inValidPassword } from "../../helpers/index.ts";
 
-export default class AuthenticationController {
+export default class AuthController {
   private userModel: UserModel;
-  private authenticationView: AuthenticationView;
+  private authView: authView;
 
-  constructor(userModel: UserModel, authenticationView: AuthenticationView) {
+  constructor(userModel: UserModel, authView: authView) {
     this.userModel = userModel;
-    this.authenticationView = authenticationView;
+    this.authView = authView;
   }
 
   init = async (): Promise<void> => {
-    this.authenticationView.bindCallback("signIn", this.handleSignIn);
-    this.authenticationView.bindCallback("signUp", this.signUp)
+    this.authView.bindCallback("signIn", this.handleSignIn);
+    this.authView.bindCallback("signUp", this.signUp)
   };
 
   handleSignIn = async (email: string, password: string): Promise<void> => {
-    const user = await AuthenticationService.signIn(email, password);
+    const user = await AuthService.signIn(email, password);
     if (user !== 'Signed in failed!') {
-      this.authenticationView.redirectPage("index.html");
+      this.authView.redirectPage("index.html");
     } else {
       alert("Invalid email or password. Please try again.");
     }
@@ -59,13 +59,13 @@ export default class AuthenticationController {
       return;
     }
 
-    const isExists = await AuthenticationService.findUserByEmail(email);
+    const isExists = await AuthService.findUserByEmail(email);
     if (isExists.result.length > 0) {
       alert("Email is already registered.");
       return;
     }
 
-    const response = await AuthenticationService.createUser({
+    const response = await AuthService.createUser({
       email,
       username: username || '',
       password,
@@ -74,7 +74,7 @@ export default class AuthenticationController {
     });
 
     if (!response.error) {
-      this.authenticationView.redirectPage("login.html");
+      this.authView.redirectPage("login.html");
       alert("Sign Up successfully!")
     } else {
       alert("Something went wrong!");
@@ -87,7 +87,7 @@ export default class AuthenticationController {
  * @returns Returns true if the email address already exists in the system, otherwise returns false.
  */
 findUserByEmail = async (email: string): Promise<boolean> => {
-  const { result } = await AuthenticationService.findUserByEmail(email);
+  const { result } = await AuthService.findUserByEmail(email);
   return !!result?.length;
 };
 
@@ -98,7 +98,7 @@ findUserByEmail = async (email: string): Promise<boolean> => {
  * @returns {Promise<boolean>} - Returns a promise that resolves to true if authentication is successful, false otherwise.
  */
 signIn = async (email: string, password: string): Promise<boolean> => {
-  const { result } = await AuthenticationService.signIn(email, password);
+  const { result } = await AuthService.signIn(email, password);
   return !!result?.length;
 };
 }
