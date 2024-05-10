@@ -1,22 +1,7 @@
 import { API } from "../constants/url";
 import APIHelper from "./helper";
+import { ApiResponse, SignInResponse }  from "./helper"
 
-interface ApiResponse {
-  data: object | string | null;
-  errMsg: string | null;
-  result?: string;
-  error?: { message: string };
-}
-
-interface Users {
-  email: string;
-  username: string;
-  password: string;
-  passwordConfirm: string;
-  role: string;
-}
-
-type SignInResponse = Users | string;
 
 export default class AuthenticationService {
   /**

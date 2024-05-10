@@ -1,3 +1,20 @@
+export interface ApiResponse {
+  data:  Users[] | object | string | null;
+  errMsg: string | null;
+  result?: string;
+  error?: { message: string };
+}
+
+interface Users {
+  email: string;
+  username: string;
+  password: string;
+  passwordConfirm: string;
+  role: string;
+}
+
+export type SignInResponse = Users | string;
+
 export default class APIHelper {
   /**
    * Method for creating and sending a fetch request to a specified URL.
