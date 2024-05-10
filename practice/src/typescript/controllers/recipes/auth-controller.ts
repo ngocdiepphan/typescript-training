@@ -30,7 +30,6 @@ export default class AuthController {
  * The signUp function performs the new user registration process.
  * @param userData New user information including email, username, password, and passwordConfirm.
  */
-
   signUp = async (email: string, password?: string, username?: string, passwordConfirm?: string): Promise<void> => {
     const role = "user";
 
@@ -49,7 +48,7 @@ export default class AuthController {
       return;
     }
 
-    if (!inValidPassword(password, 8)) {
+    if (inValidPassword(password, 8)) {
       alert("Password must be at least 8 characters long.");
       return;
     }
@@ -60,7 +59,7 @@ export default class AuthController {
     }
 
     const isExists = await AuthService.findUserByEmail(email);
-    if (isExists.result.length > 0) {
+    if (isExists && isExists.result && isExists.result.length > 0) {
       alert("Email is already registered.");
       return;
     }
@@ -81,6 +80,7 @@ export default class AuthController {
     }
   };
 
+
 /**
  * The findUserByEmail function checks whether an email address exists in the system or not.
  * @param email Email address to check.
@@ -98,7 +98,14 @@ findUserByEmail = async (email: string): Promise<boolean> => {
  * @returns {Promise<boolean>} - Returns a promise that resolves to true if authentication is successful, false otherwise.
  */
 signIn = async (email: string, password: string): Promise<boolean> => {
-  const { result } = await AuthService.signIn(email, password);
-  return !!result?.length;
+  const response = await AuthService.signIn(email, password);
+
+  if (typeof response === 'string') {
+    return false;
+  }
+
+  return !!response;
 };
+
+
 }

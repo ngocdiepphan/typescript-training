@@ -2,15 +2,21 @@ import { API } from "../constants/url";
 import APIHelper from "./helper";
 
 interface ApiResponse {
-  data:  object| string | null;
+  data: object | string | null;
   errMsg: string | null;
+  result?: string;
+  error?: { message: string };
+}
+
+interface Users {
   email: string;
-  username?: string;
+  username: string;
   password: string;
   passwordConfirm: string;
   role: string;
 }
 
+type SignInResponse = Users | string;
 
 export default class AuthenticationService {
   /**
@@ -18,14 +24,11 @@ export default class AuthenticationService {
    * @param {Response} res The response object from the API
    * @returns {Promise<object>} An object containing the response users or error message
    */
-  static handleResponse = async (
-    res: Response
-  // ): Promise<{ data: any; errMsg: string | null }> => {
-  ): Promise<ApiResponse> => {
+  static handleResponse = async (res: Response): Promise<ApiResponse> => {
     if (res.ok) {
       const data = await res.json();
       return {
-        data:
+        data,
         errMsg: null,
       };
     } else {
@@ -37,13 +40,13 @@ export default class AuthenticationService {
   };
 
   /**
-   * The handleError static method handles errors by returning an object with error details.
-   * @param {Error} err - The error object.
-   * @returns {object} - An object containing error details.
-   * @property {any} data - Data associated with the error (null in this case).
-   * @property {string} errMsg - Error message from the error object.
+   * Handle API errors.
+   * @param {Error} err The error object.
+   * @returns {object} An object containing error details.
+   * @property {null} data Data associated with the error (null in this case).
+   * @property {string} errMsg Error message from the error object.
    */
-  static handleError = (err: Error): { data: any; errMsg: string } => {
+  static handleError = (err: Error): { data: null; errMsg: string } => {
     return {
       data: null,
       errMsg: err.message,
@@ -51,12 +54,15 @@ export default class AuthenticationService {
   };
 
   /**
-   * User login method using email address and password on the server.
+   * User sign-in method using email address and password.
    * @param {string} email - User's email address.
    * @param {string} password - User's password.
-   * @returns {Promise<any>} - Promise resolved with the result of the user login request.
+   * @returns {Promise<SignInResponse>} - Promise resolved with the result of the user login request.
    */
-  static signIn = async (email: string, password: string): Promise<ApiResponse> => {
+  static signIn = async (
+    email: string,
+    password: string
+  ): Promise<SignInResponse> => {
     const response = await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_USER}?email=${email}&password=${password}`,
       "GET",
@@ -66,6 +72,7 @@ export default class AuthenticationService {
     if ("error" in response) {
       return "Signed in failed!";
     }
+
     const users = response.result;
     for (let i = 0; i < users.length; i++) {
       if (users[i].email === email && users[i].password === password) {
@@ -77,13 +84,13 @@ export default class AuthenticationService {
 
   /**
    * Creates a new user on the server.
-   * @param {object} userData - An object containing the new user's information.
-   * @param {string} userData.email - The email address of the new user.
-   * @param {string} [userData.username] - The username of the new user (optional).
-   * @param {string} userData.password - The password of the new user.
-   * @param {string} userData.passwordConfirm - The confirmation password entered by the user.
-   * @param {string} userData.role - The role of the new user (e.g., "user", "admin").
-   * @returns {Promise<any>} - A Promise that resolves with the result of the new user request.
+   * @param {object} userData  An object containing the new user's information.
+   * @param {string} userData.email The email address of the new user.
+   * @param {string} [userData.username] The username of the new user (optional).
+   * @param {string} userData.password The password of the new user.
+   * @param {string} userData.passwordConfirmThe confirmation password entered by the user.
+   * @param {string} userData.role The role of the new user (e.g., "user", "admin").
+   * @returns {Promise<ApiResponse>} A Promise that resolves with the result of the new user request.
    */
   static createUser = async ({
     email,
@@ -101,7 +108,7 @@ export default class AuthenticationService {
     const encodedPassword = btoa(password);
     const encodedConfirmPassword = btoa(passwordConfirm);
 
-    return await APIHelper.createRequest(
+    const response = await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_USER}`,
       "POST",
       {
@@ -112,19 +119,42 @@ export default class AuthenticationService {
         role,
       }
     );
+
+    if ("error" in response) {
+      return {
+        data: null,
+        errMsg: response.error.message,
+      };
+    } else {
+      return {
+        data: response.result,
+        errMsg: null,
+      };
+    }
   };
 
   /**
    * Searches for a user by email address on the server.
-   * @param {string} email - The email address of the user to search for.
-   * @returns {Promise<any>} - A Promise that resolves with the results of the user search request.
+   * @param {string} email The email address of the user to search for.
+   *  @returns {Promise<ApiResponse>} A Promise that resolves with the result of the new user request.
    */
   static findUserByEmail = async (email: string): Promise<ApiResponse> => {
-
-    return await APIHelper.createRequest(
+    const response = await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_USER}?email=${email}`,
       "GET",
       null
     );
+
+    if ("error" in response) {
+      return {
+        data: null,
+        errMsg: response.error.message,
+      };
+    } else {
+      return {
+        data: response.result,
+        errMsg: null,
+      };
+    }
   };
 }
