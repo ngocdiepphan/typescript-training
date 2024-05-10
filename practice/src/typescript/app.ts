@@ -10,4 +10,18 @@ window.addEventListener("load", () => {
     authView
   );
   authController.init();
+
+  const user = JSON.parse(localStorage.getItem("user") || "");
+const pathname = window.location.pathname;
+
+if (user && pathname !== "/dashboard.html") {
+    window.location.replace("index.html");
+}
+
+if (pathname === "/dashboard.html") {
+    if (user?.role !== "admin") {
+        window.location.replace("login.html");
+    }
+}
+
 });

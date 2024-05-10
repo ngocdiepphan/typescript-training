@@ -63,23 +63,27 @@ export default class AuthenticationService {
     email: string,
     password: string
   ): Promise<SignInResponse> => {
-    const response = await APIHelper.createRequest(
-      `${API.BASE_URL}${API.CREATE_USER}?email=${email}&password=${password}`,
-      "GET",
-      null
-    );
+    try {
+      const response = await APIHelper.createRequest(
+        `${API.BASE_URL}${API.CREATE_USER}?email=${email}&password=${password}`,
+        "GET",
+        null
+      );
 
-    if ("error" in response) {
-      return "Signed in failed!";
-    }
-
-    const users = response.result;
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].email === email && users[i].password === password) {
-        return users[i];
+      if ("error" in response) {
+        return "Signed in failed!";
       }
+
+      const users = response.result;
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === email && users[i].password === password) {
+          return users[i];
+        }
+      }
+      throw new Error("Signed in failed!");
+    } catch (error) {
+      throw new Error("Signed in failed!");
     }
-    return "Signed in failed!";
   };
 
   /**

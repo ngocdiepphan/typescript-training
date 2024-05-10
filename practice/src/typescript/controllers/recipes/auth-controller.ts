@@ -16,10 +16,23 @@ export default class AuthController {
     this.authView.bindCallback("signUp", this.signUp);
   };
 
+  /**
+   * Handles the sign-in process for a user.
+   * @param {string} email The email address of the user.
+   * @param {string} password The password of the user.
+   * @returns {Promise<void>} A Promise that resolves when the sign-in process is complete.
+   */
   handleSignIn = async (email: string, password: string): Promise<void> => {
     const user = await AuthService.signIn(email, password);
-    if (user !== "Signed in failed!") {
-      this.authView.redirectPage("index.html");
+
+    if (typeof user === "object" && user !== null) {
+      localStorage.setItem("user", JSON.stringify(user));
+
+      if (user.role === "admin") {
+        this.authView.redirectPage("dashboard.html");
+      } else if (user.role === "user") {
+        this.authView.redirectPage("index.html");
+      }
     } else {
       alert("Invalid email or password. Please try again.");
     }
