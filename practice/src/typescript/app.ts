@@ -1,13 +1,13 @@
 import UserModel from "./models/user-model";
-import AuthenticationController from "./controllers/recipes/authentication-controller.ts";
-import AuthenticationView from "./views/recipes/authentication-view.ts";
+import AuthController from "./controllers/recipes/auth-controller.ts";
+import AuthView from "./views/recipes/auth-view.ts";
 
 window.addEventListener("load", () => {
   const userModel = new UserModel();
-  const authenticationView = new AuthenticationView();
-  const authenticationController = new AuthenticationController(
+  const authView = new AuthView();
+  const authController = new AuthController(
     userModel,
-    authenticationView
+    authView
   );
-  authenticationController.init();
+  authController.init();
 });
