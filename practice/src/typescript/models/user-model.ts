@@ -22,10 +22,10 @@ export default class UserModel {
   }
 
   /**
-   * The setUsers function updates user data in the application model.
+   * The setUser function updates user data in the application model.
    * @param {Array<User>} data - An array containing user data
    */
-  setUsers = (data) => {
+  setUser = (data: User[]): void => {
     this.users = data;
   };
 
@@ -34,7 +34,7 @@ export default class UserModel {
   //  * @param {string} id - ID of the user to get information from.
   //  * @returns {User|undefined} - Returns information about the user with the corresponding ID, or undefined if not found.
   //  */
-  getUserById = (id: string) => {
+  getUserById = (id: string): User | undefined => {
     return this.users.find((user) => user.id === id);
   };
 }

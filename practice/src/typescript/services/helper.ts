@@ -1,19 +1,38 @@
 export interface ApiResponse {
-  data:  Users[] | object | string | null;
-  errMsg: string | null;
-  result?: string;
-  error?: { message: string };
+  data: User[] | null;
+  error?: { message: string } | null;
 }
 
-interface Users {
+export interface User {
+  id: string;
   email: string;
-  username: string;
   password: string;
-  passwordConfirm: string;
+  username: string;
+  confirmPassword: string;
   role: string;
 }
 
-export type SignInResponse = Users | string;
+export type SignInResponse = User | string;
+
+export interface RecipeApiResponse {
+  data: Recipe | null;
+  error?: { message: string } | null;
+}
+
+export interface Recipe {
+  name: string;
+  description: string;
+  ingredient: string[];
+  instruction: string;
+  nutrition: string;
+  creator: string;
+  category: string;
+  id: string;
+  role: string;
+  imageURL: string;
+  ratings: number;
+  createdAt: Date;
+}
 
 export default class APIHelper {
   /**

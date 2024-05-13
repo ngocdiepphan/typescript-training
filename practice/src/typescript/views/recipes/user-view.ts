@@ -1,4 +1,5 @@
-import { renderUserTableTemplate } from "../../templates/user"
+import { renderUserTableTemplate } from "../../templates/user";
+import { User } from "../../models/user-model";
 
 export default class UserView {
   private tableWrapperEl: HTMLElement;
@@ -6,12 +7,8 @@ export default class UserView {
   constructor() {
     this.tableWrapperEl = document.getElementById("table-wrapper") as HTMLElement;
   }
-/**
- * The renderTables function renders the user data table to the user interface.
- * @param {Array<User>} users - Array containing user information.
- */
-renderTables = (): void => {
-  this.tableWrapperEl.innerHTML = this.renderUserTableTemplate(users);
-};
 
+  renderTables = (data: User[]): void => {
+    this.tableWrapperEl.innerHTML = renderUserTableTemplate(data);
+  };
 }

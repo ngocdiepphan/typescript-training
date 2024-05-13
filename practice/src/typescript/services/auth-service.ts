@@ -2,27 +2,27 @@ import { API } from "../constants/url";
 import APIHelper from "./helper";
 import { ApiResponse, SignInResponse }  from "./helper"
 
-
 export default class AuthenticationService {
   /**
    * Handle API response
    * @param {Response} res The response object from the API
-   * @returns {Promise<object>} An object containing the response users or error message
+   * @returns {Promise<object>} An object containing the response User or error message
    */
   static handleResponse = async (res: Response): Promise<ApiResponse> => {
     if (res.ok) {
       const data = await res.json();
       return {
         data,
-        errMsg: null,
+        error: null
       };
     } else {
       return {
         data: null,
-        errMsg: res.statusText,
+        error: { message: res.statusText },
       };
     }
   };
+
 
   /**
    * Handle API errors.
@@ -31,10 +31,10 @@ export default class AuthenticationService {
    * @property {null} data Data associated with the error (null in this case).
    * @property {string} errMsg Error message from the error object.
    */
-  static handleError = (err: Error): { data: null; errMsg: string } => {
+  static handleError = (err: Error): ApiResponse  => {
     return {
       data: null,
-      errMsg: err.message,
+      error: { message: err.message },
     };
   };
 
@@ -59,14 +59,15 @@ export default class AuthenticationService {
         return "Signed in failed!";
       }
 
-      const users = response.result;
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].email === email && users[i].password === password) {
-          return users[i];
+      const User = response.result;
+      for (let i = 0; i < User.length; i++) {
+        if (User[i].email === email && User[i].password === password) {
+          return User[i];
         }
       }
       throw new Error("Signed in failed!");
     } catch (error) {
+      console.log(error);
       throw new Error("Signed in failed!");
     }
   };
@@ -112,12 +113,12 @@ export default class AuthenticationService {
     if ("error" in response) {
       return {
         data: null,
-        errMsg: response.error.message,
+        error: { message: response.error.message },
       };
     } else {
       return {
         data: response.result,
-        errMsg: null,
+        error: null,
       };
     }
   };
@@ -137,12 +138,12 @@ export default class AuthenticationService {
     if ("error" in response) {
       return {
         data: null,
-        errMsg: response.error.message,
+        error: { message: response.error.message },
       };
     } else {
       return {
         data: response.result,
-        errMsg: null,
+        error: null,
       };
     }
   };

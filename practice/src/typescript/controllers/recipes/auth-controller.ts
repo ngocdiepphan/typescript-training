@@ -13,7 +13,7 @@ export default class AuthController {
 
   init = async (): Promise<void> => {
     this.authView.bindCallback("signIn", this.handleSignIn);
-    this.authView.bindCallback("signUp", this.signUp);
+    this.authView.bindCallback("signUp", this.handleSignUp);
   };
 
   /**
@@ -46,7 +46,7 @@ export default class AuthController {
    * @param passwordConfirm The password confirmation of the new user.
    * @returns A Promise<void> representing the registration process.
    */
-  signUp = async (
+  handleSignUp = async (
     email: string,
     password?: string,
     username?: string,
@@ -59,7 +59,7 @@ export default class AuthController {
     }
 
     const isExists = await AuthService.findUserByEmail(email);
-    if (isExists && isExists.result && isExists.result.length > 0) {
+    if (Array.isArray(isExists) && isExists.length > 0) {
       alert("Email is already registered.");
       return;
     }
@@ -78,16 +78,6 @@ export default class AuthController {
     } else {
       alert("Something went wrong!");
     }
-  };
-
-  /**
-   * The findUserByEmail function checks whether an email address exists in the system or not.
-   * @param email Email address to check.
-   * @returns Returns true if the email address already exists in the system, otherwise returns false.
-   */
-  findUserByEmail = async (email: string): Promise<boolean> => {
-    const { result } = await AuthService.findUserByEmail(email);
-    return !!result?.length;
   };
 
   /**

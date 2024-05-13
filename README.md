@@ -23,7 +23,7 @@
     - Sign In with admin account:
         - email: "user1@example.com"
         - password: "password1"
-    - View list of users, edit and delete users
+    - View list of User, edit and delete User
     - View recipe list, create, edit and delete recipes
     - Render data to the dashboard and app
 - User:
@@ -31,7 +31,7 @@
     - View a list of recipes by rating
     - See detailed recipes
 ## Task management:
-- [Project GitHub:](https://github.com/users/ngocdiepphan/projects/7/views/1) 
+- [Project GitHub:](https://github.com/User/ngocdiepphan/projects/7/views/1) 
 ## Devices
 - Desktop
 - Tablet
