@@ -1,11 +1,11 @@
 import { User } from "../services/helper";
 
 /**
- * The userRowTemplate function takes in an array of data containing information about the user and returns an HTML string representing the rows of the users table.
+ * The renderUserRowTemplate function takes in an array of data containing information about the user and returns an HTML string representing the rows of the users table.
  * @param {User[]} data - Array containing information about the user (including id, username and email).
  * @returns {string} - HTML string representing rows of the users table.
  */
-const userRowTemplate = (data: User[]): string => {
+const renderUserRowTemplate = (data: User[]): string => {
   return data.length
     ? data
         .map((item) => {
@@ -40,7 +40,7 @@ const renderUserTableTemplate = (data: User[]): string => {
       </thead>
 
       <tbody class="table__body" id="user-body">
-        ${userRowTemplate(data)}
+        ${renderUserRowTemplate(data)}
       </tbody>
     </table>
   `;
