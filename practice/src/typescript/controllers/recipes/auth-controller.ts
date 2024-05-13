@@ -59,7 +59,7 @@ export default class AuthController {
     }
 
     const isExists = await AuthService.findUserByEmail(email);
-    if (Array.isArray(isExists) && isExists.length > 0) {
+    if (isExists.data && isExists.data.length > 0) {
       alert("Email is already registered.");
       return;
     }
