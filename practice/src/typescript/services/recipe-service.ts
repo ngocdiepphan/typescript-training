@@ -4,8 +4,8 @@ import { RecipeApiResponse } from "./helper";
 
 export default class RecipeService {
   /**
-   * Fetch method to get recipe list from the server.
-   * @returns {Promise<ApiResponse>} - Promise resolved with the result of the fetch request.
+   * Fetches recipes from the server.
+   * @returns {Promise<RecipeApiResponse>} - A promise containing the response data and error information.
    */
   static fetchRecipes = async (): Promise<RecipeApiResponse> => {
     try {
@@ -17,9 +17,9 @@ export default class RecipeService {
   };
 
   /**
-   * Handle API response
-   * @param {Response} res The response object from the API
-   * @returns {ApiResponse} An object containing the response users or error message
+   * Handles the response from a fetch request for recipes.
+   * @param {Response} res - The response object from the fetch request.
+   * @returns {Promise<RecipeApiResponse>} - A promise containing the response data and error information.
    */
   static handleResponse = async (res: Response): Promise<RecipeApiResponse> => {
     if (res.ok) {
@@ -36,6 +36,11 @@ export default class RecipeService {
     }
   };
 
+  /**
+   * Handles errors that occur during a fetch request.
+   * @param {Error} err - The error object.
+   * @returns {{ data: null; errMsg: string }} - An object containing null data and the error message.
+   */
   static handleError = (err: Error): { data: null; errMsg: string } => {
     return {
       data: null,

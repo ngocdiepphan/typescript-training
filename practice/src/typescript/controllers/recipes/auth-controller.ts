@@ -17,10 +17,10 @@ export default class AuthController {
   };
 
   /**
-   * Handles the sign-in process for a user.
-   * @param {string} email The email address of the user.
-   * @param {string} password The password of the user.
-   * @returns {Promise<void>} A Promise that resolves when the sign-in process is complete.
+   * Handles the sign-in process by calling the signIn method from the AuthService and processing the returned user data.
+   * @param {string} email - The user's email address.
+   * @param {string} password - The user's password.
+   * @returns {Promise<void>} - A Promise indicating the completion of the sign-in process.
    */
   handleSignIn = async (email: string, password: string): Promise<void> => {
     const user = await AuthService.signIn(email, password);
@@ -39,12 +39,12 @@ export default class AuthController {
   };
 
   /**
-   * signUp performs user registration.
-   * @param email The email address of the new user.
-   * @param password The password of the new user.
-   * @param username The username of the new user.
-   * @param passwordConfirm The password confirmation of the new user.
-   * @returns A Promise<void> representing the registration process.
+   * Handles the sign-up process by calling the createUser method from the AuthService and processing the returned response.
+   * @param {string} email - The user's email address.
+   * @param {string} password - The user's password.
+   * @param {string} username - The user's username (optional).
+   * @param {string} passwordConfirm - The confirmation of the user's password (optional).
+   * @returns {Promise<void>} - A Promise indicating the completion of the sign-up process.
    */
   handleSignUp = async (
     email: string,
@@ -81,10 +81,10 @@ export default class AuthController {
   };
 
   /**
-   * The signIn function performs user authentication using email address and password.
-   * @param {string} email - User's email address.
-   * @param {string} password - User's password.
-   * @returns {Promise<boolean>} - Returns a promise that resolves to true if authentication is successful, false otherwise.
+   * Handles the sign-in process by calling the signIn method from the AuthService and processing the returned response.
+   * @param {string} email - The user's email address.
+   * @param {string} password - The user's password.
+   * @returns {Promise<boolean>} - A Promise indicating whether the sign-in was successful.
    */
   signIn = async (email: string, password: string): Promise<boolean> => {
     const response = await AuthService.signIn(email, password);

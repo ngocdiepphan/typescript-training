@@ -35,17 +35,30 @@ export default class AuthView {
     }
   };
 
+  /**
+   * Attaches an event handler for the sign-in process.
+   * @param {function} handler - Function to handle the sign-in process.
+   * @returns {function} - Event handler for the sign-in process.
+   */
   signIn = (
     handler: (email: string, password: string) => void
   ): ((event: Event) => void) => {
     return (event: Event): void => {
       event.preventDefault();
-      const emailEl: HTMLInputElement = document.getElementById("email") as HTMLInputElement;
-      const passwordEl: HTMLInputElement = document.getElementById("password") as HTMLInputElement;
+      const emailEl: HTMLInputElement = document.getElementById(
+        "email"
+      ) as HTMLInputElement;
+      const passwordEl: HTMLInputElement = document.getElementById(
+        "password"
+      ) as HTMLInputElement;
       handler(emailEl.value, passwordEl.value);
     };
   };
 
+  /**
+   * Redirects the user to the specified page.
+   * @param {string} page - The page to redirect to.
+   */
   redirectPage = (page: string): void => {
     window.location.replace(page);
   };
@@ -53,8 +66,8 @@ export default class AuthView {
   /**
    * Creates a callback function to handle the sign-up form submission.
    * Validates form input fields and invokes the provided handler with the input values.
-   * @param handler A function that handles the sign-up form submission.
-   * @returns A callback function to handle sign-up form submission events.
+   *  @param {Function} handler - Function to handle the sign-up process.
+   * @returns {Function} - Event handler for the sign-up process.
    */
   signUp = (
     handler: (
@@ -66,10 +79,18 @@ export default class AuthView {
   ): ((event: Event) => void) => {
     return (event: Event): void => {
       event.preventDefault();
-      const emailEl: HTMLInputElement = document.getElementById("email") as HTMLInputElement;
-      const passwordEl: HTMLInputElement = document.getElementById("password") as HTMLInputElement;
-      const userNameEl: HTMLInputElement = document.getElementById("username") as HTMLInputElement;
-      const passwordConfirmEl: HTMLInputElement = document.getElementById("confirmPassword") as HTMLInputElement;
+      const emailEl: HTMLInputElement = document.getElementById(
+        "email"
+      ) as HTMLInputElement;
+      const passwordEl: HTMLInputElement = document.getElementById(
+        "password"
+      ) as HTMLInputElement;
+      const userNameEl: HTMLInputElement = document.getElementById(
+        "username"
+      ) as HTMLInputElement;
+      const passwordConfirmEl: HTMLInputElement = document.getElementById(
+        "confirmPassword"
+      ) as HTMLInputElement;
 
       const email = emailEl.value.trim();
       const password = passwordEl.value.trim();

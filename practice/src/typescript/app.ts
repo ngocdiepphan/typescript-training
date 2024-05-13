@@ -41,10 +41,6 @@ window.addEventListener("load", () => {
     document
       .querySelector(".navigation__item.active")
       ?.classList.remove("active");
-    const newRecipesBtn = document.getElementById("new-recipes") as HTMLElement;
-    const detailPanel = document.querySelector(
-      ".content-dashboard"
-    ) as HTMLElement;
     const urlParams = new URLSearchParams(window.location.search);
   };
 

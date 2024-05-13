@@ -14,6 +14,10 @@ export default class RecipeController {
 
   init = async (): Promise<void> => {};
 
+  /**
+   * Retrieves a list of recipes from the server through the RecipeService.
+   * @returns {Promise<RecipeApiResponse>} - A Promise containing the list of recipes from the server.
+   */
   handleViewRecipes = async (): Promise<void> => {
     const { data } = await this.getRecipes();
     this.recipeModel.setRecipes(data);
@@ -21,8 +25,8 @@ export default class RecipeController {
   };
 
   /**
-   * The getRecipes function retrieves a list of recipes from the server through RecipeService.
-   * @returns {Promise<ApiResponse>} - A Promise containing recipe list data from the server.
+   * Retrieves a list of recipes from the server through the RecipeService.
+   * @returns {Promise<RecipeApiResponse>} - A Promise containing the list of recipes from the server.
    */
   getRecipes = async (): Promise<RecipeApiResponse> => {
     return await RecipeService.fetchRecipes();
