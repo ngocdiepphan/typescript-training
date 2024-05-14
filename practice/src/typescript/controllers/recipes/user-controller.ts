@@ -14,6 +14,7 @@ export default class UserController {
 
   init = async (): Promise<void> => {
     this.userView.bindCallback("editUser", this.handleEditUser);
+    this.userView.bindCallback("deleteUser", this.handleDeleteUser);
   };
 
   /**
@@ -63,6 +64,27 @@ export default class UserController {
       alert("Failed to update user");
     }
   };
+
+  /**
+ * The handleDeleteUser function initiates the deletion of a user from the server and updates the UI accordingly.
+ * @param {string} userId - The ID of the user to be deleted.
+ */
+handleDeleteUser = async (userId: string): Promise<void> => {
+  try {
+    const user = this.userModel.getUserById(userId);
+    if (!user) {
+      alert("User not found!");
+      return;
+    }
+
+    await UserService.deleteUser(userId, { ...user });
+    alert("User deleted successfully!");
+    this.handleViewUsers();
+  } catch (error) {
+    alert("Failed to delete user");
+  }
+};
+
 
   /**
    * Fetches user data from the server through the UserService.

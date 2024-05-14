@@ -58,6 +58,18 @@ export default class UserView {
           );
         }
         break;
+      case "deleteUser":
+        this.sidebarDetailEl = document.getElementById("panel-details") as HTMLElement;
+        if (this.sidebarDetailEl && handler) {
+          delegate(
+            this.sidebarDetailEl,
+            ".btn-delete-user",
+            "click",
+            this.deleteUser(handler)
+          );
+        }
+        break;
+
       default:
         break;
     }
@@ -151,4 +163,14 @@ export default class UserView {
         ) || "";
       handler(userId, userName);
     };
+
+  /**
+   * The deleteUser function retrieves the user ID from the confirmation panel and invokes a handler function to delete the user.
+   * @param {function} handler - The handler function to be invoked with the user ID.
+   */
+  deleteUser = (handler: (userId: string) => void) => (event: Event) => {
+    const userId =
+      document.querySelector(".panel__confirm")?.getAttribute("data-id") || "";
+    handler(userId);
+  };
 }
