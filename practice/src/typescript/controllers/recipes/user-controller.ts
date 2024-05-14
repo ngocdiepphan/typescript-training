@@ -6,15 +6,15 @@ import { ApiResponse } from "../../services/helper.ts";
 export default class UserController {
   private userModel: UserModel;
   private userView: UserView;
-  private urlParams: URLSearchParams;
 
   constructor(userModel: UserModel, userView: UserView) {
     this.userModel = userModel;
     this.userView = userView;
-    this.urlParams = new URLSearchParams(window.location.search);
   }
 
-  init = async (): Promise<void> => {};
+  init = async (): Promise<void> => {
+    this.userView.bindCallback("editUser", this.handleEditUser);
+  };
 
   /**
    * Handles the view of users by fetching user data, setting users in the model, and rendering the user table in the view.
@@ -34,6 +34,34 @@ export default class UserController {
   handleShowUserDetails = (userId: string): void => {
     const user = this.userModel.getUserById(userId);
     this.userView.showUserDetails(user);
+  };
+
+  /**
+   * The handleEditUser function is responsible for updating the username of a user.
+   * @param {string} userId - The ID of the user to be updated.
+   * @param {string} newUsername - The new username to be set for the user.
+   * @returns {Promise<void>} - A Promise that resolves when the user update is complete.
+   */
+  handleEditUser = async (
+    userId: string,
+    newUsername: string
+  ): Promise<void> => {
+    try {
+      if (!newUsername) {
+        alert("Username cannot be empty!");
+        return;
+      }
+      const user = this.userModel.getUserById(userId);
+      if (!user) {
+        alert("User not found!");
+        return;
+      }
+      await UserService.editUsers(userId, { ...user, username: newUsername });
+      alert("Username updated successfully!");
+      this.handleViewUsers();
+    } catch (error) {
+      alert("Failed to update user");
+    }
   };
 
   /**

@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
       .querySelector(".navigation__item.active")
       ?.classList.remove("active");
     const newRecipesBtn = document.getElementById("new-recipes") as HTMLElement;
-    
+
     switch (type) {
       case "users":
         const usersNavItem = document.querySelector(

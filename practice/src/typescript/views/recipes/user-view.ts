@@ -10,6 +10,7 @@ export default class UserView {
   private userDetailsContainerEl: HTMLElement;
   private panelEl: HTMLElement;
   private tBodyEl: HTMLElement;
+  private sidebarDetailEl: HTMLElement;
 
   constructor() {
     this.tableWrapperEl = document.getElementById(
@@ -20,6 +21,9 @@ export default class UserView {
     ) as HTMLElement;
     this.panelEl = document.querySelector(".panel") as HTMLElement;
     this.tBodyEl = document.querySelector(".table__body") as HTMLElement;
+    this.sidebarDetailEl = document.getElementById(
+      "panel-details"
+    ) as HTMLElement;
   }
 
   bindCallback = (event: string, handler?: (userId: string) => void): void => {
@@ -38,6 +42,19 @@ export default class UserView {
             ".table__row",
             "click",
             this.showUserById(handler)
+          );
+        }
+        break;
+      case "editUser":
+        this.sidebarDetailEl = document.getElementById(
+          "panel-details"
+        ) as HTMLElement;
+        if (this.sidebarDetailEl && handler) {
+          delegate(
+            this.sidebarDetailEl,
+            ".btn-edit",
+            "click",
+            this.editUser(handler)
           );
         }
         break;
@@ -63,14 +80,15 @@ export default class UserView {
     const detailPanel = document.getElementById("panel-details");
     if (detailPanel) {
       detailPanel.classList.toggle("show-panel");
-      // this.bindCallback("saveUsers");
     }
   };
 
   /**
-   * The showUserDetails function displays a user's details on the user interface.
-   *
-   * @param {object} userDetails - Object containing user details including id, username and email.
+   * The showUserDetails function displays the user details in a panel on the user interface.
+   * @param {object} params - An object containing the user's id, username, and email.
+   * @param {string} params.id - The unique identifier of the user.
+   * @param {string} params.username - The username of the user.
+   * @param {string} params.email - The email address of the user.
    */
   showUserDetails = ({
     id,
@@ -98,8 +116,9 @@ export default class UserView {
 
   /**
    * The showUserById function handles the event when the user selects a user from the table and displays that user's details.
-   * @param {function} handler - Function to handle when showUserById event is triggered.
-   * @returns {function} - Event handler function.
+   * @param {function} handler - Function to handle when showUserById event is triggered. It takes a userId (string) as its argument and returns void.
+   * @param {(userId: string) => void} handler - A function that will be called with the user's ID.
+   * @returns {(event: Event) => void} - A new function that can be called when a user row is clicked.
    */
   showUserById =
     (handler: (userId: string) => void) =>
@@ -113,5 +132,23 @@ export default class UserView {
           handler(userId);
         }
       }
+    };
+
+  /**
+   * The editUser function handles the event when the user edits a user's details and triggers the appropriate handler.
+   * @param {(userId: string, userName: string) => void} handler - A function that will be called with the user's ID and name.
+   * @returns {(event: Event) => void} - A new function that can be called to initiate the user editing process.
+   */
+  editUser =
+    (handler: (userId: string, userName: string) => void) =>
+    (event: Event): void => {
+      const userName = (
+        document.getElementById("name-input") as HTMLInputElement
+      ).value.trim();
+      const userId =
+        (document.querySelector(".panel__confirm") as HTMLElement).getAttribute(
+          "data-id"
+        ) || "";
+      handler(userId, userName);
     };
 }
