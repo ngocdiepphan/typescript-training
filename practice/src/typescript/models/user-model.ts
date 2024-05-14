@@ -28,7 +28,7 @@ export default class UserModel {
   //  * @param {string} id - ID of the user to get information from.
   //  * @returns {User|undefined} - Returns information about the user with the corresponding ID, or undefined if not found.
   //  */
-  getUserById = (id: string): User | undefined => {
+  getUserById = (id: string) => {
     return this.users.find((user) => user.id === id);
   };
 }

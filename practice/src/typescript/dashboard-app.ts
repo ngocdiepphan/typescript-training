@@ -22,7 +22,30 @@ window.addEventListener("load", () => {
     document
       .querySelector(".navigation__item.active")
       ?.classList.remove("active");
-    const urlParams = new URLSearchParams(window.location.search);
+    const newRecipesBtn = document.getElementById("new-recipes") as HTMLElement;
+
+    switch (type) {
+      case "users":
+        const usersNavItem = document.querySelector(
+          ".navigation__item[data-id='users']"
+        );
+        usersNavItem?.classList.add("active");
+        const usersUrlParams = new URLSearchParams(window.location.search);
+        usersUrlParams.set("nav", "users");
+        newRecipesBtn.classList.add("hide");
+        break;
+      case "recipes":
+        const recipesNavItem = document.querySelector(
+          ".navigation__item[data-id='recipes']"
+        );
+        recipesNavItem?.classList.add("active");
+        const recipesUrlParams = new URLSearchParams(window.location.search);
+        recipesUrlParams.set("nav", "recipes");
+        newRecipesBtn.classList.remove("hide");
+        break;
+      default:
+        break;
+    }
   };
 
   delegate(
@@ -35,13 +58,25 @@ window.addEventListener("load", () => {
       const type = target.closest(".navigation__item")?.dataset.id;
       if (type) {
         setNavigationActive(type);
-        const toolEl = document.querySelector(".toolbar__title") as HTMLElement;
-        if (type === "users") {
-          toolEl.textContent = "User";
-          userController.handleViewUsers();
-        } else if (type === "recipes") {
-          toolEl.textContent = "Recipes";
-          recipesController.handleViewRecipes();
+
+        const toolEl = document.querySelector<HTMLElement>(".toolbar__title");
+        if (toolEl) {
+          if (type === "users") {
+            toolEl.textContent = "User";
+          } else {
+            toolEl.textContent = "Recipes";
+          }
+        }
+
+        switch (type) {
+          case "users":
+            userController.handleViewUsers();
+            break;
+          case "recipes":
+            recipesController.handleViewRecipes();
+            break;
+          default:
+            break;
         }
       }
     }

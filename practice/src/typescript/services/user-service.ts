@@ -1,6 +1,7 @@
 import { API } from "../constants/url";
 import APIHelper from "./helper";
 import { ApiResponse, SignInResponse } from "./helper";
+import { User } from "../helpers/type-user";
 
 export default class UserService {
   /**
@@ -47,4 +48,49 @@ export default class UserService {
       return this.handleError(err);
     }
   };
+
+  /**
+   * Fetch method to edit user information on the server.
+   * @param {string} userId - ID of the user to edit.
+   * @param {UserPayload} payload - Object containing the user's new information.
+   * @returns {Promise<ApiResponse>} - Promise resolved with the result of the fetch request.
+   */
+  static editUsers = async (userId: string, payload: User): Promise<ApiResponse> => {
+    try {
+      const res = await fetch(`${API.BASE_URL}${API.CREATE_USER}/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      return this.handleResponse(res);
+    } catch (err) {
+      return this.handleError(err);
+    }
+  };
+
+  /**
+ * The deleteUser function sends a request to delete a user from the server.
+ * @param {string} userId - The ID of the user to be deleted.
+ * @param {object} payload - The optional payload data to be included in the request body.
+ * @returns {Promise<object>} - A Promise that resolves to an object containing the response data or error information.
+ */
+static deleteUser = async (userId: string, payload?: object): Promise<object> => {
+  try {
+    const res = await fetch(`${API.BASE_URL}${API.CREATE_USER}/${userId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    return this.handleResponse(res);
+  } catch (err) {
+    return this.handleError(err);
+  }
+};
+
 }
