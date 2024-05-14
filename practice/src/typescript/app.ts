@@ -5,23 +5,19 @@ import AuthView from "./views/recipes/auth-view.ts";
 window.addEventListener("load", () => {
   const userModel = new UserModel();
   const authView = new AuthView();
-  const authController = new AuthController(
-    userModel,
-    authView
-  );
+  const authController = new AuthController(userModel, authView);
   authController.init();
 
   const user = JSON.parse(localStorage.getItem("user") || "");
-const pathname = window.location.pathname;
+  const pathname = window.location.pathname;
 
-if (user && pathname !== "/dashboard.html") {
+  if (user && pathname !== "/dashboard.html") {
     window.location.replace("index.html");
-}
+  }
 
-if (pathname === "/dashboard.html") {
+  if (pathname === "/dashboard.html") {
     if (user?.role !== "admin") {
-        window.location.replace("login.html");
+      window.location.replace("login.html");
     }
-}
-
+  }
 });

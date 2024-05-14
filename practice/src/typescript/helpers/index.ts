@@ -32,7 +32,34 @@ const inValidPassword = (password: string, maxLength: number): boolean => {
   return password.trim().length <= maxLength;
 };
 
+/**
+ * Attach an event to a parent element, but only execute the event handler function when the event is triggered on a child element that satisfies the given condition (selector).
+ *
+ * @param {HTMLElement} target - The parent element to which the event will be attached.
+ * @param {string} selector - Selector to identify the child element on which the event will be fired.
+ * @param {string} type - Event type, for example: 'click', 'submit', etc.
+ * @param {Function} handler - The event handler function will be executed when an event is triggered on a child element that satisfies the condition (selector).
+ */
+const delegate = (
+  target: HTMLElement,
+  selector: string,
+  type: string,
+  handler: (event: Event) => void
+): void => {
+  const dispatchEvent = (event: Event): void => {
+    const targetElement = event.target as HTMLElement;
 
-export { bindEvent, inValidEmail, inValidUsername, inValidPassword};
+    const potentialElements = target.querySelectorAll(selector);
+    const hasMatch = Array.prototype.indexOf.call(
+      potentialElements,
+      targetElement.closest(selector)
+    ) >= 0;
+    if (hasMatch) handler.call(targetElement, event);
+  };
+
+  target.addEventListener(type, dispatchEvent);
+};
+
+export { bindEvent, inValidEmail, inValidUsername, inValidPassword,  delegate};
 
 

@@ -13,14 +13,14 @@ export default class AuthController {
 
   init = async (): Promise<void> => {
     this.authView.bindCallback("signIn", this.handleSignIn);
-    this.authView.bindCallback("signUp", this.signUp);
+    this.authView.bindCallback("signUp", this.handleSignUp);
   };
 
   /**
-   * Handles the sign-in process for a user.
-   * @param {string} email The email address of the user.
-   * @param {string} password The password of the user.
-   * @returns {Promise<void>} A Promise that resolves when the sign-in process is complete.
+   * Handles the sign-in process by calling the signIn method from the AuthService and processing the returned user data.
+   * @param {string} email - The user's email address.
+   * @param {string} password - The user's password.
+   * @returns {Promise<void>} - A Promise indicating the completion of the sign-in process.
    */
   handleSignIn = async (email: string, password: string): Promise<void> => {
     const user = await AuthService.signIn(email, password);
@@ -39,14 +39,14 @@ export default class AuthController {
   };
 
   /**
-   * signUp performs user registration.
-   * @param email The email address of the new user.
-   * @param password The password of the new user.
-   * @param username The username of the new user.
-   * @param passwordConfirm The password confirmation of the new user.
-   * @returns A Promise<void> representing the registration process.
+   * Handles the sign-up process by calling the createUser method from the AuthService and processing the returned response.
+   * @param {string} email - The user's email address.
+   * @param {string} password - The user's password.
+   * @param {string} username - The user's username (optional).
+   * @param {string} passwordConfirm - The confirmation of the user's password (optional).
+   * @returns {Promise<void>} - A Promise indicating the completion of the sign-up process.
    */
-  signUp = async (
+  handleSignUp = async (
     email: string,
     password?: string,
     username?: string,
@@ -59,7 +59,7 @@ export default class AuthController {
     }
 
     const isExists = await AuthService.findUserByEmail(email);
-    if (isExists && isExists.result && isExists.result.length > 0) {
+    if (isExists.data && isExists.data.length > 0) {
       alert("Email is already registered.");
       return;
     }
@@ -81,20 +81,10 @@ export default class AuthController {
   };
 
   /**
-   * The findUserByEmail function checks whether an email address exists in the system or not.
-   * @param email Email address to check.
-   * @returns Returns true if the email address already exists in the system, otherwise returns false.
-   */
-  findUserByEmail = async (email: string): Promise<boolean> => {
-    const { result } = await AuthService.findUserByEmail(email);
-    return !!result?.length;
-  };
-
-  /**
-   * The signIn function performs user authentication using email address and password.
-   * @param {string} email - User's email address.
-   * @param {string} password - User's password.
-   * @returns {Promise<boolean>} - Returns a promise that resolves to true if authentication is successful, false otherwise.
+   * Handles the sign-in process by calling the signIn method from the AuthService and processing the returned response.
+   * @param {string} email - The user's email address.
+   * @param {string} password - The user's password.
+   * @returns {Promise<boolean>} - A Promise indicating whether the sign-in was successful.
    */
   signIn = async (email: string, password: string): Promise<boolean> => {
     const response = await AuthService.signIn(email, password);
