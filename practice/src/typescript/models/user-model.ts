@@ -1,10 +1,4 @@
-export interface User {
-  id: string;
-  email: string;
-  password: string;
-  username: string;
-  confirmPassword: string;
-}
+import { User } from "../helpers/type-user";
 
 export default class UserModel {
   email: string;

@@ -1,4 +1,4 @@
-import { User } from "../services/helper";
+import { User } from "../helpers/type-user";
 
 /**
  * The renderUserRowTemplate function takes in an array of data containing information about the user and returns an HTML string representing the rows of the users table.

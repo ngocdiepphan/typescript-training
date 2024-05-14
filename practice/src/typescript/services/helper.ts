@@ -1,15 +1,9 @@
+import { Recipe } from "../helpers/type-recipe";
+import { User } from "../helpers/type-user";
+
 export interface ApiResponse {
   data: User[] | null;
   error?: { message: string } | null;
-}
-
-export interface User {
-  id: string;
-  email: string;
-  password: string;
-  username: string;
-  confirmPassword: string;
-  role: string;
 }
 
 export type SignInResponse = User | string;
@@ -17,21 +11,6 @@ export type SignInResponse = User | string;
 export interface RecipeApiResponse {
   data: Recipe | null;
   error?: { message: string } | null;
-}
-
-export interface Recipe {
-  name: string;
-  description: string;
-  ingredient: string[];
-  instruction: string;
-  nutrition: string;
-  creator: string;
-  category: string;
-  id: string;
-  role: string;
-  imageURL: string;
-  ratings: number;
-  createdAt: Date;
 }
 
 export default class APIHelper {

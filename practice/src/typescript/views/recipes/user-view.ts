@@ -1,5 +1,5 @@
 import { renderUserTableTemplate } from "../../templates/user";
-import { User } from "../../models/user-model";
+import { User } from "../../helpers/type-user";
 
 export default class UserView {
   private tableWrapperEl: HTMLElement;

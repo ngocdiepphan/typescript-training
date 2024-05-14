@@ -1,5 +1,5 @@
 import { renderRecipeTableTemplate } from "../../templates/recipe";
-import { Recipe } from "../../models/recipe-model";
+import { Recipe } from "../../helpers/type-recipe";
 
 export default class RecipeView {
   private tableWrapperEl: HTMLElement;

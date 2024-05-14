@@ -1,4 +1,4 @@
-import { Recipe } from "../services/helper";
+import { Recipe } from "../helpers/type-recipe";
 /**
  * The recipeRowTemplateRecipe function receives an array of data containing recipe information and returns an HTML string representing the rows of the recipe table.
  * @param {Recipe[]} data - Array containing recipe information.
