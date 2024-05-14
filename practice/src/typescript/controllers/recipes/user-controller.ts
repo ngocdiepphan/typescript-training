@@ -24,6 +24,16 @@ export default class UserController {
     const { data } = await this.getUser();
     this.userModel.setUser(data);
     this.userView.renderTables(data);
+    this.userView.bindCallback("userRowClick", this.handleShowUserDetails);
+  };
+
+  /**
+   * The handleShowUserDetails function displays details of a user.
+   * @param {string} userId - ID of the user to display details.
+   */
+  handleShowUserDetails = (userId: string): void => {
+    const user = this.userModel.getUserById(userId);
+    this.userView.showUserDetails(user);
   };
 
   /**
