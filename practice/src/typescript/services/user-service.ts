@@ -1,13 +1,13 @@
 import { API } from "../constants/url";
 import APIHelper from "./helper";
-import { ApiResponse, SignInResponse } from "./helper";
+import { ApiResponse } from "./helper";
 import { User } from "../helpers/type-user";
 
 export default class UserService {
   /**
-   * Handles the response from a fetch request.
-   * @param {Response} res - The response object from the fetch request.
-   * @returns {Promise<ApiResponse>} - A promise containing the response data or error message.
+   * Handles the response from an API request by returning an ApiResponse object with response data or error details.
+   * @param {Response} res - The response object from the API request.
+   * @returns {Promise<ApiResponse>} - A Promise containing an ApiResponse object with response data or error details.
    */
   static handleResponse = async (res: Response): Promise<ApiResponse> => {
     if (res.ok) {
@@ -25,14 +25,14 @@ export default class UserService {
   };
 
   /**
-   * Handles an error encountered during an API request.
+   * Handles errors by returning an ApiResponse object with error details.
    * @param {Error} err - The error object.
-   * @returns {{ data: null; errMsg: string }} - An object containing the error message.
+   * @returns {ApiResponse} - An object containing error details.
    */
-  static handleError = (err: Error): { data: null; errMsg: string } => {
+  static handleError = (err: Error): ApiResponse => {
     return {
       data: null,
-      errMsg: err.message,
+      error: { message: err.message },
     };
   };
 

@@ -25,10 +25,7 @@ export default class UserController {
     const { data } = await this.getUser();
     this.userModel.setUser(data);
     this.userView.renderTables(data);
-    this.userView.bindCallback(
-      "userRowClick",
-      this.handleRenderUserDetails
-    );
+    this.userView.bindCallback("userRowClick", this.handleRenderUserDetails);
   };
 
   /**
@@ -50,21 +47,26 @@ export default class UserController {
     userId: string,
     newUsername: string
   ): Promise<void> => {
-    try {
-      if (!newUsername) {
-        alert("Username cannot be empty!");
-        return;
-      }
-      const user = this.userModel.getUserById(userId);
-      if (!user) {
-        alert("User not found!");
-        return;
-      }
-      await UserService.editUsers(userId, { ...user, username: newUsername });
-      alert("Username updated successfully!");
-      this.handleViewUsers();
-    } catch (error) {
-      alert("Failed to update user");
+    if (!newUsername) {
+      alert("Username cannot be empty!");
+      return;
+    }
+
+    const user = this.userModel.getUserById(userId);
+    if (!user) {
+      alert("User not found!");
+      return;
+    }
+
+    const response = await UserService.editUsers(userId, {
+      ...user,
+      username: newUsername,
+    });
+    alert("Username updated successfully!");
+    this.handleViewUsers();
+    if (response.error) {
+      alert(`Failed to update user`);
+      return;
     }
   };
 
@@ -73,19 +75,15 @@ export default class UserController {
    * @param {string} userId - The ID of the user to be deleted.
    */
   handleDeleteUser = async (userId: string): Promise<void> => {
-    try {
-      const user = this.userModel.getUserById(userId);
-      if (!user) {
-        alert("User not found!");
-        return;
-      }
-
-      await UserService.deleteUser(userId, { ...user });
-      alert("User deleted successfully!");
-      this.handleViewUsers();
-    } catch (error) {
-      alert("Failed to delete user");
+    const user = this.userModel.getUserById(userId);
+    if (!user) {
+      alert("User not found!");
+      return;
     }
+
+    await UserService.deleteUser(userId, { ...user });
+    alert("User deleted successfully!");
+    this.handleViewUsers();
   };
 
   /**
