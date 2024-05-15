@@ -55,7 +55,10 @@ export default class UserService {
    * @param {UserPayload} payload - Object containing the user's new information.
    * @returns {Promise<ApiResponse>} - Promise resolved with the result of the fetch request.
    */
-  static editUsers = async (userId: string, payload: User): Promise<ApiResponse> => {
+  static editUsers = async (
+    userId: string,
+    payload: User
+  ): Promise<ApiResponse> => {
     try {
       const res = await fetch(`${API.BASE_URL}${API.CREATE_USER}/${userId}`, {
         method: "PUT",
@@ -72,25 +75,27 @@ export default class UserService {
   };
 
   /**
- * The deleteUser function sends a request to delete a user from the server.
- * @param {string} userId - The ID of the user to be deleted.
- * @param {object} payload - The optional payload data to be included in the request body.
- * @returns {Promise<object>} - A Promise that resolves to an object containing the response data or error information.
- */
-static deleteUser = async (userId: string, payload?: object): Promise<object> => {
-  try {
-    const res = await fetch(`${API.BASE_URL}${API.CREATE_USER}/${userId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+   * The deleteUser function sends a request to delete a user from the server.
+   * @param {string} userId - The ID of the user to be deleted.
+   * @param {object} payload - The optional payload data to be included in the request body.
+   * @returns {Promise<object>} - A Promise that resolves to an object containing the response data or error information.
+   */
+  static deleteUser = async (
+    userId: string,
+    payload?: object
+  ): Promise<object> => {
+    try {
+      const res = await fetch(`${API.BASE_URL}${API.CREATE_USER}/${userId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    return this.handleResponse(res);
-  } catch (err) {
-    return this.handleError(err);
-  }
-};
-
+      return this.handleResponse(res);
+    } catch (err) {
+      return this.handleError(err);
+    }
+  };
 }

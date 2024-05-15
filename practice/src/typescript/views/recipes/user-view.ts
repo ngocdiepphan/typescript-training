@@ -69,7 +69,6 @@ export default class UserView {
           );
         }
         break;
-
       default:
         break;
     }
@@ -96,21 +95,17 @@ export default class UserView {
   };
 
   /**
-   * The showUserDetails function displays the user details in a panel on the user interface.
+   * The handleRenderUserDetails function displays the user details in a panel on the user interface.
    * @param {object} params - An object containing the user's id, username, and email.
    * @param {string} params.id - The unique identifier of the user.
    * @param {string} params.username - The username of the user.
    * @param {string} params.email - The email address of the user.
    */
-  showUserDetails = ({
+  handleRenderUserDetails = ({
     id,
     username,
     email,
-  }: {
-    id: string;
-    username: string;
-    email: string;
-  }): void => {
+  }: User): void => {
     this.panelEl.innerHTML = renderUserDetails({
       id,
       username,

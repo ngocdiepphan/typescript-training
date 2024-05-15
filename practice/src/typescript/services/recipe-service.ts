@@ -4,19 +4,6 @@ import { RecipeApiResponse } from "./helper";
 
 export default class RecipeService {
   /**
-   * Fetches recipes from the server.
-   * @returns {Promise<RecipeApiResponse>} - A promise containing the response data and error information.
-   */
-  static fetchRecipes = async (): Promise<RecipeApiResponse> => {
-    try {
-      const res = await fetch(`${API.BASE_URL}${API.CREATE_PRODUCT}`);
-      return this.handleResponse(res);
-    } catch (err) {
-      return this.handleError(err);
-    }
-  };
-
-  /**
    * Handles the response from a fetch request for recipes.
    * @param {Response} res - The response object from the fetch request.
    * @returns {Promise<RecipeApiResponse>} - A promise containing the response data and error information.
@@ -46,5 +33,18 @@ export default class RecipeService {
       data: null,
       errMsg: err.message,
     };
+  };
+
+  /**
+   * Fetches recipes from the server.
+   * @returns {Promise<RecipeApiResponse>} - A promise containing the response data and error information.
+   */
+  static fetchRecipes = async (): Promise<RecipeApiResponse> => {
+    try {
+      const res = await fetch(`${API.BASE_URL}${API.CREATE_PRODUCT}`);
+      return this.handleResponse(res);
+    } catch (err) {
+      return this.handleError(err);
+    }
   };
 }

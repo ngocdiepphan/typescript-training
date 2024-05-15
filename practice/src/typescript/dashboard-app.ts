@@ -20,32 +20,31 @@ window.addEventListener("load", () => {
 
   const setNavigationActive = (type: string): void => {
     document
-      .querySelector(".navigation__item.active")
+      .querySelector(".navigation__item .active")
       ?.classList.remove("active");
     const newRecipesBtn = document.getElementById("new-recipes") as HTMLElement;
 
     switch (type) {
       case "users":
-        const usersNavItem = document.querySelector(
-          ".navigation__item[data-id='users']"
-        );
-        usersNavItem?.classList.add("active");
-        const usersUrlParams = new URLSearchParams(window.location.search);
-        usersUrlParams.set("nav", "users");
+        setActiveNavItem("users");
         newRecipesBtn.classList.add("hide");
         break;
       case "recipes":
-        const recipesNavItem = document.querySelector(
-          ".navigation__item[data-id='recipes']"
-        );
-        recipesNavItem?.classList.add("active");
-        const recipesUrlParams = new URLSearchParams(window.location.search);
-        recipesUrlParams.set("nav", "recipes");
+        setActiveNavItem("recipes");
         newRecipesBtn.classList.remove("hide");
         break;
       default:
         break;
     }
+  };
+
+  const setActiveNavItem = (navId: string): void => {
+    const navItem = document.querySelector(
+      `.navigation__item[data-id='${navId}']`
+    );
+    navItem?.classList.add("active");
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set("nav", navId);
   };
 
   delegate(
