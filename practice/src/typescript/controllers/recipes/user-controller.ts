@@ -25,16 +25,19 @@ export default class UserController {
     const { data } = await this.getUser();
     this.userModel.setUser(data);
     this.userView.renderTables(data);
-    this.userView.bindCallback("userRowClick", this.handleShowUserDetails);
+    this.userView.bindCallback(
+      "userRowClick",
+      this.handleRenderUserDetails
+    );
   };
 
   /**
-   * The handleShowUserDetails function displays details of a user.
+   * The handleRenderUserDetails function displays details of a user.
    * @param {string} userId - ID of the user to display details.
    */
-  handleShowUserDetails = (userId: string): void => {
+  handleRenderUserDetails = (userId: string): void => {
     const user = this.userModel.getUserById(userId);
-    this.userView.showUserDetails(user);
+    this.userView.handleRenderUserDetails(user);
   };
 
   /**
@@ -66,25 +69,24 @@ export default class UserController {
   };
 
   /**
- * The handleDeleteUser function initiates the deletion of a user from the server and updates the UI accordingly.
- * @param {string} userId - The ID of the user to be deleted.
- */
-handleDeleteUser = async (userId: string): Promise<void> => {
-  try {
-    const user = this.userModel.getUserById(userId);
-    if (!user) {
-      alert("User not found!");
-      return;
+   * The handleDeleteUser function initiates the deletion of a user from the server and updates the UI accordingly.
+   * @param {string} userId - The ID of the user to be deleted.
+   */
+  handleDeleteUser = async (userId: string): Promise<void> => {
+    try {
+      const user = this.userModel.getUserById(userId);
+      if (!user) {
+        alert("User not found!");
+        return;
+      }
+
+      await UserService.deleteUser(userId, { ...user });
+      alert("User deleted successfully!");
+      this.handleViewUsers();
+    } catch (error) {
+      alert("Failed to delete user");
     }
-
-    await UserService.deleteUser(userId, { ...user });
-    alert("User deleted successfully!");
-    this.handleViewUsers();
-  } catch (error) {
-    alert("Failed to delete user");
-  }
-};
-
+  };
 
   /**
    * Fetches user data from the server through the UserService.

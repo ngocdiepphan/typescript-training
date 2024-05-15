@@ -5,7 +5,6 @@ export default class RecipeModel {
   constructor(
     private name?: string,
     private description?: string,
-    private ingredient?: string[],
     private instruction?: string,
     private nutrition?: string,
     private creator?: string,
@@ -14,7 +13,7 @@ export default class RecipeModel {
     private role?: string,
     private imageURL?: string,
     private ratings?: number,
-    private createdAt?: Date
+    private createdAt?: string,
   ) {
     this.recipes = [];
   }
@@ -32,7 +31,7 @@ export default class RecipeModel {
    * @param {string} id - The ID of the recipes to retrieve
    * @returns {Recipe|undefined} - The recipes object if found, or undefined if not found
    */
-  getRecipeById(id: string): Recipe | undefined {
+  getRecipeById = (id: string) => {
     return this.recipes.find((recipe) => recipe.id === id);
   }
 }
