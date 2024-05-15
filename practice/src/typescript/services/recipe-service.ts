@@ -47,4 +47,31 @@ export default class RecipeService {
       return this.handleError(err);
     }
   };
+
+  /**
+   * The editRecipe static method updates an existing recipe with the provided payload.
+   * @param {string} recipeId - The ID of the recipe to be updated.
+   * @param {object} payload - The payload containing updated recipe details.
+   * @returns {Promise<object>} - A Promise resolving to the response object.
+   */
+  static editRecipe = async (
+    recipeId: string,
+    payload: any
+  ): Promise<object> => {
+    try {
+      const res = await fetch(
+        `${API.BASE_URL}${API.CREATE_PRODUCT}/${recipeId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+      return this.handleResponse(res);
+    } catch (err) {
+      return this.handleError(err);
+    }
+  };
 }

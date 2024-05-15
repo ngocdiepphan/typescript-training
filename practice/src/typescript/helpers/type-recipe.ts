@@ -11,3 +11,19 @@ export interface Recipe {
   createdAt: string;
   nutrition: string
 }
+
+
+export interface EditRecipeHandler {
+  (
+    recipeId: string,
+    newRecipeImage: string,
+    newRecipeName: string,
+    newRecipeCategory: string,
+    newRecipeCreator: string,
+    newRecipeRating: string,
+    newRecipeDescription: string
+  ): void;
+}
+
+
+

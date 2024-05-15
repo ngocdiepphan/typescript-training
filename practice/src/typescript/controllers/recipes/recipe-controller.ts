@@ -12,7 +12,10 @@ export default class RecipeController {
     this.recipeView = recipeView;
   }
 
-  init = async (): Promise<void> => {};
+  init = async (): Promise<void> => {
+    this.recipeView.bindCallback("editRecipe", this.handleEditRecipe);
+  };
+
 
   /**
    * handleViewRecipes function retrieves recipes data, sets it in the recipe model, renders the recipes table,
@@ -36,6 +39,41 @@ export default class RecipeController {
   handleShowRecipeDetails = (recipeId: string): void => {
     const recipe = this.recipeModel.getRecipeById(recipeId);
     this.recipeView.handleRenderRecipeDetails(recipe);
+  };
+
+  /**
+   * Handles editing a recipe with the provided details.
+   * @param {string} recipeId - The ID of the recipe to be edited.
+   * @param {string} newRecipeImage - The new image URL for the recipe.
+   * @param {string} newRecipeName - The new name for the recipe.
+   * @param {string} newRecipeCategory - The new category for the recipe.
+   * @param {string} newRecipeCreator - The new creator for the recipe.
+   * @param {number} newRecipeRating - The new rating for the recipe.
+   * @param {string} newRecipeDescription - The new description for the recipe.
+   * @returns {Promise<void>} - A Promise indicating the success or failure of the operation.
+   */
+  handleEditRecipe = async (
+    recipeId: string,
+    newRecipeImage: string,
+    newRecipeName: string,
+    newRecipeCategory: string,
+    newRecipeCreator: string,
+    newRecipeRating: number,
+    newRecipeDescription: string
+  ): Promise<void> => {
+    const recipe = this.recipeModel.getRecipeById(recipeId);
+    await RecipeService.editRecipe(recipeId, {
+      ...recipe,
+      imageURL: newRecipeImage,
+      name: newRecipeName,
+      category: newRecipeCategory,
+      creator: newRecipeCreator,
+      ratings: newRecipeRating,
+      description: newRecipeDescription,
+    });
+
+    alert("Updated recipe successfully!");
+    this.handleViewRecipes();
   };
 
   /**
