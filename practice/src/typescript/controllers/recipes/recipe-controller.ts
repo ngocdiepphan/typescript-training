@@ -14,6 +14,7 @@ export default class RecipeController {
 
   init = async (): Promise<void> => {
     this.recipeView.bindCallback("editRecipe", this.handleEditRecipe);
+    this.recipeView.bindCallback("deleteRecipe", this.handleDeleteRecipe);
   };
 
 
@@ -75,6 +76,17 @@ export default class RecipeController {
     alert("Updated recipe successfully!");
     this.handleViewRecipes();
   };
+
+ /**
+ * The handleDeleteRecipe function deletes a recipe.
+ * @param {string} recipeId - The ID of the recipe to delete.
+ */
+handleDeleteRecipe = async (recipeId: string): Promise<void> => {
+  await RecipeService.deleteRecipe(recipeId);
+  alert("Deleted recipe successfully!");
+  this.handleViewRecipes();
+};
+
 
   /**
    * Retrieves a list of recipes from the server through the RecipeService.
