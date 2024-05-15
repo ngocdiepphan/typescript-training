@@ -2,7 +2,7 @@ import {
   renderRecipeTableTemplate,
   renderRecipeDetails,
 } from "../../templates/recipe";
-import { Recipe } from "../../helpers/type-recipe";
+import { Recipe, EditRecipeHandler } from "../../helpers/type-recipe";
 import { delegate } from "../../helpers";
 
 export default class RecipeView {
@@ -10,6 +10,7 @@ export default class RecipeView {
   private userDetailsContainerEl: HTMLElement;
   private panelEl: HTMLElement;
   private tBodyEl: HTMLElement;
+  private sidebarDetailEl: HTMLElement;
 
   constructor() {
     this.tableWrapperEl = document.getElementById(
@@ -20,6 +21,9 @@ export default class RecipeView {
     ) as HTMLElement;
     this.panelEl = document.querySelector(".panel") as HTMLElement;
     this.tBodyEl = document.querySelector(".table__body") as HTMLElement;
+    this.sidebarDetailEl = document.getElementById(
+      "panel-details"
+    ) as HTMLElement;
   }
 
   bindCallback = (
@@ -37,6 +41,19 @@ export default class RecipeView {
             ".recipe_item",
             "click",
             this.showRecipeById(handler)
+          );
+        }
+        break;
+      case "editRecipe":
+        this.sidebarDetailEl = document.getElementById(
+          "panel-details"
+        ) as HTMLElement;
+        if (this.sidebarDetailEl && handler) {
+          delegate(
+            this.sidebarDetailEl,
+            ".btn-edit-recipe",
+            "click",
+            this.editRecipe(handler)
           );
         }
         break;
@@ -105,7 +122,9 @@ export default class RecipeView {
       createdAt,
     });
     this.userDetailsContainerEl.classList.add("show-panel");
-    const btnBackEl = document.querySelector(".content-users .icon-back") as HTMLElement;
+    const btnBackEl = document.querySelector(
+      ".content-users .icon-back"
+    ) as HTMLElement;
     btnBackEl.addEventListener("click", () => {
       const detailPanel = document.querySelector(
         ".content-dashboard"
@@ -114,4 +133,46 @@ export default class RecipeView {
     });
     btnBackEl.removeEventListener("click", () => {});
   };
+
+  /**
+   * The editRecipe function extracts information from input fields and invokes a handler function to edit a recipe.
+   * @param {function} handler - The handler function to be invoked with the updated recipe information.
+   * @param {Event} event - The event triggered by interacting with a DOM element.
+   */
+  editRecipe =
+    (handler: EditRecipeHandler) =>
+    (event: Event): void => {
+      const recipesImage = (
+        document.getElementById("image-input") as HTMLInputElement
+      ).value.trim();
+      const recipesNameInput = (
+        document.getElementById("recipe-name-input") as HTMLInputElement
+      ).value.trim();
+      const recipesCategory = (
+        document.getElementById("recipe-category-input") as HTMLInputElement
+      ).value.trim();
+      const recipesCreator = (
+        document.getElementById("recipe-creator-input") as HTMLInputElement
+      ).value.trim();
+      const recipesRatings = (
+        document.getElementById("recipe-ratings-input") as HTMLInputElement
+      ).value.trim();
+      const recipesDes = (
+        document.getElementById("recipe-description-input") as HTMLInputElement
+      ).value.trim();
+      const recipesId = document
+        .querySelector(".panel__confirm")
+        ?.getAttribute("data-id");
+      if (recipesId) {
+        handler(
+          recipesId,
+          recipesImage,
+          recipesNameInput,
+          recipesCategory,
+          recipesCreator,
+          recipesRatings,
+          recipesDes
+        );
+      }
+    };
 }
