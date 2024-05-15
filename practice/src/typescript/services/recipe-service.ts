@@ -74,4 +74,27 @@ export default class RecipeService {
       return this.handleError(err);
     }
   };
+
+  /**
+   * The deleteRecipe static method deletes a recipe with the specified recipeId.
+   * @param {string} recipeId - The ID of the recipe to be deleted.
+   * @returns {Promise<object>} - A Promise resolving to the response object.
+   */
+  static deleteRecipe = async (recipeId: string): Promise<object> => {
+    try {
+      const res = await fetch(
+        `${API.BASE_URL}${API.CREATE_PRODUCT}/${recipeId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      return this.handleResponse(res);
+    } catch (err) {
+      return this.handleError(err);
+    }
+  };
 }

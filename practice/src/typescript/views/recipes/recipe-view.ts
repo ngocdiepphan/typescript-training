@@ -2,7 +2,11 @@ import {
   renderRecipeTableTemplate,
   renderRecipeDetails,
 } from "../../templates/recipe";
-import { Recipe, EditRecipeHandler } from "../../helpers/type-recipe";
+import {
+  Recipe,
+  EditRecipeHandler,
+  DeleteRecipeHandler,
+} from "../../helpers/type-recipe";
 import { delegate } from "../../helpers";
 
 export default class RecipeView {
@@ -54,6 +58,19 @@ export default class RecipeView {
             ".btn-edit-recipe",
             "click",
             this.editRecipe(handler)
+          );
+        }
+        break;
+      case "deleteRecipe":
+        this.sidebarDetailEl = document.getElementById(
+          "panel-details"
+        ) as HTMLElement;
+        if (this.sidebarDetailEl) {
+          delegate(
+            this.sidebarDetailEl,
+            ".btn-delete-recipe",
+            "click",
+            this.deleteRecipe(handler)
           );
         }
         break;
@@ -173,6 +190,18 @@ export default class RecipeView {
           recipesRatings,
           recipesDes
         );
+      }
+    };
+
+  /**
+   * The deleteRecipe function extracts the ID of a recipe from a DOM element and invokes a handler function to delete the recipe.
+   * @param {DeleteRecipeHandler} handler - The handler function to be invoked with the recipe ID for deletion.
+   * @param {Event} event - The event triggered by interacting with a DOM element.
+   */
+  deleteRecipe =(handler: DeleteRecipeHandler) => (event: Event): void => {
+      const recipesId = document.querySelector(".panel__confirm")?.getAttribute("data-id");
+      if (recipesId) {
+        handler(recipesId);
       }
     };
 }
