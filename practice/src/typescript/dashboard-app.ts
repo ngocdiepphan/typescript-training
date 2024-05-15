@@ -5,6 +5,8 @@ import { delegate } from "./helpers";
 import RecipeController from "./controllers/recipes/recipe-controller.ts";
 import RecipeModel from "./models/recipe-model.ts";
 import RecipeView from "./views/recipes/recipe-view.ts";
+import DashBoardController from "./controllers/recipes/dashboard-controller.ts";
+import DashBoardView from "./views/recipes/dashboard-view.ts";
 
 window.addEventListener("load", () => {
   const userModel = new UserModel();
@@ -14,9 +16,13 @@ window.addEventListener("load", () => {
   const recipeModel = new RecipeModel();
   const recipeView = new RecipeView();
   const recipesController = new RecipeController(recipeModel, recipeView);
+  
+  const dashboardView = new DashBoardView();
+  const dashboardController = new DashBoardController(dashboardView);
 
   userController.init();
   recipesController.init();
+  dashboardController.init();
 
   const setNavigationActive = (type: string): void => {
     document

@@ -6,8 +6,9 @@ import {
   Recipe,
   EditRecipeHandler,
   DeleteRecipeHandler,
+  AddRecipeHandler,
 } from "../../helpers/type-recipe";
-import { delegate } from "../../helpers";
+import { bindEvent, delegate } from "../../helpers";
 
 export default class RecipeView {
   private tableWrapperEl: HTMLElement;
@@ -15,6 +16,13 @@ export default class RecipeView {
   private panelEl: HTMLElement;
   private tBodyEl: HTMLElement;
   private sidebarDetailEl: HTMLElement;
+  private selectAddEl: HTMLElement;
+  private nameEl: HTMLElement;
+  private imageEl: HTMLElement;
+  private desEL: HTMLElement;
+  private categoryEl: HTMLElement;
+  private creatorEl: HTMLElement;
+  private ratingEl: HTMLElement;
 
   constructor() {
     this.tableWrapperEl = document.getElementById(
@@ -28,6 +36,15 @@ export default class RecipeView {
     this.sidebarDetailEl = document.getElementById(
       "panel-details"
     ) as HTMLElement;
+    this.selectAddEl = document.getElementById(
+      "form-add-recipes"
+    ) as HTMLElement;
+    this.nameEl = document.getElementById("input_name") as HTMLElement;
+    this.imageEl = document.getElementById("input_image") as HTMLElement;
+    this.desEL = document.getElementById("input_description") as HTMLElement;
+    this.categoryEl = document.getElementById("input_category") as HTMLElement;
+    this.creatorEl = document.getElementById("input_creator") as HTMLElement;
+    this.ratingEl = document.getElementById("input_ratings") as HTMLElement;
   }
 
   bindCallback = (
@@ -73,6 +90,10 @@ export default class RecipeView {
             this.deleteRecipe(handler)
           );
         }
+        break;
+      case "addRecipe":
+        bindEvent(this.selectAddEl, "submit", this.addRecipe(handler));
+        console.log("Click vào nút New");
         break;
       default:
         break;
@@ -198,10 +219,40 @@ export default class RecipeView {
    * @param {DeleteRecipeHandler} handler - The handler function to be invoked with the recipe ID for deletion.
    * @param {Event} event - The event triggered by interacting with a DOM element.
    */
-  deleteRecipe =(handler: DeleteRecipeHandler) => (event: Event): void => {
-      const recipesId = document.querySelector(".panel__confirm")?.getAttribute("data-id");
+  deleteRecipe =
+    (handler: DeleteRecipeHandler) =>
+    (event: Event): void => {
+      const recipesId = document
+        .querySelector(".panel__confirm")
+        ?.getAttribute("data-id");
       if (recipesId) {
         handler(recipesId);
       }
+    };
+
+  /**
+   * The addRecipe function extracts information from input fields and invokes a handler function to add a new recipe.
+   * @param {AddRecipeHandler} handler - The handler function to be invoked with the new recipe information.
+   */
+  addRecipe =
+    (handler: AddRecipeHandler) =>
+    (event: Event): void => {
+      event.preventDefault();
+      const newRecipe: Recipe = {
+        name: (this.nameEl as HTMLInputElement).value,
+        imageURL: (this.imageEl as HTMLInputElement).value,
+        category: (this.categoryEl as HTMLInputElement).value,
+        creator: (this.creatorEl as HTMLInputElement).value,
+        ratings: parseInt((this.ratingEl as HTMLInputElement).value),
+        description: (this.desEL as HTMLInputElement).value,
+        ingredient: "",
+        instruction: "",
+        id: "",
+        createdAt: "",
+        nutrition: "",
+      };
+      handler(newRecipe);
+      this.selectAddEl.classList.add("show-form");
+      alert("Recipe added successfully!");
     };
 }

@@ -2,6 +2,7 @@ import RecipeModel from "../../models/recipe-model";
 import RecipeView from "../../views/recipes/recipe-view";
 import { RecipeApiResponse } from "../../services/helper";
 import RecipeService from "../../services/recipe-service";
+import { Recipe } from "../../helpers/type-recipe";
 
 export default class RecipeController {
   private recipeModel: RecipeModel;
@@ -15,8 +16,8 @@ export default class RecipeController {
   init = async (): Promise<void> => {
     this.recipeView.bindCallback("editRecipe", this.handleEditRecipe);
     this.recipeView.bindCallback("deleteRecipe", this.handleDeleteRecipe);
+    this.recipeView.bindCallback("addRecipe", this.handleAddRecipe);
   };
-
 
   /**
    * handleViewRecipes function retrieves recipes data, sets it in the recipe model, renders the recipes table,
@@ -77,17 +78,24 @@ export default class RecipeController {
     this.handleViewRecipes();
   };
 
- /**
- * The handleDeleteRecipe function deletes a recipe.
- * @param {string} recipeId - The ID of the recipe to delete.
- */
-handleDeleteRecipe = async (recipeId: string): Promise<void> => {
-  await RecipeService.deleteRecipe(recipeId);
-  alert("Deleted recipe successfully!");
-  this.handleViewRecipes();
-};
+  /**
+   * The handleDeleteRecipe function deletes a recipe.
+   * @param {string} recipeId - The ID of the recipe to delete.
+   */
+  handleDeleteRecipe = async (recipeId: string): Promise<void> => {
+    await RecipeService.deleteRecipe(recipeId);
+    alert("Deleted recipe successfully!");
+    this.handleViewRecipes();
+  };
 
-
+  /**
+   * The handleAddRecipe function adds a new recipe.
+   * @param {Recipe} recipeData - An object containing recipe details.
+   */
+  handleAddRecipe = async (recipeData: Recipe): Promise<void> => {
+    await RecipeService.createRecipe(recipeData);
+    this.handleViewRecipes();
+  };
   /**
    * Retrieves a list of recipes from the server through the RecipeService.
    * @returns {Promise<RecipeApiResponse>} - A Promise containing the list of recipes from the server.
