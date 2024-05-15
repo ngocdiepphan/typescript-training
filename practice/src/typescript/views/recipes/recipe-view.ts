@@ -105,12 +105,13 @@ export default class RecipeView {
       createdAt,
     });
     this.userDetailsContainerEl.classList.add("show-panel");
-    const btnBackEl = document.querySelector(".content-users") as HTMLElement;
+    const btnBackEl = document.querySelector(".content-users .icon-back") as HTMLElement;
     btnBackEl.addEventListener("click", () => {
       const detailPanel = document.querySelector(
         ".content-dashboard"
       ) as HTMLElement;
       detailPanel.classList.remove("show-panel");
     });
+    btnBackEl.removeEventListener("click", () => {});
   };
 }
