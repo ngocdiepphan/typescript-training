@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
   const recipeModel = new RecipeModel();
   const recipeView = new RecipeView();
   const recipesController = new RecipeController(recipeModel, recipeView);
-  
+
   const dashboardView = new DashBoardView();
   const dashboardController = new DashBoardController(dashboardView);
 
@@ -54,16 +54,19 @@ window.addEventListener("load", () => {
   };
 
   delegate(
-    document.querySelector(".navigation"),
+    document.querySelector(".navigation") as HTMLElement,
     ".navigation__item",
     "click",
     (event: Event) => {
       event.preventDefault();
       const target = event.target as HTMLElement;
-      const type = target.closest(".navigation__item")?.dataset.id;
+      const closestNavItem = target?.closest(
+        ".navigation__item"
+      ) as HTMLElement | null;
+      const type = closestNavItem?.dataset.id;
+
       if (type) {
         setNavigationActive(type);
-
         const toolEl = document.querySelector<HTMLElement>(".toolbar__title");
         if (toolEl) {
           if (type === "users") {

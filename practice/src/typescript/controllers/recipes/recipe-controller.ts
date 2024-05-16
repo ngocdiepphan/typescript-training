@@ -26,12 +26,16 @@ export default class RecipeController {
    */
   handleViewRecipes = async (): Promise<void> => {
     const { data } = await this.getRecipes();
-    this.recipeModel.setRecipes(data);
-    this.recipeView.renderTableRecipes(data);
-    this.recipeView.bindCallback(
-      "recipeRowClick",
-      this.handleShowRecipeDetails
-    );
+    if (data) {
+      this.recipeModel.setRecipes(data);
+      this.recipeView.renderTableRecipes(data);
+      this.recipeView.bindCallback(
+        "recipeRowClick",
+        this.handleShowRecipeDetails
+      );
+    } else {
+      console.error("No recipe data returned.");
+    }
   };
 
   /**
@@ -40,7 +44,11 @@ export default class RecipeController {
    */
   handleShowRecipeDetails = (recipeId: string): void => {
     const recipe = this.recipeModel.getRecipeById(recipeId);
-    this.recipeView.handleRenderRecipeDetails(recipe);
+    if (recipe) {
+      this.recipeView.handleRenderRecipeDetails(recipe);
+    } else {
+      console.error("Recipe not found");
+    }
   };
 
   /**
@@ -96,12 +104,12 @@ export default class RecipeController {
     await RecipeService.createRecipe(recipeData);
     this.handleViewRecipes();
   };
-  
+
   /**
    * Retrieves a list of recipes from the server through the RecipeService.
    * @returns {Promise<RecipeApiResponse>} - A Promise containing the list of recipes from the server.
    */
-  getRecipes = async (): Promise<RecipeApiResponse> => {
-    return await RecipeService.fetchRecipes();
+  getRecipes = (): Promise<RecipeApiResponse> => {
+    return RecipeService.fetchRecipes();
   };
 }

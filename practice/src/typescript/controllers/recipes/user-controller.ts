@@ -23,9 +23,13 @@ export default class UserController {
    */
   handleViewUsers = async (): Promise<void> => {
     const { data } = await this.getUser();
-    this.userModel.setUser(data);
-    this.userView.renderTables(data);
-    this.userView.bindCallback("userRowClick", this.handleRenderUserDetails);
+    if (data) {
+      this.userModel.setUser(data);
+      this.userView.renderTables(data);
+      this.userView.bindCallback("userRowClick", this.handleRenderUserDetails);
+    } else {
+      console.error("No user data returned.");
+    }
   };
 
   /**
@@ -34,7 +38,11 @@ export default class UserController {
    */
   handleRenderUserDetails = (userId: string): void => {
     const user = this.userModel.getUserById(userId);
-    this.userView.handleRenderUserDetails(user);
+    if (user) {
+      this.userView.handleRenderUserDetails(user);
+    } else {
+      console.error("User not found");
+    }
   };
 
   /**
@@ -90,7 +98,7 @@ export default class UserController {
    * Fetches user data from the server through the UserService.
    * @returns {Promise<ApiResponse>} - A Promise containing user data from the server.
    */
-  getUser = async (): Promise<ApiResponse> => {
-    return await UserService.fetchUser();
+  getUser = (): Promise<ApiResponse> => {
+    return UserService.fetchUser();
   };
 }

@@ -47,10 +47,7 @@ export default class RecipeView {
     this.ratingEl = document.getElementById("input_ratings") as HTMLElement;
   }
 
-  bindCallback = (
-    event: string,
-    handler?: (recipeId: string) => void
-  ): void => {
+  bindCallback = (event: string, handler: (recipeId: string) => void): void => {
     switch (event) {
       case "recipeRowClick":
         this.tBodyEl = document.querySelector(
@@ -157,6 +154,8 @@ export default class RecipeView {
       ingredient,
       nutrition,
       createdAt,
+      collection_id: 0,
+      image: "",
     });
     this.userDetailsContainerEl.classList.add("show-panel");
     const btnBackEl = document.querySelector(
@@ -192,9 +191,11 @@ export default class RecipeView {
       const recipesCreator = (
         document.getElementById("recipe-creator-input") as HTMLInputElement
       ).value.trim();
-      const recipesRatings = (
-        document.getElementById("recipe-ratings-input") as HTMLInputElement
-      ).value.trim();
+      const recipesRatings = parseInt(
+        (
+          document.getElementById("recipe-ratings-input") as HTMLInputElement
+        ).value.trim()
+      );
       const recipesDes = (
         document.getElementById("recipe-description-input") as HTMLInputElement
       ).value.trim();
@@ -234,9 +235,8 @@ export default class RecipeView {
    * The addRecipe function extracts information from input fields and invokes a handler function to add a new recipe.
    * @param {AddRecipeHandler} handler - The handler function to be invoked with the new recipe information.
    */
-  addRecipe =
-    (handler: AddRecipeHandler) =>
-    (event: Event): void => {
+  addRecipe = (handler: AddRecipeHandler): ((event: Event) => void) => {
+    return (event: Event): void => {
       event.preventDefault();
       const newRecipe: Recipe = {
         name: (this.nameEl as HTMLInputElement).value,
@@ -250,9 +250,12 @@ export default class RecipeView {
         id: "",
         createdAt: "",
         nutrition: "",
+        collection_id: 0,
+        image: "",
       };
       handler(newRecipe);
       this.selectAddEl.classList.add("show-form");
       alert("Recipe added successfully!");
     };
+  };
 }

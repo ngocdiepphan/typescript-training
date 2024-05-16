@@ -1,11 +1,12 @@
 import RecipeModel from "../../models/recipe-model";
 import RecipeDetailView from "../../views/recipe-detail/recipe-view";
 import RecipeService from "../../services/recipe-service";
-import { RecipeApiResponse } from "../../services/helper
+import { RecipeApiResponse } from "../../services/helper"
 
 export default class RecipeDetailController {
   private recipeModel: RecipeModel;
   private recipeDetailView: RecipeDetailView;
+  private urlParams: URLSearchParams;
 
   constructor(recipeModel: RecipeModel, recipeDetailView: RecipeDetailView) {
     this.recipeModel = recipeModel;

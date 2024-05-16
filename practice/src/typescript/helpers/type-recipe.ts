@@ -11,6 +11,7 @@ export interface Recipe {
   createdAt: string;
   nutrition: string;
   collection_id: number;
+  image: string
 }
 
 export interface EditRecipeHandler {
