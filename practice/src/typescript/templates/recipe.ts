@@ -131,4 +131,81 @@ const renderRecipeDetails = (data: Recipe): string => {
   `;
 };
 
-export { renderRecipeTableTemplate, renderRecipeDetails };
+const renderListRecipesTemplate = (data: Recipe[]): string => {
+  return data.length
+    ? data
+        .map((item: Recipe) => {
+          return `
+          <a href="recipe.html?id=${item.id}">
+            <li class="recipes__food" data-id=${item.id}>
+              <article class="card">
+                <img class="card__image" src="${item.imageURL}"
+                  alt="Picture cashew-vegan-rice" />
+                <p class="card__name recipes__name">${item.name}</p>
+              </article>
+            </li>
+          </a>
+        `;
+        })
+        .join("")
+    : "";
+};
+
+const renderRating = (ratings: number): string => {
+  let rating = "";
+  for (let i = 0; i < ratings; i++) {
+    rating += '<span class="card__rating-star"></span>';
+  }
+  return rating;
+};
+
+const renderListRecipesByCollectionTemplate = (data: Recipe[]): string => {
+  return data.length
+    ? data
+        .map(
+          (item) => `
+      <a href="recipe.html?id=${item.id}">
+        <li class="delicious__item">
+          <article class="card">
+            <img class="card__image delicious__image"
+              src="${item.imageURL}"
+              alt="Picture spinach-and-cheese-pasta" />
+            <div class="card__rating">${renderRating(item.ratings)}</div>
+            <p class="card__name delicious__name-food">${item.name}</p>
+          </article>
+        </li>
+      </a>
+    `
+        )
+        .join("")
+    : "";
+};
+
+const renderListRecipesBySweetTemplate = (data: Recipe[]): string => {
+  return data.length
+    ? data
+        .map((item) => {
+          return `
+    <a href="recipe.html?id=${item.id}">
+      <li class="delicious__item">
+        <article class="card">
+          <img class="card__image delicious__image" src="${item.imageURL}"
+           alt="Picture spinach-and-cheese-pasta" />
+          <div class="card__rating">${renderRating(item.ratings)}</div>
+          <p class="card__name delicious__name-food">${item.name}</p>
+        </article>
+      </li>
+    </a>
+    `;
+        })
+        .join("")
+    : "";
+};
+
+export {
+  renderRecipeTableTemplate,
+  renderRecipeDetails,
+  renderListRecipesTemplate,
+  renderListRecipesByCollectionTemplate,
+  renderListRecipesBySweetTemplate,
+};

@@ -96,6 +96,7 @@ export default class RecipeController {
     await RecipeService.createRecipe(recipeData);
     this.handleViewRecipes();
   };
+  
   /**
    * Retrieves a list of recipes from the server through the RecipeService.
    * @returns {Promise<RecipeApiResponse>} - A Promise containing the list of recipes from the server.
