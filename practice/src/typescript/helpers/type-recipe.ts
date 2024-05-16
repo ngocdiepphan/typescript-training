@@ -9,7 +9,8 @@ export interface Recipe {
   imageURL: string;
   ratings: number;
   createdAt: string;
-  nutrition: string
+  nutrition: string;
+  collection_id: number;
 }
 
 export interface EditRecipeHandler {
