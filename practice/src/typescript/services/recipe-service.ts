@@ -97,4 +97,48 @@ export default class RecipeService {
       return this.handleError(err);
     }
   };
+
+  /**
+   * Fetch method to create a new recipe on the server.
+   * @param {object} recipeInfo - Object containing information about the new recipe.
+   * @param {string} recipeInfo.name - Name of the new recipe.
+   * @param {string} recipeInfo.image - Image URL of the new recipe.
+   * @param {string} recipeInfo.category - Category of the new recipe.
+   * @param {string} recipeInfo.creator - Creator of the new recipe.
+   * @param {number} recipeInfo.ratings - Ratings of the new recipe.
+   * @param {string} recipeInfo.description - Description of the new recipe.
+   * @param {string} recipeInfo.createdAt - Creation date of the new recipe.
+   * @returns {Promise<any>} - Promise resolved with the result of the fetch request.
+   */
+  static createRecipe = async ({
+    name,
+    image,
+    category,
+    creator,
+    ratings,
+    description,
+    createdAt,
+  }: {
+    name: string;
+    image: string;
+    category: string;
+    creator: string;
+    ratings: number;
+    description: string;
+    createdAt: string;
+  }): Promise<any> => {
+    return await APIHelper.createRequest(
+      `${API.BASE_URL}${API.CREATE_PRODUCT}`,
+      "POST",
+      {
+        name,
+        imageURL: image,
+        category,
+        creator,
+        ratings,
+        description,
+        createdAt,
+      }
+    );
+  };
 }

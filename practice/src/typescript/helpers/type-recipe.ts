@@ -12,7 +12,6 @@ export interface Recipe {
   nutrition: string
 }
 
-
 export interface EditRecipeHandler {
   (
     recipeId: string,
@@ -20,10 +19,11 @@ export interface EditRecipeHandler {
     newRecipeName: string,
     newRecipeCategory: string,
     newRecipeCreator: string,
-    newRecipeRating: string,
+    newRecipeRating: number,
     newRecipeDescription: string
   ): void;
 }
 
 export type DeleteRecipeHandler = (recipeId: string) => void;
 
+export type AddRecipeHandler = (newRecipe: Recipe) => void;
