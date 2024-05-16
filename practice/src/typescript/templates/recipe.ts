@@ -78,7 +78,7 @@ const renderRecipeDetails = (data: Recipe): string => {
       <button class="btn__general">General</button>
     </div>
 
-    <div class="panel__confirm" data-id=${data.id}>
+    <div class="panel__confirm" data-id="${data.id}">
       <button class="btn__delete btn__save btn-delete-recipe" id="delete-recipe">Delete</button>
       <button class="btn__save btn-edit-recipe" id="save-edit">Save</button>
     </div>
@@ -86,17 +86,17 @@ const renderRecipeDetails = (data: Recipe): string => {
     <form class="panel__edit-profile">
       <div class="panel__item">
         <label class="panel__label">Image</label>
-        <input id="image-input" type="text" class="panel__input" value=${data.imageURL}>
+        <input id="image-input" type="text" class="panel__input" value="${data.imageURL}">
       </div>
 
       <div class="panel__item">
         <label class="panel__label">Name</label>
-        <input id="recipe-name-input" type="text" class="panel__input" value=${data.name}>
+        <input id="recipe-name-input" type="text" class="panel__input" value="${data.name}">
       </div>
 
       <div class="panel__item">
         <label class="panel__label" for="recipe-category-input">Category</label>
-        <select id="recipe-category-input" class="panel__input" value=${data.category}>
+        <select id="recipe-category-input" class="panel__input" value="${data.category}">
           <option value="">Please select</option>
           <option value="Pasta">Pasta</option>
           <option value="Pizza">Pizza</option>
@@ -109,12 +109,12 @@ const renderRecipeDetails = (data: Recipe): string => {
 
       <div class="panel__item">
         <label class="panel__label">Creator</label>
-        <input id="recipe-creator-input" type="text" class="panel__input" value=${data.creator}>
+        <input id="recipe-creator-input" type="text" class="panel__input" value="${data.creator}">
       </div>
 
       <div class="panel__item">
         <label class="panel__label" for="recipe-ratings-input">Ratings</label>
-        <select id="recipe-ratings-input" class="panel__input" value=${data.ratings}>
+        <select id="recipe-ratings-input" class="panel__input" value="${data.ratings}">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -125,7 +125,7 @@ const renderRecipeDetails = (data: Recipe): string => {
 
       <div class="panel__item">
         <label class="panel__label">Description</label>
-        <input id="recipe-description-input" type="text" class="panel__input" value=${data.description}>
+        <input id="recipe-description-input" type="text" class="panel__input" value="${data.description}">
       </div>
     </form>
   `;
@@ -275,5 +275,5 @@ export {
   renderListRecipesTemplate,
   renderListRecipesByCollectionTemplate,
   renderListRecipesBySweetTemplate,
-  renderRecipeDetailTemplate
+  renderRecipeDetailTemplate,
 };

@@ -93,7 +93,6 @@ export default class RecipeView {
         break;
       case "addRecipe":
         bindEvent(this.selectAddEl, "submit", this.addRecipe(handler));
-        console.log("Click vào nút New");
         break;
       default:
         break;
@@ -161,15 +160,16 @@ export default class RecipeView {
     });
     this.userDetailsContainerEl.classList.add("show-panel");
     const btnBackEl = document.querySelector(
-      ".content-users .icon-back"
+      ".panel__edit .icon-back"
     ) as HTMLElement;
+
     btnBackEl.addEventListener("click", () => {
       const detailPanel = document.querySelector(
         ".content-dashboard"
       ) as HTMLElement;
       detailPanel.classList.remove("show-panel");
+      btnBackEl.removeEventListener("click", () => {});
     });
-    btnBackEl.removeEventListener("click", () => {});
   };
 
   /**
