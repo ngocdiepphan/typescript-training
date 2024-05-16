@@ -7,7 +7,7 @@ import {
   EditUserHandler,
   DeleteUserHandler,
 } from "../../helpers/type-user";
-import { bindEvent, delegate } from "../../helpers";
+import { delegate } from "../../helpers";
 
 export default class UserView {
   private tableWrapperEl: HTMLElement;
@@ -32,12 +32,6 @@ export default class UserView {
 
   bindCallback = (event: string, handler?: (userId: string) => void): void => {
     switch (event) {
-      case "displayPanel":
-        const selectPanelEl = document.getElementById("user-body");
-        if (selectPanelEl) {
-          bindEvent(selectPanelEl, "click", this.displayPanel);
-        }
-        break;
       case "userRowClick":
         this.tBodyEl = document.querySelector(".table__body") as HTMLElement;
         if (this.tBodyEl && handler) {
@@ -89,18 +83,6 @@ export default class UserView {
   };
 
   /**
-   * The displayPanel function displays or hides a panel on the user interface when a click event occurs.
-   * @param event - Click event object.
-   */
-  displayPanel = (event: Event): void => {
-    event.preventDefault();
-    const detailPanel = document.getElementById("panel-details");
-    if (detailPanel) {
-      detailPanel.classList.toggle("show-panel");
-    }
-  };
-
-  /**
    * The handleRenderUserDetails function displays the user details in a panel on the user interface.
    * @param {object} params - An object containing the user's id, username, and email.
    * @param {string} params.id - The unique identifier of the user.
@@ -115,8 +97,9 @@ export default class UserView {
     });
     this.userDetailsContainerEl.classList.add("show-panel");
     const btnBackEl = document.querySelector(
-      ".content-users .icon-back"
+      ".panel__edit .icon-back"
     ) as HTMLElement;
+
     btnBackEl.addEventListener("click", () => {
       const detailPanel = document.querySelector(
         ".content-dashboard"

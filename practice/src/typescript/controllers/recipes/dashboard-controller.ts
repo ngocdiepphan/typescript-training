@@ -9,5 +9,7 @@ export default class DashBoardController {
 
   init = async () => {
     this.dashboardView.bindCallback("newToggle");
+    this.dashboardView.bindCallback("closeToggle");
+    this.dashboardView.bindCallback("menuToggle");
   };
 }
