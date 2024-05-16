@@ -108,7 +108,7 @@ export default class RecipeService {
    * @param {number} recipeInfo.ratings - Ratings of the new recipe.
    * @param {string} recipeInfo.description - Description of the new recipe.
    * @param {string} recipeInfo.createdAt - Creation date of the new recipe.
-   * @returns {Promise<any>} - Promise resolved with the result of the fetch request.
+   * @returns {Promise<RecipeApiResponse>} - Promise resolved with the result of the fetch request.
    */
   static createRecipe = async ({
     name,
@@ -126,7 +126,7 @@ export default class RecipeService {
     ratings: number;
     description: string;
     createdAt: string;
-  }): Promise<any> => {
+  }): Promise<RecipeApiResponse> => {
     return await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_PRODUCT}`,
       "POST",
@@ -139,6 +139,18 @@ export default class RecipeService {
         description,
         createdAt,
       }
+    );
+  };
+
+  /**
+   * Fetches detailed information about a recipe based on its ID from the server.
+   * @param {string} id - The ID of the recipe to fetch details for.
+   * @returns {Promise<RecipeApiResponse>} - A Promise that resolves to the detailed information of the recipe.
+   */
+  static fetchRecipeDetail = async (id: string): Promise<RecipeApiResponse> => {
+    return await APIHelper.createRequest(
+      `${API.BASE_URL}${API.CREATE_PRODUCT}?id=${id}`,
+      "GET"
     );
   };
 }
