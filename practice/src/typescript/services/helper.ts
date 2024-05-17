@@ -9,7 +9,7 @@ export interface ApiResponse {
 export type SignInResponse = User | string;
 
 export interface RecipeApiResponse {
-  data: Recipe[] | null;
+  data: Recipe | null;
   error?: { message: string } | null;
 }
 
