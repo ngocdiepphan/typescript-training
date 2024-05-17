@@ -1,7 +1,7 @@
 import RecipeModel from "../../models/recipe-model";
 import RecipeDetailView from "../../views/recipe-detail/recipe-view";
 import RecipeService from "../../services/recipe-service";
-import { RecipeApiResponse } from "../../services/helper"
+import { RecipeApiResponse } from "../../services/helper";
 
 export default class RecipeDetailController {
   private recipeModel: RecipeModel;
@@ -15,8 +15,12 @@ export default class RecipeDetailController {
 
   init = async (): Promise<void> => {
     this.urlParams = new URLSearchParams(window.location.search);
-    const { result } = await this.getRecipeDetail(this.urlParams.get("id"));
-    this.recipeDetailView.renderRecipePageDetail(result[0]);
+    const { data } = await this.getRecipeDetail(this.urlParams.get("id")!);
+    if (data) {
+      this.recipeDetailView.renderRecipePageDetail(data[0]);
+    } else {
+      console.error("No recipe data returned.");
+    }
   };
 
   /**
@@ -24,7 +28,7 @@ export default class RecipeDetailController {
    * @param {string} id - The ID of the recipe to fetch details for.
    * @returns {Promise<RecipeApiResponse>} - A Promise that resolves to the detailed information of the recipe.
    */
-  getRecipeDetail = async (id: string): Promise<RecipeApiResponse> => {
-    return await RecipeService.fetchRecipeDetail(id);
+  getRecipeDetail = (id: string): Promise<RecipeApiResponse> => {
+    return RecipeService.fetchRecipeDetail(id);
   };
 }

@@ -2,7 +2,7 @@ import RecipeModel from "../../models/recipe-model";
 import RecipeView from "../../views/recipes/recipe-view";
 import { RecipeApiResponse } from "../../services/helper";
 import RecipeService from "../../services/recipe-service";
-import { Recipe } from "../../helpers/type-recipe";
+import { Recipe, EditRecipeHandler } from "../../helpers/type-recipe";
 
 export default class RecipeController {
   private recipeModel: RecipeModel;
@@ -70,16 +70,17 @@ export default class RecipeController {
     newRecipeCreator: string,
     newRecipeRating: number,
     newRecipeDescription: string
-  ): Promise<void> => {
+): Promise<void> => {
     const recipe = this.recipeModel.getRecipeById(recipeId);
     await RecipeService.editRecipe(recipeId, {
-      ...recipe,
-      imageURL: newRecipeImage,
-      name: newRecipeName,
-      category: newRecipeCategory,
-      creator: newRecipeCreator,
-      ratings: newRecipeRating,
-      description: newRecipeDescription,
+        ...recipe,
+        recipeId,
+        imageURL: newRecipeImage,
+        name: newRecipeName,
+        category: newRecipeCategory,
+        creator: newRecipeCreator,
+        ratings: newRecipeRating,
+        description: newRecipeDescription,
     });
 
     alert("Updated recipe successfully!");

@@ -150,7 +150,8 @@ export default class RecipeService {
   static fetchRecipeDetail = async (id: string): Promise<RecipeApiResponse> => {
     return await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_PRODUCT}?id=${id}`,
-      "GET"
+      "GET",
+      null
     );
   };
 }

@@ -13,7 +13,7 @@ export default class UserController {
   }
 
   init = async (): Promise<void> => {
-    this.userView.bindCallback("editUser", this.handleEditUser);
+    this.userView.bindCallback("editUser", this.handleEditUser());
     this.userView.bindCallback("deleteUser", this.handleDeleteUser);
   };
 

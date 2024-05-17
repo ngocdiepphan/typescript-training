@@ -8,7 +8,9 @@ export interface User {
 }
 
 export interface EditUserHandler {
-  (userId: string, userName: string): void;
+  userId: string;
+  newUsername: string;
 }
 
 export type DeleteUserHandler = (userId: string) => void;
+
