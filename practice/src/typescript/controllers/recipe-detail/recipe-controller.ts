@@ -15,11 +15,21 @@ export default class RecipeDetailController {
 
   init = async (): Promise<void> => {
     this.urlParams = new URLSearchParams(window.location.search);
-    const { data } = await this.getRecipeDetail(this.urlParams.get("id")!);
-    if (data) {
-      this.recipeDetailView.renderRecipePageDetail(data[0]);
+    const recipeId = this.urlParams.get("id");
+
+    if (!recipeId) {
+      console.error("Recipe ID is null");
+      return;
+    }
+
+    const response = await this.getRecipeDetail(recipeId);
+
+    if (response.data && response.data.length > 0) {
+      this.recipeDetailView.renderRecipePageDetail(response.data[0]);
+    } else if (response.error) {
+      console.error(response.error.message);
     } else {
-      console.error("No recipe data returned.");
+      console.error("No data found for the given recipe ID");
     }
   };
 

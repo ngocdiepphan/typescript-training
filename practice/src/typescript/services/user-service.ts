@@ -57,7 +57,7 @@ export default class UserService {
    */
   static editUsers = async (
     userId: string,
-    payload: User
+    payload: { username: string }
   ): Promise<ApiResponse> => {
     try {
       const res = await fetch(`${API.BASE_URL}${API.CREATE_USER}/${userId}`, {

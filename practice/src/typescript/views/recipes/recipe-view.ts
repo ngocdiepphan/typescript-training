@@ -67,10 +67,7 @@ export default class RecipeView {
           "panel-details"
         ) as HTMLElement;
         if (this.sidebarDetailEl && handler) {
-          delegate(
-            this.sidebarDetailEl,
-            ".btn-edit-recipe",
-            "click",
+          delegate(this.sidebarDetailEl, ".btn-edit-recipe", "click", () =>
             this.editRecipe(handler)
           );
         }
@@ -235,7 +232,9 @@ export default class RecipeView {
    * The addRecipe function extracts information from input fields and invokes a handler function to add a new recipe.
    * @param {AddRecipeHandler} handler - The handler function to be invoked with the new recipe information.
    */
-  addRecipe = (handler: AddRecipeHandler): ((event: Event) => void) => {
+  addRecipe = (
+    handler: (recipeId: string) => void
+  ): ((event: Event) => void) => {
     return (event: Event): void => {
       event.preventDefault();
       const newRecipe: Recipe = {
@@ -253,7 +252,7 @@ export default class RecipeView {
         collection_id: 0,
         image: "",
       };
-      handler(newRecipe);
+      handler(newRecipe.id);
       this.selectAddEl.classList.add("show-form");
       alert("Recipe added successfully!");
     };

@@ -7,10 +7,7 @@ export interface User {
   role: string;
 }
 
-export interface EditUserHandler {
-  userId: string;
-  newUsername: string;
-}
+export type EditUserHandler = (userId: string, userName: string) => void;
 
 export type DeleteUserHandler = (userId: string) => void;
 

@@ -134,18 +134,16 @@ export default class UserView {
    * @param {(userId: string, userName: string) => void} handler - A function that will be called with the user's ID and name.
    * @returns {(event: Event) => void} - A new function that can be called to initiate the user editing process.
    */
-  editUser =
-    (handler: EditUserHandler) =>
-    (event: Event): void => {
-      const userName = (
-        document.getElementById("name-input") as HTMLInputElement
-      ).value.trim();
-      const userId =
-        (document.querySelector(".panel__confirm") as HTMLElement).getAttribute(
-          "data-id"
-        ) || "";
-      handler(userId, userName);
-    };
+  editUser = (handler: EditUserHandler) => (event: Event): void => {
+    const userName = (
+      document.getElementById("name-input") as HTMLInputElement
+    ).value.trim();
+    const userId =
+      (document.querySelector(".panel__confirm") as HTMLElement).getAttribute(
+        "data-id"
+      ) || "";
+    handler(userId, userName);
+  };
 
   /**
    * The deleteUser function retrieves the user ID from the confirmation panel and invokes a handler function to delete the user.

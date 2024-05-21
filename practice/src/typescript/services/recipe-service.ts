@@ -127,7 +127,7 @@ export default class RecipeService {
     description: string;
     createdAt: string;
   }): Promise<RecipeApiResponse> => {
-    return await APIHelper.createRequest(
+    const response = await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_PRODUCT}`,
       "POST",
       {
@@ -140,6 +140,12 @@ export default class RecipeService {
         createdAt,
       }
     );
+
+    if ("error" in response) {
+      return { data: null, error: response.error };
+    }
+
+    return { data: response.data, error: null };
   };
 
   /**
@@ -148,10 +154,15 @@ export default class RecipeService {
    * @returns {Promise<RecipeApiResponse>} - A Promise that resolves to the detailed information of the recipe.
    */
   static fetchRecipeDetail = async (id: string): Promise<RecipeApiResponse> => {
-    return await APIHelper.createRequest(
+    const result = await APIHelper.createRequest(
       `${API.BASE_URL}${API.CREATE_PRODUCT}?id=${id}`,
       "GET",
       null
     );
+    if ("error" in result) {
+      return { data: null, error: { message: result.error.message } };
+    }
+
+    return { data: result.data, error: null };
   };
 }

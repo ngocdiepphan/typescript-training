@@ -13,7 +13,9 @@ export default class UserController {
   }
 
   init = async (): Promise<void> => {
-    this.userView.bindCallback("editUser", this.handleEditUser());
+    this.userView.bindCallback("editUser", (userId: string) =>
+      this.handleEditUser(userId, "")
+    );
     this.userView.bindCallback("deleteUser", this.handleDeleteUser);
   };
 
@@ -55,26 +57,30 @@ export default class UserController {
     userId: string,
     newUsername: string
   ): Promise<void> => {
-    if (!newUsername) {
-      alert("Username cannot be empty!");
-      return;
-    }
+    try {
+      if (!newUsername) {
+        alert("Username cannot be empty!");
+        return;
+      }
 
-    const user = this.userModel.getUserById(userId);
-    if (!user) {
-      alert("User not found!");
-      return;
-    }
+      const user = this.userModel.getUserById(userId);
+      console.log("User:", user);
+      if (!user) {
+        alert("User not found!");
+        return;
+      }
 
-    const response = await UserService.editUsers(userId, {
-      ...user,
-      username: newUsername,
-    });
-    alert("Username updated successfully!");
-    this.handleViewUsers();
-    if (response.error) {
-      alert(`Failed to update user`);
-      return;
+      const response = await UserService.editUsers(userId, { username: newUsername });
+
+      if (response.error) {
+        alert(`Failed to update user: ${response.error.message}`);
+        return;
+      }
+
+      alert("Username updated successfully!");
+      this.handleViewUsers();
+    } catch (error) {
+      alert(`An error occurred: ${error.message}`);
     }
   };
 

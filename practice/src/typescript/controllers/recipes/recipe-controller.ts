@@ -14,9 +14,15 @@ export default class RecipeController {
   }
 
   init = async (): Promise<void> => {
-    this.recipeView.bindCallback("editRecipe", this.handleEditRecipe);
+    this.recipeView.bindCallback(
+      "editRecipe",
+      (recipeId: string) => this.handleEditRecipe
+    );
     this.recipeView.bindCallback("deleteRecipe", this.handleDeleteRecipe);
-    this.recipeView.bindCallback("addRecipe", this.handleAddRecipe);
+    this.recipeView.bindCallback(
+      "addRecipe",
+      (recipeId: string) => this.handleAddRecipe
+    );
   };
 
   /**
@@ -70,17 +76,17 @@ export default class RecipeController {
     newRecipeCreator: string,
     newRecipeRating: number,
     newRecipeDescription: string
-): Promise<void> => {
+  ): Promise<void> => {
     const recipe = this.recipeModel.getRecipeById(recipeId);
     await RecipeService.editRecipe(recipeId, {
-        ...recipe,
-        recipeId,
-        imageURL: newRecipeImage,
-        name: newRecipeName,
-        category: newRecipeCategory,
-        creator: newRecipeCreator,
-        ratings: newRecipeRating,
-        description: newRecipeDescription,
+      ...recipe,
+      recipeId,
+      imageURL: newRecipeImage,
+      name: newRecipeName,
+      category: newRecipeCategory,
+      creator: newRecipeCreator,
+      ratings: newRecipeRating,
+      description: newRecipeDescription,
     });
 
     alert("Updated recipe successfully!");

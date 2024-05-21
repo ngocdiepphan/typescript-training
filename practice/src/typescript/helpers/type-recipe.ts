@@ -29,3 +29,5 @@ export interface EditRecipeHandler {
 export type DeleteRecipeHandler = (recipeId: string) => void;
 
 export type AddRecipeHandler = (newRecipe: Recipe) => void;
+
+
