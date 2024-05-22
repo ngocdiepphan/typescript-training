@@ -159,11 +159,16 @@ export default class RecipeView {
       ".panel__edit .icon-back"
     ) as HTMLElement;
 
+    // Add a click event listener to the back button
     btnBackEl.addEventListener("click", () => {
       const detailPanel = document.querySelector(
         ".content-dashboard"
       ) as HTMLElement;
+
+      // Remove the CSS class to hide the detail panel
       detailPanel.classList.remove("show-panel");
+
+      // Remove the click event listener from the back button
       btnBackEl.removeEventListener("click", () => {});
     });
   };
@@ -176,6 +181,8 @@ export default class RecipeView {
   editRecipe =
     (handler: EditRecipeHandler) =>
     (event: Event): void => {
+
+      // Retrieve and trim the value
       const recipesImage = (
         document.getElementById("image-input") as HTMLInputElement
       ).value.trim();
@@ -199,6 +206,8 @@ export default class RecipeView {
       const recipesId = document
         .querySelector(".panel__confirm")
         ?.getAttribute("data-id");
+
+      // If the recipe ID is available, call the handler function with the recipe details
       if (recipesId) {
         handler(
           recipesId,
@@ -237,6 +246,8 @@ export default class RecipeView {
   ): ((event: Event) => void) => {
     return (event: Event): void => {
       event.preventDefault();
+
+      // Create a new recipe object with values gathered from the input fields
       const newRecipe: Recipe = {
         name: (this.nameEl as HTMLInputElement).value,
         imageURL: (this.imageEl as HTMLInputElement).value,
@@ -253,6 +264,8 @@ export default class RecipeView {
         image: "",
       };
       handler(newRecipe.id);
+
+      // Add the "show-form" class to the selectAddEl element to show the form
       this.selectAddEl.classList.add("show-form");
       alert("Recipe added successfully!");
     };

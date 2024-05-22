@@ -24,12 +24,14 @@ window.addEventListener("load", () => {
   recipesController.init();
   dashboardController.init();
 
+  // Function to set the active navigation item and update UI based on the provided type.
   const setNavigationActive = (type: string): void => {
     document
       .querySelector(".navigation__item .active")
       ?.classList.remove("active");
     const newRecipesBtn = document.getElementById("new-recipes") as HTMLElement;
 
+    // Depending on the type, set the active state for the navigation item and show/hide the "new recipes" button.
     switch (type) {
       case "users":
         setActiveNavItem("users");
@@ -44,15 +46,19 @@ window.addEventListener("load", () => {
     }
   };
 
+  // Function to set the active state for the navigation item with the specified ID and update URL parameters.
   const setActiveNavItem = (navId: string): void => {
     const navItem = document.querySelector(
       `.navigation__item[data-id='${navId}']`
     );
     navItem?.classList.add("active");
+
+    // Update URL parameters to reflect the current navigation state.
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.set("nav", navId);
   };
 
+  // Add a delegated event listener to the navigation element to handle navigation item clicks.
   delegate(
     document.querySelector(".navigation") as HTMLElement,
     ".navigation__item",
@@ -67,6 +73,8 @@ window.addEventListener("load", () => {
 
       if (type) {
         setNavigationActive(type);
+
+        // Update the toolbar title based on the selected navigation type.
         const toolEl = document.querySelector<HTMLElement>(".toolbar__title");
         if (toolEl) {
           if (type === "users") {
@@ -76,6 +84,7 @@ window.addEventListener("load", () => {
           }
         }
 
+        // Trigger appropriate controller methods based on the selected navigation type.
         switch (type) {
           case "users":
             userController.handleViewUsers();

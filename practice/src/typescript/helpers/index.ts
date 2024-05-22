@@ -1,4 +1,8 @@
-const bindEvent = (target: EventTarget | null, type: string, callback: EventListener): void => {
+const bindEvent = (
+  target: EventTarget | null,
+  type: string,
+  callback: EventListener
+): void => {
   target?.addEventListener(type, callback);
 };
 
@@ -46,20 +50,30 @@ const delegate = (
   type: string,
   handler: (event: Event) => void
 ): void => {
+  
+  /**
+   * dispatchEvent: Function to dispatch the event to the matching child element.
+   * This function checks if the event target matches the selector and if so, calls the handler function.
+   *
+   * @param {Event} event - The event object.
+   */
   const dispatchEvent = (event: Event): void => {
     const targetElement = event.target as HTMLElement;
 
     const potentialElements = target.querySelectorAll(selector);
-    const hasMatch = Array.prototype.indexOf.call(
-      potentialElements,
-      targetElement.closest(selector)
-    ) >= 0;
+
+    // Check if the closest matching element to the event target is within the potential elements
+    const hasMatch =
+      Array.prototype.indexOf.call(
+        potentialElements,
+        targetElement.closest(selector)
+      ) >= 0;
+
+    // If a matching element is found, call the handler function with the event
     if (hasMatch) handler.call(targetElement, event);
   };
 
   target.addEventListener(type, dispatchEvent);
 };
 
-export { bindEvent, inValidEmail, inValidUsername, inValidPassword,  delegate};
-
-
+export { bindEvent, inValidEmail, inValidUsername, inValidPassword, delegate };

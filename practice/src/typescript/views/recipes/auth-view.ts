@@ -79,6 +79,8 @@ export default class AuthView {
   ): ((event: Event) => void) => {
     return (event: Event): void => {
       event.preventDefault();
+
+       // Get the input elements by their IDs
       const emailEl: HTMLInputElement = document.getElementById(
         "email"
       ) as HTMLInputElement;
@@ -97,26 +99,31 @@ export default class AuthView {
       const username = userNameEl.value.trim();
       const passwordConfirm = passwordConfirmEl.value.trim();
 
+       // Validate the email address format
       if (!inValidEmail(email)) {
         alert("Please enter a valid email address.");
         return;
       }
 
+      // Validate the username length (must be at least 2 characters)
       if (username && !inValidUsername(username, 2)) {
         alert("Username must be at least 2 characters long.");
         return;
       }
 
+      // Validate the password length (must be at least 8 characters)
       if (inValidPassword(password, 8)) {
         alert("Password must be at least 8 characters long.");
         return;
       }
 
+       // Check if the password and password confirmation match
       if (password !== passwordConfirm) {
         alert("Password and Confirm Password do not match.");
         return;
       }
 
+      // Call the handler function with the validated inputs
       handler(email, password, username, passwordConfirm);
     };
   };

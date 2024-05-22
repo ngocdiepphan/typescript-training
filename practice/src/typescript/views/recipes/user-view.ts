@@ -2,11 +2,7 @@ import {
   renderUserTableTemplate,
   renderUserDetails,
 } from "../../templates/user";
-import {
-  User,
-  EditUserHandler,
-  DeleteUserHandler,
-} from "../../types/user";
+import { User, EditUserHandler, DeleteUserHandler } from "../../types/user";
 import { delegate } from "../../helpers";
 
 export default class UserView {
@@ -95,16 +91,23 @@ export default class UserView {
       username,
       email,
     });
+
+    // Add the "show-panel" class to the userDetailsContainerEl element to display the user details panel
     this.userDetailsContainerEl.classList.add("show-panel");
     const btnBackEl = document.querySelector(
       ".panel__edit .icon-back"
     ) as HTMLElement;
 
+    // Add a click event listener to the back button
     btnBackEl.addEventListener("click", () => {
       const detailPanel = document.querySelector(
         ".content-dashboard"
       ) as HTMLElement;
+
+      // Remove the "show-panel" class to hide the user details panel
       detailPanel.classList.remove("show-panel");
+
+      // Remove the click event listener from the back button to avoid potential memory leaks
       btnBackEl.removeEventListener("click", () => {});
     });
   };
@@ -134,16 +137,18 @@ export default class UserView {
    * @param {(userId: string, userName: string) => void} handler - A function that will be called with the user's ID and name.
    * @returns {(event: Event) => void} - A new function that can be called to initiate the user editing process.
    */
-  editUser = (handler: EditUserHandler) => (event: Event): void => {
-    const userName = (
-      document.getElementById("name-input") as HTMLInputElement
-    ).value.trim();
-    const userId =
-      (document.querySelector(".panel__confirm") as HTMLElement).getAttribute(
-        "data-id"
-      ) || "";
-    handler(userId, userName);
-  };
+  editUser =
+    (handler: EditUserHandler) =>
+    (event: Event): void => {
+      const userName = (
+        document.getElementById("name-input") as HTMLInputElement
+      ).value.trim();
+      const userId =
+        (document.querySelector(".panel__confirm") as HTMLElement).getAttribute(
+          "data-id"
+        ) || "";
+      handler(userId, userName);
+    };
 
   /**
    * The deleteUser function retrieves the user ID from the confirmation panel and invokes a handler function to delete the user.
