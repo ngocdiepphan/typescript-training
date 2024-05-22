@@ -1,4 +1,4 @@
-import { Recipe } from "../../helpers/type-recipe";
+import { Recipe } from "../../types/recipe";
 import { renderRecipeDetailTemplate } from "../../templates/recipe";
 
 export default class RecipeDetailView {

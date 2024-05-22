@@ -6,7 +6,7 @@ import {
   User,
   EditUserHandler,
   DeleteUserHandler,
-} from "../../helpers/type-user";
+} from "../../types/user";
 import { delegate } from "../../helpers";
 
 export default class UserView {
