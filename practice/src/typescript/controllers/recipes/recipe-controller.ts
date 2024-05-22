@@ -2,7 +2,7 @@ import RecipeModel from "../../models/recipe-model";
 import RecipeView from "../../views/recipes/recipe-view";
 import { RecipeApiResponse } from "../../services/helper";
 import RecipeService from "../../services/recipe-service";
-import { Recipe } from "../../helpers/type-recipe";
+import { Recipe, EditRecipeHandler } from "../../helpers/type-recipe";
 
 export default class RecipeController {
   private recipeModel: RecipeModel;
@@ -14,9 +14,15 @@ export default class RecipeController {
   }
 
   init = async (): Promise<void> => {
-    this.recipeView.bindCallback("editRecipe", this.handleEditRecipe);
+    this.recipeView.bindCallback(
+      "editRecipe",
+      (recipeId: string) => this.handleEditRecipe
+    );
     this.recipeView.bindCallback("deleteRecipe", this.handleDeleteRecipe);
-    this.recipeView.bindCallback("addRecipe", this.handleAddRecipe);
+    this.recipeView.bindCallback(
+      "addRecipe",
+      (recipeId: string) => this.handleAddRecipe
+    );
   };
 
   /**
@@ -26,12 +32,16 @@ export default class RecipeController {
    */
   handleViewRecipes = async (): Promise<void> => {
     const { data } = await this.getRecipes();
-    this.recipeModel.setRecipes(data);
-    this.recipeView.renderTableRecipes(data);
-    this.recipeView.bindCallback(
-      "recipeRowClick",
-      this.handleShowRecipeDetails
-    );
+    if (data) {
+      this.recipeModel.setRecipes(data);
+      this.recipeView.renderTableRecipes(data);
+      this.recipeView.bindCallback(
+        "recipeRowClick",
+        this.handleShowRecipeDetails
+      );
+    } else {
+      console.error("No recipe data returned.");
+    }
   };
 
   /**
@@ -40,7 +50,11 @@ export default class RecipeController {
    */
   handleShowRecipeDetails = (recipeId: string): void => {
     const recipe = this.recipeModel.getRecipeById(recipeId);
-    this.recipeView.handleRenderRecipeDetails(recipe);
+    if (recipe) {
+      this.recipeView.handleRenderRecipeDetails(recipe);
+    } else {
+      console.error("Recipe not found");
+    }
   };
 
   /**
@@ -66,6 +80,7 @@ export default class RecipeController {
     const recipe = this.recipeModel.getRecipeById(recipeId);
     await RecipeService.editRecipe(recipeId, {
       ...recipe,
+      recipeId,
       imageURL: newRecipeImage,
       name: newRecipeName,
       category: newRecipeCategory,
@@ -96,12 +111,12 @@ export default class RecipeController {
     await RecipeService.createRecipe(recipeData);
     this.handleViewRecipes();
   };
-  
+
   /**
    * Retrieves a list of recipes from the server through the RecipeService.
    * @returns {Promise<RecipeApiResponse>} - A Promise containing the list of recipes from the server.
    */
-  getRecipes = async (): Promise<RecipeApiResponse> => {
-    return await RecipeService.fetchRecipes();
+  getRecipes = (): Promise<RecipeApiResponse> => {
+    return RecipeService.fetchRecipes();
   };
 }

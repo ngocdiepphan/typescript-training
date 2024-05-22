@@ -23,12 +23,14 @@ export default class RecipeController {
    */
   handleViewRecipeHome = async (): Promise<void> => {
     const { data } = await this.getRecipes();
-    this.recipeModel.setRecipes(data);
+    if (data) {
+      this.recipeModel.setRecipes(data);
     this.recipeAppView.renderRecipe(data);
     this.recipeAppView.renderDeliciousRecipe(
       data.filter((item: Recipe) => item.collection_id === 1 && item.ratings === 5).slice(0, 3));
     this.recipeAppView.renderSweetRecipe(
       data.filter((item: Recipe) => item.collection_id === 2 && item.ratings === 5).slice(0, 3));
+    }
   };
 
   /**

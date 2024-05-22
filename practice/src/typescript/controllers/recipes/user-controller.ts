@@ -13,7 +13,9 @@ export default class UserController {
   }
 
   init = async (): Promise<void> => {
-    this.userView.bindCallback("editUser", this.handleEditUser);
+    this.userView.bindCallback("editUser", (userId: string) =>
+      this.handleEditUser(userId, "")
+    );
     this.userView.bindCallback("deleteUser", this.handleDeleteUser);
   };
 
@@ -23,9 +25,13 @@ export default class UserController {
    */
   handleViewUsers = async (): Promise<void> => {
     const { data } = await this.getUser();
-    this.userModel.setUser(data);
-    this.userView.renderTables(data);
-    this.userView.bindCallback("userRowClick", this.handleRenderUserDetails);
+    if (data) {
+      this.userModel.setUser(data);
+      this.userView.renderTables(data);
+      this.userView.bindCallback("userRowClick", this.handleRenderUserDetails);
+    } else {
+      console.error("No user data returned.");
+    }
   };
 
   /**
@@ -34,7 +40,11 @@ export default class UserController {
    */
   handleRenderUserDetails = (userId: string): void => {
     const user = this.userModel.getUserById(userId);
-    this.userView.handleRenderUserDetails(user);
+    if (user) {
+      this.userView.handleRenderUserDetails(user);
+    } else {
+      console.error("User not found");
+    }
   };
 
   /**
@@ -47,26 +57,30 @@ export default class UserController {
     userId: string,
     newUsername: string
   ): Promise<void> => {
-    if (!newUsername) {
-      alert("Username cannot be empty!");
-      return;
-    }
+    try {
+      if (!newUsername) {
+        alert("Username cannot be empty!");
+        return;
+      }
 
-    const user = this.userModel.getUserById(userId);
-    if (!user) {
-      alert("User not found!");
-      return;
-    }
+      const user = this.userModel.getUserById(userId);
+      console.log("User:", user);
+      if (!user) {
+        alert("User not found!");
+        return;
+      }
 
-    const response = await UserService.editUsers(userId, {
-      ...user,
-      username: newUsername,
-    });
-    alert("Username updated successfully!");
-    this.handleViewUsers();
-    if (response.error) {
-      alert(`Failed to update user`);
-      return;
+      const response = await UserService.editUsers(userId, { username: newUsername });
+
+      if (response.error) {
+        alert(`Failed to update user: ${response.error.message}`);
+        return;
+      }
+
+      alert("Username updated successfully!");
+      this.handleViewUsers();
+    } catch (error) {
+      alert(`An error occurred: ${error.message}`);
     }
   };
 
@@ -90,7 +104,7 @@ export default class UserController {
    * Fetches user data from the server through the UserService.
    * @returns {Promise<ApiResponse>} - A Promise containing user data from the server.
    */
-  getUser = async (): Promise<ApiResponse> => {
-    return await UserService.fetchUser();
+  getUser = (): Promise<ApiResponse> => {
+    return UserService.fetchUser();
   };
 }

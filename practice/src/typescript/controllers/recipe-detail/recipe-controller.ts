@@ -1,11 +1,12 @@
 import RecipeModel from "../../models/recipe-model";
 import RecipeDetailView from "../../views/recipe-detail/recipe-view";
 import RecipeService from "../../services/recipe-service";
-import { RecipeApiResponse } from "../../services/helper
+import { RecipeApiResponse } from "../../services/helper";
 
 export default class RecipeDetailController {
   private recipeModel: RecipeModel;
   private recipeDetailView: RecipeDetailView;
+  private urlParams: URLSearchParams;
 
   constructor(recipeModel: RecipeModel, recipeDetailView: RecipeDetailView) {
     this.recipeModel = recipeModel;
@@ -14,8 +15,22 @@ export default class RecipeDetailController {
 
   init = async (): Promise<void> => {
     this.urlParams = new URLSearchParams(window.location.search);
-    const { result } = await this.getRecipeDetail(this.urlParams.get("id"));
-    this.recipeDetailView.renderRecipePageDetail(result[0]);
+    const recipeId = this.urlParams.get("id");
+
+    if (!recipeId) {
+      console.error("Recipe ID is null");
+      return;
+    }
+
+    const response = await this.getRecipeDetail(recipeId);
+
+    if (response.data && response.data.length > 0) {
+      this.recipeDetailView.renderRecipePageDetail(response.data[0]);
+    } else if (response.error) {
+      console.error(response.error.message);
+    } else {
+      console.error("No data found for the given recipe ID");
+    }
   };
 
   /**
@@ -23,7 +38,7 @@ export default class RecipeDetailController {
    * @param {string} id - The ID of the recipe to fetch details for.
    * @returns {Promise<RecipeApiResponse>} - A Promise that resolves to the detailed information of the recipe.
    */
-  getRecipeDetail = async (id: string): Promise<RecipeApiResponse> => {
-    return await RecipeService.fetchRecipeDetail(id);
+  getRecipeDetail = (id: string): Promise<RecipeApiResponse> => {
+    return RecipeService.fetchRecipeDetail(id);
   };
 }

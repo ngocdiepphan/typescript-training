@@ -11,6 +11,7 @@ export interface Recipe {
   createdAt: string;
   nutrition: string;
   collection_id: number;
+  image: string
 }
 
 export interface EditRecipeHandler {
@@ -28,3 +29,5 @@ export interface EditRecipeHandler {
 export type DeleteRecipeHandler = (recipeId: string) => void;
 
 export type AddRecipeHandler = (newRecipe: Recipe) => void;
+
+

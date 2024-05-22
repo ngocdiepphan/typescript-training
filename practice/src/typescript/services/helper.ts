@@ -9,7 +9,7 @@ export interface ApiResponse {
 export type SignInResponse = User | string;
 
 export interface RecipeApiResponse {
-  data: Recipe | null;
+  data: Recipe[] | null;
   error?: { message: string } | null;
 }
 
@@ -27,7 +27,9 @@ export default class APIHelper {
     method: string,
     data: object | null,
     contentType: string = "application/json"
-  ): Promise<{ response: Response; result: any } | { error: Error }> => {
+  ): Promise<
+    { response: Response; data: any; result: any } | { error: Error }
+  > => {
     try {
       let content: RequestInit = {
         method,
@@ -48,7 +50,7 @@ export default class APIHelper {
 
       const result = await response.json();
 
-      return { response, result };
+      return { response, data: result, result };
     } catch (error) {
       return { error };
     }
