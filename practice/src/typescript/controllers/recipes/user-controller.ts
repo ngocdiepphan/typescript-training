@@ -28,7 +28,7 @@ export default class UserController {
     if (data) {
       this.userModel.setUser(data);
       this.userView.renderTables(data);
-      this.userView.bindCallback("userRowClick", this.handleRenderUserDetails);
+      this.userView.bindCallback("userRowClick", this.handleRenderUserDetails); // Bind a callback function to handle click events on user rows
     } else {
       console.error("No user data returned.");
     }
@@ -58,18 +58,23 @@ export default class UserController {
     newUsername: string
   ): Promise<void> => {
     try {
+
+      // Check if the new username is provided
       if (!newUsername) {
         alert("Username cannot be empty!");
         return;
       }
 
+      // Fetch the user details using the userId
       const user = this.userModel.getUserById(userId);
-      console.log("User:", user);
+
+      // Check if the user exists
       if (!user) {
         alert("User not found!");
         return;
       }
 
+      // Call the editUsers method from UserService to update the username
       const response = await UserService.editUsers(userId, { username: newUsername });
 
       if (response.error) {
@@ -78,7 +83,7 @@ export default class UserController {
       }
 
       alert("Username updated successfully!");
-      this.handleViewUsers();
+      this.handleViewUsers(); // Refresh the user view to reflect the updated details
     } catch (error) {
       alert(`An error occurred: ${error.message}`);
     }

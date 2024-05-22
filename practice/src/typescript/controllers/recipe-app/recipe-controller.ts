@@ -25,11 +25,31 @@ export default class RecipeController {
     const { data } = await this.getRecipes();
     if (data) {
       this.recipeModel.setRecipes(data);
-    this.recipeAppView.renderRecipe(data);
-    this.recipeAppView.renderDeliciousRecipe(
-      data.filter((item: Recipe) => item.collection_id === 1 && item.ratings === 5).slice(0, 3));
-    this.recipeAppView.renderSweetRecipe(
-      data.filter((item: Recipe) => item.collection_id === 2 && item.ratings === 5).slice(0, 3));
+      this.recipeAppView.renderRecipe(data);
+
+      /**
+       * Render a list of delicious recipes, with collection_id of 1 and ratings of 5
+       *Only take the first 3 recipes that meet the criteria
+       */
+      this.recipeAppView.renderDeliciousRecipe(
+        data
+          .filter(
+            (item: Recipe) => item.collection_id === 1 && item.ratings === 5
+          )
+          .slice(0, 3)
+      );
+
+      /**
+       *  Render a list of sweet recipes, with collection_id of 2 and ratings of 5
+        // Only take the first 3 recipes that meet the criteria
+        */
+      this.recipeAppView.renderSweetRecipe(
+        data
+          .filter(
+            (item: Recipe) => item.collection_id === 2 && item.ratings === 5
+          )
+          .slice(0, 3)
+      );
     }
   };
 

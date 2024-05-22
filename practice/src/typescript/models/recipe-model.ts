@@ -1,4 +1,4 @@
-import { Recipe } from "../helpers/type-recipe";
+import { Recipe } from "../types/recipe";
 export default class RecipeModel {
   private recipes: Recipe[];
 

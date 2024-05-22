@@ -1,4 +1,4 @@
-import { Recipe } from "../helpers/type-recipe";
+import { Recipe } from "../types/recipe";
 
 /**
  * The recipeRowTemplateRecipe function receives an array of data containing recipe information and returns an HTML string representing the rows of the recipe table.

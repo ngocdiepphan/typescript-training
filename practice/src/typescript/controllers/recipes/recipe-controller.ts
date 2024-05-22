@@ -22,7 +22,7 @@ export default class RecipeController {
     this.recipeView.bindCallback(
       "addRecipe",
       (recipeId: string) => this.handleAddRecipe
-    );
+    ); // Bind a callback function to handle click events on recipe rows
   };
 
   /**
