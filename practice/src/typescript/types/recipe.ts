@@ -14,17 +14,15 @@ export interface Recipe {
   image: string
 }
 
-export interface EditRecipeHandler {
-  (
-    recipeId: string,
-    newRecipeImage: string,
-    newRecipeName: string,
-    newRecipeCategory: string,
-    newRecipeCreator: string,
-    newRecipeRating: number,
-    newRecipeDescription: string
-  ): void;
-}
+export type EditRecipeHandler = (
+  recipeId: string,
+  newRecipeImage: string,
+  newRecipeName: string,
+  newRecipeCategory: string,
+  newRecipeCreator: string,
+  newRecipeRating: number,
+  newRecipeDescription: string
+) => void;
 
 export type DeleteRecipeHandler = (recipeId: string) => void;
 
