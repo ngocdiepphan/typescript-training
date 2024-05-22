@@ -21,10 +21,10 @@ export default class DashBoardView {
   bindCallback = (event: string, handler: EventHandler): void => {
     switch (event) {
       case "newToggle":
-        bindEvent(this.selectNewEl, "click", this.newToggle);
+        bindEvent(this.selectNewEl, "click", this.toggleForm);
         break;
       case "closeToggle":
-        bindEvent(this.selectCloseEl, "click", this.closeToggle);
+        bindEvent(this.selectCloseEl, "click", this.toggleForm);
         break;
       case "menuToggle":
         bindEvent(this.selectEl, "click", this.menuToggle);
@@ -35,23 +35,10 @@ export default class DashBoardView {
   };
 
   /**
-   * The newToggle function changes the display state of a form on the user interface upon a click event
+   * The toggleForm function changes the display state of a form on the user interface upon a click event
    * @param {Event} event - Click event object.
    */
-  newToggle = (event: Event): void => {
-    event.preventDefault();
-    if (this.formEl.classList.contains("show-form")) {
-      this.formEl.classList.remove("show-form");
-    } else {
-      this.formEl.classList.add("show-form");
-    }
-  };
-
-  /**
-   * The closeToggle function changes the display state of a user interface element when a click event occurs.
-   * @param {Event} event - Click event object.
-   */
-  closeToggle = (event: Event): void => {
+  toggleForm = (event: Event): void => {
     event.preventDefault();
     if (this.formEl.classList.contains("show-form")) {
       this.formEl.classList.remove("show-form");
