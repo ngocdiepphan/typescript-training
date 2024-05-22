@@ -7,7 +7,7 @@ import {
   EditRecipeHandler,
   DeleteRecipeHandler,
   AddRecipeHandler,
-} from "../../helpers/type-recipe";
+} from "../../types/recipe";
 import { bindEvent, delegate } from "../../helpers";
 
 export default class RecipeView {

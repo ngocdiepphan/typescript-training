@@ -1,4 +1,4 @@
-import { User } from "../helpers/type-user";
+import { User } from "../types/user";
 
 export default class UserModel {
   email: string;

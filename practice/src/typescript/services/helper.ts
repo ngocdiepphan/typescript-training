@@ -1,5 +1,5 @@
-import { Recipe } from "../helpers/type-recipe";
-import { User } from "../helpers/type-user";
+import { Recipe } from "../types/recipe";
+import { User } from "../types/user";
 
 export interface ApiResponse {
   data: User[] | null;
