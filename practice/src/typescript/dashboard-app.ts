@@ -64,38 +64,42 @@ window.addEventListener("load", () => {
     ".navigation__item",
     "click",
     (event: Event) => {
-      event.preventDefault();
-      const target = event.target as HTMLElement;
-      const closestNavItem = target?.closest(
-        ".navigation__item"
-      ) as HTMLElement | null;
-      const type = closestNavItem?.dataset.id;
+      const handleNavigationItemClick = () => {
+        event.preventDefault();
+        const target = event.target as HTMLElement;
+        const closestNavItem = target?.closest(
+          ".navigation__item"
+        ) as HTMLElement | null;
+        const type = closestNavItem?.dataset.id;
 
-      if (type) {
-        setNavigationActive(type);
+        if (type) {
+          setNavigationActive(type);
 
-        // Update the toolbar title based on the selected navigation type.
-        const toolEl = document.querySelector<HTMLElement>(".toolbar__title");
-        if (toolEl) {
-          if (type === "users") {
-            toolEl.textContent = "User";
-          } else {
-            toolEl.textContent = "Recipes";
+          // Update the toolbar title based on the selected navigation type.
+          const toolEl = document.querySelector<HTMLElement>(".toolbar__title");
+          if (toolEl) {
+            if (type === "users") {
+              toolEl.textContent = "User";
+            } else {
+              toolEl.textContent = "Recipes";
+            }
+          }
+
+          // Trigger appropriate controller methods based on the selected navigation type.
+          switch (type) {
+            case "users":
+              userController.handleViewUsers();
+              break;
+            case "recipes":
+              recipesController.handleViewRecipes();
+              break;
+            default:
+              break;
           }
         }
+      };
 
-        // Trigger appropriate controller methods based on the selected navigation type.
-        switch (type) {
-          case "users":
-            userController.handleViewUsers();
-            break;
-          case "recipes":
-            recipesController.handleViewRecipes();
-            break;
-          default:
-            break;
-        }
-      }
+      handleNavigationItemClick();
     }
   );
 });
