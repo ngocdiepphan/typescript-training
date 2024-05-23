@@ -1,12 +1,12 @@
 import UserModel from "../../models/user-model.ts";
-import authView from "../../views/recipes/auth-view.ts";
+import AuthView from "../../views/recipes/auth-view.ts";
 import AuthService from "../../services/auth-service.ts";
 
 export default class AuthController {
   private userModel: UserModel;
-  private authView: authView;
+  private authView: AuthView;
 
-  constructor(userModel: UserModel, authView: authView) {
+  constructor(userModel: UserModel, authView: AuthView) {
     this.userModel = userModel;
     this.authView = authView;
   }
@@ -24,6 +24,7 @@ export default class AuthController {
    */
   handleSignIn = async (email: string, password: string): Promise<void> => {
     const user = await AuthService.signIn(email, password);
+
 
     if (typeof user === "object" && user !== null) {
       localStorage.setItem("user", JSON.stringify(user));
