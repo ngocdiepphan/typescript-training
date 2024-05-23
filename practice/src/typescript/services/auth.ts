@@ -45,7 +45,7 @@ export default class AuthenticationService {
   static signIn = async (
     email: string,
     password: string
-  ): Promise<User | string> => {
+  ): Promise<User | null> => {
     try {
       const response = await APIHelper.createRequest(
         `${API.BASE_URL}${API.CREATE_USER}?email=${email}&password=${password}`,
@@ -54,21 +54,17 @@ export default class AuthenticationService {
       );
 
       if ("error" in response) {
-        return "Signed in failed!";
+        return null;
       }
 
-      const user = response.result;
+      const users = response.data;
+      const user = users.find(
+        (user: User) => user.email === email && user.password === password
+      );
 
-      for (let i = 0; i < user.length; i++) {
-        if (user[i].email === email && user[i].password === password) {
-          return user[i];
-        }
-      }
-
-      throw new Error("Signed in failed!");
+      return user || null;
     } catch (error) {
-      console.log(error);
-      throw new Error("Signed in failed!");
+      return null;
     }
   };
 

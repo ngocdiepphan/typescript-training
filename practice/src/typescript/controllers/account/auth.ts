@@ -25,14 +25,15 @@ export default class AuthController {
   handleSignIn = async (email: string, password: string): Promise<void> => {
     const user = await AuthService.signIn(email, password);
 
-
-    if (typeof user === "object" && user !== null) {
+    if (user) {
       localStorage.setItem("user", JSON.stringify(user));
 
       if (user.role === "admin") {
         this.authView.redirectPage("dashboard.html");
       } else if (user.role === "user") {
         this.authView.redirectPage("index.html");
+      } else {
+        alert("Invalid role. Please contact support.");
       }
     } else {
       alert("Invalid email or password. Please try again.");
@@ -88,12 +89,7 @@ export default class AuthController {
    * @returns {Promise<boolean>} - A Promise indicating whether the sign-in was successful.
    */
   signIn = async (email: string, password: string): Promise<boolean> => {
-    const response = await AuthService.signIn(email, password);
-
-    if (typeof response === "string") {
-      return false;
-    }
-
-    return !!response;
+    const user = await AuthService.signIn(email, password);
+    return user !== null;
   };
 }
