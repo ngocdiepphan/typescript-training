@@ -1,6 +1,7 @@
 import { API } from "../constants/url";
 import APIHelper from "./helper";
 import { ApiResponse, SignInResponse } from "./helper";
+import { User } from "../types/user";
 
 export default class AuthenticationService {
   /**
@@ -44,7 +45,7 @@ export default class AuthenticationService {
   static signIn = async (
     email: string,
     password: string
-  ): Promise<SignInResponse> => {
+  ): Promise<User | string> => {
     try {
       const response = await APIHelper.createRequest(
         `${API.BASE_URL}${API.CREATE_USER}?email=${email}&password=${password}`,
@@ -56,12 +57,14 @@ export default class AuthenticationService {
         return "Signed in failed!";
       }
 
-      const User = response.result;
-      for (let i = 0; i < User.length; i++) {
-        if (User[i].email === email && User[i].password === password) {
-          return User[i];
+      const user = response.result;
+
+      for (let i = 0; i < user.length; i++) {
+        if (user[i].email === email && user[i].password === password) {
+          return user[i];
         }
       }
+
       throw new Error("Signed in failed!");
     } catch (error) {
       console.log(error);

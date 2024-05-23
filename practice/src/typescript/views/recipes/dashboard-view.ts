@@ -1,5 +1,5 @@
 import { bindEvent } from "../../helpers";
-import { EventHandler } from "../../types/dashboard";
+import { EventHandler } from "../../helpers/type-dashboard";
 
 export default class DashBoardView {
   private selectNewEl: HTMLElement;
