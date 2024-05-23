@@ -1,7 +1,7 @@
-import RecipeModel from "../../models/recipe-model";
-import RecipeAppView from "../../views/recipe-app/recipe-view";
+import RecipeModel from "../../models/recipe";
+import RecipeAppView from "../../views/recipe-app/homePage";
 import { Recipe } from "../../types/recipe";
-import RecipeService from "../../services/recipe-service";
+import RecipeService from "../../services/recipe";
 import { RecipeApiResponse } from "../../services/helper";
 
 export default class RecipeController {
@@ -29,7 +29,7 @@ export default class RecipeController {
 
       /**
        * Render a list of delicious recipes, with collection_id of 1 and ratings of 5
-       *Only take the first 3 recipes that meet the criteria
+       * Only take the first 3 recipes that meet the criteria
        */
       this.recipeAppView.renderDeliciousRecipe(
         data
@@ -41,8 +41,8 @@ export default class RecipeController {
 
       /**
        *  Render a list of sweet recipes, with collection_id of 2 and ratings of 5
-        // Only take the first 3 recipes that meet the criteria
-        */
+       * Only take the first 3 recipes that meet the criteria
+       */
       this.recipeAppView.renderSweetRecipe(
         data
           .filter(

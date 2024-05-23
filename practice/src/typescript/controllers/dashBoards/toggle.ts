@@ -1,4 +1,4 @@
-import DashBoardView from "../../views/recipes/dashboard-view";
+import DashBoardView from "../../views/dashBoards/toggle";
 
 export default class DashBoardController {
   private dashboardView: DashBoardView;
