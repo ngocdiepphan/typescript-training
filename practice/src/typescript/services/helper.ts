@@ -6,8 +6,6 @@ export interface ApiResponse {
   error?: { message: string } | null;
 }
 
-export type SignInResponse = User;
-
 export interface RecipeApiResponse {
   data: Recipe[] | null;
   error?: { message: string } | null;

@@ -1,5 +1,4 @@
 import { bindEvent } from "../../helpers";
-import { EventHandler } from "../../types/dashboard";
 
 export default class DashBoardView {
   private selectNewEl: HTMLElement;
@@ -18,7 +17,7 @@ export default class DashBoardView {
     this.drawerEl = document.querySelector(".drawer") as HTMLElement;
   }
 
-  bindCallback = (event: string, handler: EventHandler): void => {
+  bindCallback = (event: string, handler: () => void): void => {
     switch (event) {
       case "newToggle":
         bindEvent(this.selectNewEl, "click", this.toggleForm);

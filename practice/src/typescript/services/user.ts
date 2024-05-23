@@ -1,7 +1,5 @@
 import { API } from "../constants/url";
-import APIHelper from "./helper";
 import { ApiResponse } from "./helper";
-import { User } from "../types/user";
 
 export default class UserService {
   /**

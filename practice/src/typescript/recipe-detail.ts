@@ -1,4 +1,3 @@
-import RecipeModel from "./models/recipe";
 import RecipeDetailView from "./views/recipe/detail";
 import RecipeDetailController from "./controllers/recipe/detail";
 
@@ -10,10 +9,8 @@ window.addEventListener("load", () => {
     window.location.replace("login.html");
   }
 
-  const recipeModel = new RecipeModel();
   const recipeDetailView = new RecipeDetailView();
   const recipeDetailController = new RecipeDetailController(
-    recipeModel,
     recipeDetailView
   );
   recipeDetailController.init();
