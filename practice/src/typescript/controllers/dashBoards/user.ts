@@ -1,6 +1,6 @@
-import UserView from "../../views/recipes/user-view";
-import UserModel from "../../models/user-model.ts";
-import UserService from "../../services/user-service.ts";
+import UserView from "../../views/dashBoards/user.ts";
+import UserModel from "../../models/user.ts";
+import UserService from "../../services/user.ts";
 import { ApiResponse } from "../../services/helper.ts";
 
 export default class UserController {

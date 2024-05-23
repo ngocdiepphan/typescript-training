@@ -1,4 +1,4 @@
-import { bindEvent } from "../../helpers";
+import { bindEvent } from "../../helpers/index.ts";
 import {
   inValidEmail,
   inValidUsername,

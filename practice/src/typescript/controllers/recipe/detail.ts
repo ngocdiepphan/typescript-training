@@ -1,6 +1,6 @@
-import RecipeModel from "../../models/recipe-model";
-import RecipeDetailView from "../../views/recipe-detail/recipe-view";
-import RecipeService from "../../services/recipe-service";
+import RecipeModel from "../../models/recipe";
+import RecipeDetailView from "../../views/recipe/detail";
+import RecipeService from "../../services/recipe";
 import { RecipeApiResponse } from "../../services/helper";
 
 export default class RecipeDetailController {

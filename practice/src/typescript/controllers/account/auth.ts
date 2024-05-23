@@ -1,6 +1,6 @@
-import UserModel from "../../models/user-model.ts";
-import AuthView from "../../views/recipes/auth-view.ts";
-import AuthService from "../../services/auth-service.ts";
+import UserModel from "../../models/user.ts";
+import AuthView from "../../views/account/auth.ts";
+import AuthService from "../../services/auth.ts";
 
 export default class AuthController {
   private userModel: UserModel;

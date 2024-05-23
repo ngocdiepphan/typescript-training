@@ -1,6 +1,6 @@
-import UserModel from "./models/user-model";
-import AuthController from "./controllers/recipes/auth-controller.ts";
-import AuthView from "./views/recipes/auth-view.ts";
+import UserModel from "./models/user.ts";
+import AuthController from "./controllers/account/auth.ts";
+import AuthView from "./views/account/auth.ts";
 
 // Add an event listener for when the window has finished loading
 window.addEventListener("load", () => {
