@@ -1,13 +1,10 @@
-import UserModel from "../../models/user.ts";
 import AuthView from "../../views/account/auth.ts";
 import AuthService from "../../services/auth.ts";
 
 export default class AuthController {
-  private userModel: UserModel;
   private authView: AuthView;
 
-  constructor(userModel: UserModel, authView: AuthView) {
-    this.userModel = userModel;
+  constructor( authView: AuthView) {
     this.authView = authView;
   }
 

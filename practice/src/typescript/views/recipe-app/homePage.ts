@@ -9,7 +9,6 @@ export default class recipeAppView {
   private recipesListEl: HTMLElement;
   private deliciousEl: HTMLElement;
   private sweetEl: HTMLElement;
-  private outEL: HTMLElement;
 
   constructor() {
     this.recipesListEl = document.getElementById(
@@ -19,7 +18,6 @@ export default class recipeAppView {
       "delicious-recipes"
     ) as HTMLElement;
     this.sweetEl = document.getElementById("sweet-recipes") as HTMLElement;
-    this.outEL = document.querySelector(".navbar__icon-logout") as HTMLElement;
   }
 
   /**

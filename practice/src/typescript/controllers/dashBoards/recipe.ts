@@ -2,7 +2,7 @@ import RecipeModel from "../../models/recipe";
 import RecipeView from "../../views/dashBoards/recipe";
 import { RecipeApiResponse } from "../../services/helper";
 import RecipeService from "../../services/recipe";
-import { Recipe, EditRecipeHandler } from "../../types/recipe";
+import { Recipe } from "../../types/recipe";
 
 export default class RecipeController {
   private recipeModel: RecipeModel;
