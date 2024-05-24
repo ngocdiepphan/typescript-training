@@ -1,6 +1,6 @@
 import RecipeModel from "./models/recipe";
-import RecipeAppView from "./views/recipe-app/homePage";
-import RecipeController from "./controllers/recipe-app/homePage";
+import RecipeAppView from "./views/recipe-app/home-page";
+import RecipeController from "./controllers//recipe-app/home-page";
 
 window.addEventListener("load", () => {
   const user = JSON.parse(localStorage.getItem("user") || "null");
