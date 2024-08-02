@@ -11,6 +11,8 @@
   position: absolute;
   background-color: #d7ebf5;
   display: block;
+  height: toRem(500);
+  width: toRem(380);
 
   @include tablet {
     width: toRem(450);

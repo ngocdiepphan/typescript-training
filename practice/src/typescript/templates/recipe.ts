@@ -142,7 +142,7 @@ const renderListRecipesTemplate = (data: Recipe[]): string => {
                 <img class="card__image" src="${item.imageURL}"
                   alt="Picture cashew-vegan-rice" />
                 <p class="card__name recipes__name">${item.name}</p>
-              </article>cc
+              </article>
             </li>
           </a>
         `;
