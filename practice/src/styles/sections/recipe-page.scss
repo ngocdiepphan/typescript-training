@@ -57,7 +57,6 @@
     gap: toRem(7);
     margin: toRem(22) 0 toRem(22) 0;
   }
-
   &__prep-time {
     @include flex-column;
     padding-right: toRem(20);
