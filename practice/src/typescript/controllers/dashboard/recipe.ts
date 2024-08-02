@@ -1,5 +1,5 @@
 import RecipeModel from "../../models/recipe";
-import RecipeView from "../../views/dashboards/recipe";
+import RecipeView from "../../views/dashboard/recipe";
 import { RecipeApiResponse } from "../../services/helper";
 import RecipeService from "../../services/recipe";
 import { Recipe } from "../../types/recipe";

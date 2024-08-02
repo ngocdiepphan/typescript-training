@@ -1,4 +1,4 @@
-import UserView from "../../views/dashboards/user.ts";
+import UserView from "../../views/dashboard/user.ts";
 import UserModel from "../../models/user.ts";
 import UserService from "../../services/user.ts";
 import { ApiResponse } from "../../services/helper.ts";

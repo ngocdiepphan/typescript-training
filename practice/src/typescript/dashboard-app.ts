@@ -1,12 +1,12 @@
 import UserModel from "./models/user.ts";
-import UserController from "./controllers/dashboards/user.ts";
+import UserController from "./controllers/dashboard/user.ts";
 import { delegate } from "./helpers";
-import RecipeController from "./controllers/dashboards/recipe.ts";
+import RecipeController from "./controllers/dashboard/recipe.ts";
 import RecipeModel from "./models/recipe.ts";
-import RecipeView from "./views/dashboards/recipe.ts";
-import DashBoardController from "./controllers/dashboards/toggle.ts";
-import DashBoardView from "./views/dashboards/toggle.ts";
-import UserView from "./views/dashboards/user.ts";
+import RecipeView from "./views/dashboard/recipe.ts";
+import DashBoardController from "./controllers/dashboard/toggle.ts";
+import DashBoardView from "./views/dashboard/toggle.ts";
+import UserView from "./views/dashboard/user.ts";
 
 window.addEventListener("load", () => {
   const userModel = new UserModel();
